@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "AdRW7sPDlAo=",
+  "dgSpecHash": "CwG7LxoDugc=",
   "success": true,
   "projectFilePath": "D:\\C#\\Spark\\SparkApp.Data.Models\\SparkApp.Data.Models.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.10\\microsoft.entityframeworkcore.abstractions.8.0.10.nupkg.sha512"
+  ],
   "logs": []
 }

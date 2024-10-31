@@ -310,3 +310,6 @@ D:\C#\Spark\SparkApp.Web\obj\Debug\net8.0\refint\SparkApp.Web.dll
 D:\C#\Spark\SparkApp.Web\obj\Debug\net8.0\SparkApp.Web.pdb
 D:\C#\Spark\SparkApp.Web\obj\Debug\net8.0\SparkApp.Web.genruntimeconfig.cache
 D:\C#\Spark\SparkApp.Web\obj\Debug\net8.0\ref\SparkApp.Web.dll
+D:\C#\Spark\SparkApp.Web\bin\Debug\net8.0\SparkApp.Common.dll
+D:\C#\Spark\SparkApp.Web\bin\Debug\net8.0\SparkApp.Common.pdb
+D:\C#\Spark\SparkApp.Web\obj\Debug\net8.0\SparkApp.Web.sourcelink.json

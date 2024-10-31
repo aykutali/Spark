@@ -1,0 +1,12 @@
+D:\C#\Spark\SparkApp.Common\bin\Debug\net8.0\SparkApp.Common.deps.json
+D:\C#\Spark\SparkApp.Common\bin\Debug\net8.0\SparkApp.Common.dll
+D:\C#\Spark\SparkApp.Common\bin\Debug\net8.0\SparkApp.Common.pdb
+D:\C#\Spark\SparkApp.Common\obj\Debug\net8.0\SparkApp.Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#\Spark\SparkApp.Common\obj\Debug\net8.0\SparkApp.Common.AssemblyInfoInputs.cache
+D:\C#\Spark\SparkApp.Common\obj\Debug\net8.0\SparkApp.Common.AssemblyInfo.cs
+D:\C#\Spark\SparkApp.Common\obj\Debug\net8.0\SparkApp.Common.csproj.CoreCompileInputs.cache
+D:\C#\Spark\SparkApp.Common\obj\Debug\net8.0\SparkApp.Common.sourcelink.json
+D:\C#\Spark\SparkApp.Common\obj\Debug\net8.0\SparkApp.Common.dll
+D:\C#\Spark\SparkApp.Common\obj\Debug\net8.0\refint\SparkApp.Common.dll
+D:\C#\Spark\SparkApp.Common\obj\Debug\net8.0\SparkApp.Common.pdb
+D:\C#\Spark\SparkApp.Common\obj\Debug\net8.0\ref\SparkApp.Common.dll

@@ -1584,9 +1584,23 @@
           }
         }
       },
+      "SparkApp.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/SparkApp.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SparkApp.Common.dll": {}
+        }
+      },
       "SparkApp.Data.Models/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Abstractions": "8.0.10",
+          "SparkApp.Common": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/SparkApp.Data.Models.dll": {}
         },
@@ -4226,6 +4240,11 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "SparkApp.Common/1.0.0": {
+      "type": "project",
+      "path": "../SparkApp.Common/SparkApp.Common.csproj",
+      "msbuildProject": "../SparkApp.Common/SparkApp.Common.csproj"
     },
     "SparkApp.Data.Models/1.0.0": {
       "type": "project",

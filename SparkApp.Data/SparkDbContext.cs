@@ -39,6 +39,8 @@ namespace SparkApp.Data
 
         public virtual DbSet<GameMainGenre> GameMainGenre { get; set; }
 
+        public virtual DbSet<GamePlatforms> GamesPlatforms { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -55,6 +57,9 @@ namespace SparkApp.Data
                 .WithMany()
                 .HasForeignKey(ga => ga.MainGenreId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<GamePlatforms>()
+                .HasKey(gp => new { gp.GameId, gp.PlatformId });
 
 
         }

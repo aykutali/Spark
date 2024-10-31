@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using SparkApp.Common;
 
 namespace SparkApp.Data.Models
 {
@@ -8,9 +9,13 @@ namespace SparkApp.Data.Models
         public Guid Id { get; set; } = Guid.NewGuid();
 
         [Required]
+        [MinLength(EntityValidationConstants.Genre.NameMinLength)]
+        [MaxLength(EntityValidationConstants.Genre.NameMaxLength)]
         public string Name { get; set; } = null!;
 
         [Required]
+        [MinLength(EntityValidationConstants.Genre.DescriptionMinLength)]
+        [MaxLength(EntityValidationConstants.Genre.DescriptionMaxLength)]
         public string Description { get; set; } = null!;
 
         public virtual ICollection<Game> Games { get; set; }

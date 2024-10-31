@@ -20,3 +20,8 @@ D:\C#\Spark\SparkApp.Data.Models\obj\Debug\net8.0\SparkApp.Data.Models.dll
 D:\C#\Spark\SparkApp.Data.Models\obj\Debug\net8.0\refint\SparkApp.Data.Models.dll
 D:\C#\Spark\SparkApp.Data.Models\obj\Debug\net8.0\SparkApp.Data.Models.pdb
 D:\C#\Spark\SparkApp.Data.Models\obj\Debug\net8.0\ref\SparkApp.Data.Models.dll
+D:\C#\Spark\SparkApp.Data.Models\bin\Debug\net8.0\SparkApp.Common.dll
+D:\C#\Spark\SparkApp.Data.Models\bin\Debug\net8.0\SparkApp.Common.pdb
+D:\C#\Spark\SparkApp.Data.Models\obj\Debug\net8.0\SparkApp.Data.Models.csproj.AssemblyReference.cache
+D:\C#\Spark\SparkApp.Data.Models\obj\Debug\net8.0\SparkApp.Data.Models.sourcelink.json
+D:\C#\Spark\SparkApp.Data.Models\obj\Debug\net8.0\SparkApp.74F225E3.Up2Date

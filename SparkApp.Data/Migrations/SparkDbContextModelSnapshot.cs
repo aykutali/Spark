@@ -250,7 +250,8 @@ namespace SparkApp.Data.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
 
@@ -264,14 +265,16 @@ namespace SparkApp.Data.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("About")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
 
@@ -285,19 +288,28 @@ namespace SparkApp.Data.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)")
+                        .HasComment("Description of the game");
 
                     b.Property<Guid>("DeveloperId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasComment("Developer team/studio of the game");
 
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
+                    b.Property<bool>("IsConfirmed")
+                        .HasColumnType("bit")
+                        .HasComment("IsConfirmed is showing if the game is confirmed by admin for a valid game or not");
 
-                    b.Property<Guid>("LeadGameDirectorId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit")
+                        .HasComment("Soft delete option for a game");
+
+                    b.Property<Guid?>("LeadGameDirectorId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasComment("Lead game director of the game");
 
                     b.Property<Guid>("MainGenreId")
                         .HasColumnType("uniqueidentifier");
@@ -306,11 +318,14 @@ namespace SparkApp.Data.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("ReleaseDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasComment("Release date of the game");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasComment("The title of the game");
 
                     b.HasKey("Id");
 
@@ -340,6 +355,24 @@ namespace SparkApp.Data.Migrations
                     b.ToTable("GameMainGenre");
                 });
 
+            modelBuilder.Entity("SparkApp.Data.Models.GamePlatforms", b =>
+                {
+                    b.Property<Guid>("GameId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("PlatformId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("LinkToPlatform")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("GameId", "PlatformId");
+
+                    b.HasIndex("PlatformId");
+
+                    b.ToTable("GamesPlatforms");
+                });
+
             modelBuilder.Entity("SparkApp.Data.Models.GameSideGenre", b =>
                 {
                     b.Property<Guid>("GameId")
@@ -363,11 +396,13 @@ namespace SparkApp.Data.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
@@ -465,9 +500,7 @@ namespace SparkApp.Data.Migrations
 
                     b.HasOne("SparkApp.Data.Models.Director", "LeadGameDirector")
                         .WithMany("Games")
-                        .HasForeignKey("LeadGameDirectorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("LeadGameDirectorId");
 
                     b.HasOne("SparkApp.Data.Models.Genre", "MainGenre")
                         .WithMany()
@@ -503,6 +536,25 @@ namespace SparkApp.Data.Migrations
                     b.Navigation("Game");
 
                     b.Navigation("Genre");
+                });
+
+            modelBuilder.Entity("SparkApp.Data.Models.GamePlatforms", b =>
+                {
+                    b.HasOne("SparkApp.Data.Models.Game", "Game")
+                        .WithMany()
+                        .HasForeignKey("GameId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SparkApp.Data.Models.Platform", "Platform")
+                        .WithMany()
+                        .HasForeignKey("PlatformId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Game");
+
+                    b.Navigation("Platform");
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.GameSideGenre", b =>

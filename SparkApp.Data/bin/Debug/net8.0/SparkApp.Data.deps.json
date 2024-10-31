@@ -986,7 +986,19 @@
           }
         }
       },
+      "SparkApp.Common/1.0.0": {
+        "runtime": {
+          "SparkApp.Common.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "SparkApp.Data.Models/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Abstractions": "8.0.10",
+          "SparkApp.Common": "1.0.0"
+        },
         "runtime": {
           "SparkApp.Data.Models.dll": {
             "assemblyVersion": "1.0.0",
@@ -1568,6 +1580,11 @@
       "sha512": "sha512-IXoJOXIqc39AIe+CIR7koBtRGMiCt/LPM3lI+PELtDIy9XdyeSrwXFdWV9dzJ2Awl0paLWUaknLxFQ5HpHZUog==",
       "path": "system.windows.extensions/6.0.0",
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
+    },
+    "SparkApp.Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "SparkApp.Data.Models/1.0.0": {
       "type": "project",
