@@ -48,6 +48,9 @@ namespace SparkApp.Data.Models
         [ForeignKey(nameof(LeadGameDirectorId))]
         public Director? LeadGameDirector { get; set; }
 
+        public virtual ICollection<Platform> Platforms { get; set; }
+            = new List<Platform>();
+
         [Required]
         public Guid MainGenreId { get; set; }
 

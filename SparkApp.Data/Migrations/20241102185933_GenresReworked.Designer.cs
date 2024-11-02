@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SparkApp.Data;
 
@@ -11,9 +12,11 @@ using SparkApp.Data;
 namespace SparkApp.Data.Migrations
 {
     [DbContext(typeof(SparkDbContext))]
-    partial class SparkDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241102185933_GenresReworked")]
+    partial class GenresReworked
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,21 +38,6 @@ namespace SparkApp.Data.Migrations
                     b.HasIndex("SideGenresId");
 
                     b.ToTable("GameGenre");
-                });
-
-            modelBuilder.Entity("GamePlatform", b =>
-                {
-                    b.Property<Guid>("GamesId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("PlatformsId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("GamesId", "PlatformsId");
-
-                    b.HasIndex("PlatformsId");
-
-                    b.ToTable("GamePlatform");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -329,6 +317,9 @@ namespace SparkApp.Data.Migrations
                     b.Property<Guid>("MainGenreId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("PlatformId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime>("ReleaseDate")
                         .HasColumnType("datetime2")
                         .HasComment("Release date of the game");
@@ -346,6 +337,8 @@ namespace SparkApp.Data.Migrations
                     b.HasIndex("LeadGameDirectorId");
 
                     b.HasIndex("MainGenreId");
+
+                    b.HasIndex("PlatformId");
 
                     b.ToTable("Games");
                 });
@@ -369,7 +362,7 @@ namespace SparkApp.Data.Migrations
                     b.ToTable("GamesGenres");
                 });
 
-            modelBuilder.Entity("SparkApp.Data.Models.GamePlatform", b =>
+            modelBuilder.Entity("SparkApp.Data.Models.GamePlatforms", b =>
                 {
                     b.Property<Guid>("GameId")
                         .HasColumnType("uniqueidentifier");
@@ -438,21 +431,6 @@ namespace SparkApp.Data.Migrations
                     b.HasOne("SparkApp.Data.Models.Genre", null)
                         .WithMany()
                         .HasForeignKey("SideGenresId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("GamePlatform", b =>
-                {
-                    b.HasOne("SparkApp.Data.Models.Game", null)
-                        .WithMany()
-                        .HasForeignKey("GamesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("SparkApp.Data.Models.Platform", null)
-                        .WithMany()
-                        .HasForeignKey("PlatformsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -526,6 +504,10 @@ namespace SparkApp.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("SparkApp.Data.Models.Platform", null)
+                        .WithMany("Games")
+                        .HasForeignKey("PlatformId");
+
                     b.Navigation("Developer");
 
                     b.Navigation("LeadGameDirector");
@@ -552,7 +534,7 @@ namespace SparkApp.Data.Migrations
                     b.Navigation("Genre");
                 });
 
-            modelBuilder.Entity("SparkApp.Data.Models.GamePlatform", b =>
+            modelBuilder.Entity("SparkApp.Data.Models.GamePlatforms", b =>
                 {
                     b.HasOne("SparkApp.Data.Models.Game", "Game")
                         .WithMany()
@@ -577,6 +559,11 @@ namespace SparkApp.Data.Migrations
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.Director", b =>
+                {
+                    b.Navigation("Games");
+                });
+
+            modelBuilder.Entity("SparkApp.Data.Models.Platform", b =>
                 {
                     b.Navigation("Games");
                 });

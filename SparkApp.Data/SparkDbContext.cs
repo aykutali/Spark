@@ -35,21 +35,19 @@ namespace SparkApp.Data
 
         public virtual DbSet<Director> Directors { get; set; }
 
-        public virtual DbSet<GameSideGenre> GameSideGenres { get; set; }
+        public virtual DbSet<GameGenre> GamesGenres { get; set; }
 
-        public virtual DbSet<GameMainGenre> GameMainGenre { get; set; }
-
-        public virtual DbSet<GamePlatforms> GamesPlatforms { get; set; }
+        public virtual DbSet<GamePlatform> GamesPlatforms { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<GameSideGenre>()
+            modelBuilder.Entity<GameGenre>()
                 .HasKey(gsg => new { gsg.GameId, gsg.GenreId });
 
-            modelBuilder.Entity<GameMainGenre>()
+            modelBuilder.Entity<GameGenre>()
                 .HasKey(gsg => new { gsg.GameId, gsg.GenreId });
 
             modelBuilder.Entity<Game>()
@@ -58,10 +56,8 @@ namespace SparkApp.Data
                 .HasForeignKey(ga => ga.MainGenreId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<GamePlatforms>()
+            modelBuilder.Entity<GamePlatform>()
                 .HasKey(gp => new { gp.GameId, gp.PlatformId });
-
-
         }
     }
 }

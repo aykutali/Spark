@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 using SparkApp.Common;
 
 namespace SparkApp.Data.Models
@@ -17,6 +18,9 @@ namespace SparkApp.Data.Models
         [MinLength(EntityValidationConstants.Genre.DescriptionMinLength)]
         [MaxLength(EntityValidationConstants.Genre.DescriptionMaxLength)]
         public string Description { get; set; } = null!;
+
+        [Comment("Shows is the genre is a main genre or sub(secondary)")]
+        public bool IsSubGenre { get; set; } = false;
 
         public virtual ICollection<Game> Games { get; set; }
             = new List<Game>();

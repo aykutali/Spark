@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SparkApp.Data.Models
 {
-    public class GamePlatforms
+    public class GamePlatform
     {
 
         public Guid GameId { get; set; }
