@@ -5,7 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using SparkApp.Data;
 using SparkApp.Data.Models;
 using SparkApp.Data.Repository.Interfaces;
-using SparkApp.Web.Infrastructure.Extesions;
+using SparkApp.Services.Data.Interfaces;
+using SparkApp.Web.Infrastructure.Extensions;
 
 namespace SparkApp.Web
 {
@@ -28,6 +29,10 @@ namespace SparkApp.Web
                 .AddIdentity<ApplicationUser, IdentityRole<Guid>>(options =>
                 {
                     options.SignIn.RequireConfirmedAccount = false;
+                    options.Password.RequireDigit = false;
+                    options.Password.RequireUppercase = false;
+                    options.Password.RequireLowercase = false;
+                    options.Password.RequireNonAlphanumeric = false;
                 })
                 .AddEntityFrameworkStores<SparkDbContext>()
                 .AddRoles<IdentityRole<Guid>>()
@@ -39,7 +44,8 @@ namespace SparkApp.Web
                 cfg.LoginPath = "/Identity/Account/Login";
             });
 
-            //builder.Services.RegisterRepositories(typeof(ApplicationUser).Assembly);
+            builder.Services.RegisterRepositories(typeof(ApplicationUser).Assembly);
+            builder.Services.RegisterUserDefinedServices(typeof(IGenreService).Assembly);
 
             builder.Services.AddControllersWithViews();
             builder.Services.AddRazorPages();

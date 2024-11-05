@@ -19,11 +19,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SparkApp.Common", "SparkApp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{4DE6DCF1-FCBF-432D-8A92-2A09DEF3E1A5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SparkApp.Infrastructure", "SparkApp.Infrastructure\SparkApp.Infrastructure.csproj", "{A86AEEF7-BC11-443F-973D-ECAE4F901151}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SparkApp.Web.Infrastructure", "SparkApp.Infrastructure\SparkApp.Web.Infrastructure.csproj", "{A86AEEF7-BC11-443F-973D-ECAE4F901151}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ViewModels", "ViewModels", "{22521FFA-7AA7-4706-B4E0-F25746B9BB15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SparkApp.Web.ViewModels", "SparkApp.Web.ViewModels\SparkApp.Web.ViewModels.csproj", "{56CB79F2-3F8D-48F1-8174-AD80168F7C88}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SparkApp.Web.ViewModels", "SparkApp.Web.ViewModels\SparkApp.Web.ViewModels.csproj", "{56CB79F2-3F8D-48F1-8174-AD80168F7C88}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{6716F62E-60E8-4643-A8EE-917830CD9D60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SparkApp.Services.Data", "SparkApp.Services.Data\SparkApp.Services.Data.csproj", "{3DE08D46-8402-4307-99FC-283C470C91AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +59,10 @@ Global
 		{56CB79F2-3F8D-48F1-8174-AD80168F7C88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56CB79F2-3F8D-48F1-8174-AD80168F7C88}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56CB79F2-3F8D-48F1-8174-AD80168F7C88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DE08D46-8402-4307-99FC-283C470C91AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DE08D46-8402-4307-99FC-283C470C91AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DE08D46-8402-4307-99FC-283C470C91AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DE08D46-8402-4307-99FC-283C470C91AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,6 +74,7 @@ Global
 		{2A616580-5DA6-4DC0-91F6-7EA7144333E6} = {2598A712-5C97-4668-860A-48B67878BE2A}
 		{A86AEEF7-BC11-443F-973D-ECAE4F901151} = {4DE6DCF1-FCBF-432D-8A92-2A09DEF3E1A5}
 		{56CB79F2-3F8D-48F1-8174-AD80168F7C88} = {22521FFA-7AA7-4706-B4E0-F25746B9BB15}
+		{3DE08D46-8402-4307-99FC-283C470C91AE} = {6716F62E-60E8-4643-A8EE-917830CD9D60}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F1DB65FA-8A45-4BB0-B7DB-32433482E196}

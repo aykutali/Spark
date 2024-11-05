@@ -3183,9 +3183,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\C#\\Spark\\SparkApp.Infrastructure\\SparkApp.Infrastructure.csproj",
-      "projectName": "SparkApp.Infrastructure",
-      "projectPath": "D:\\C#\\Spark\\SparkApp.Infrastructure\\SparkApp.Infrastructure.csproj",
+      "projectUniqueName": "D:\\C#\\Spark\\SparkApp.Infrastructure\\SparkApp.Web.Infrastructure.csproj",
+      "projectName": "SparkApp.Web.Infrastructure",
+      "projectPath": "D:\\C#\\Spark\\SparkApp.Infrastructure\\SparkApp.Web.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
       "outputPath": "D:\\C#\\Spark\\SparkApp.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",

@@ -1,17 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SparkApp.Data;
-using SparkApp.Data.Models;
+
+using SparkApp.Services.Data.Interfaces;
 using SparkApp.Web.ViewModels.Genre;
 
 namespace SparkApp.Web.Controllers
 {
     public class GenreController : Controller
     {
-        private readonly SparkDbContext db;
+        private readonly IGenreService genreService;
 
-        public GenreController(SparkDbContext _db)
+        public GenreController(IGenreService genreService)
         {
-            db= _db;
+            this.genreService = genreService;
         }
         public IActionResult Index()
         {
@@ -25,23 +25,18 @@ namespace SparkApp.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(AddGenreInputModel model)
+        public async Task<IActionResult> Add(AddGenreInputModel model)
         {
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
 
-            var genreData = new Genre
-            {
-                Name = model.Name,
-                Description = model.Description
-            };
-
-            db.Genres.Add(genreData);
-            db.SaveChanges();
+            await genreService.AddGenreAsync(model);
 
             return View(nameof(Index));
         }
+
+
     }
 }

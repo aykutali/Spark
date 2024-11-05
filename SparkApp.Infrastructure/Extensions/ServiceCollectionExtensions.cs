@@ -6,11 +6,11 @@ using SparkApp.Data.Repository.Interfaces;
 
 using Microsoft.Extensions.DependencyInjection;
 
-namespace SparkApp.Web.Infrastructure.Extesions
+namespace SparkApp.Web.Infrastructure.Extensions
 {
-    public class ServiceCollectionExtensions
+    public static class ServiceCollectionExtensions
     {
-        /* public static void RegisterRepositories(this IServiceCollection services, Assembly modelsAssembly)
+        public static void RegisterRepositories(this IServiceCollection services, Assembly modelsAssembly)
         {
             // TODO: Re-write the implementation in such way that the user must create a single class for every repository
             Type[] typesToExclude = new Type[] { typeof(ApplicationUser) };
@@ -74,7 +74,7 @@ namespace SparkApp.Web.Infrastructure.Extesions
 
                 services.AddScoped(serviceInterfaceType, serviceType);
             }
-        }*/
+        }
     }
 }
 

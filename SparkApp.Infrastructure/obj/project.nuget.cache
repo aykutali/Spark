@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xdFJb/U6mWo=",
+  "dgSpecHash": "OYn/c3JT1do=",
   "success": true,
-  "projectFilePath": "D:\\C#\\Spark\\SparkApp.Infrastructure\\SparkApp.Infrastructure.csproj",
+  "projectFilePath": "D:\\C#\\Spark\\SparkApp.Infrastructure\\SparkApp.Web.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\azure.core\\1.44.1\\azure.core.1.44.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\azure.identity\\1.13.1\\azure.identity.1.13.1.nupkg.sha512",

@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace SparkApp.Web.Infrastructure.Extesions
+namespace SparkApp.Web.Infrastructure.Extensions
 {
     public static class ApplicationBuilderExtensions
     {

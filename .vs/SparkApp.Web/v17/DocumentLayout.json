@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "D:\\C#\\Spark\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A86AEEF7-BC11-443F-973D-ECAE4F901151}|SparkApp.Infrastructure\\SparkApp.Infrastructure.csproj|d:\\c#\\spark\\sparkapp.infrastructure\\servicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A86AEEF7-BC11-443F-973D-ECAE4F901151}|SparkApp.Infrastructure\\SparkApp.Infrastructure.csproj|solutionrelative:sparkapp.infrastructure\\servicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A86AEEF7-BC11-443F-973D-ECAE4F901151}|SparkApp.Infrastructure\\SparkApp.Infrastructure.csproj|d:\\c#\\spark\\sparkapp.infrastructure\\applicationbuilderextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A86AEEF7-BC11-443F-973D-ECAE4F901151}|SparkApp.Infrastructure\\SparkApp.Infrastructure.csproj|solutionrelative:sparkapp.infrastructure\\applicationbuilderextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E1EC05C1-2E95-46A6-8685-7FC19391AC2B}|SparkApp.Web\\SparkApp.Web.csproj|d:\\c#\\spark\\sparkapp.web\\controllers\\genrecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E1EC05C1-2E95-46A6-8685-7FC19391AC2B}|SparkApp.Web\\SparkApp.Web.csproj|solutionrelative:sparkapp.web\\controllers\\genrecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{56CB79F2-3F8D-48F1-8174-AD80168F7C88}|SparkApp.Web.ViewModels\\SparkApp.Web.ViewModels.csproj|d:\\c#\\spark\\sparkapp.web.viewmodels\\director\\adddirectorinputmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56CB79F2-3F8D-48F1-8174-AD80168F7C88}|SparkApp.Web.ViewModels\\SparkApp.Web.ViewModels.csproj|solutionrelative:sparkapp.web.viewmodels\\director\\adddirectorinputmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -35,40 +27,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ServiceCollectionExtensions.cs",
-              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Infrastructure\\ServiceCollectionExtensions.cs",
-              "RelativeDocumentMoniker": "SparkApp.Infrastructure\\ServiceCollectionExtensions.cs",
-              "ToolTip": "D:\\C#\\Spark\\SparkApp.Infrastructure\\ServiceCollectionExtensions.cs",
-              "RelativeToolTip": "SparkApp.Infrastructure\\ServiceCollectionExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "AddDirectorInputModel.cs",
+              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Web.ViewModels\\Director\\AddDirectorInputModel.cs",
+              "RelativeDocumentMoniker": "SparkApp.Web.ViewModels\\Director\\AddDirectorInputModel.cs",
+              "ToolTip": "D:\\C#\\Spark\\SparkApp.Web.ViewModels\\Director\\AddDirectorInputModel.cs",
+              "RelativeToolTip": "SparkApp.Web.ViewModels\\Director\\AddDirectorInputModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T15:32:21.667Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ApplicationBuilderExtensions.cs",
-              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Infrastructure\\ApplicationBuilderExtensions.cs",
-              "RelativeDocumentMoniker": "SparkApp.Infrastructure\\ApplicationBuilderExtensions.cs",
-              "ToolTip": "D:\\C#\\Spark\\SparkApp.Infrastructure\\ApplicationBuilderExtensions.cs",
-              "RelativeToolTip": "SparkApp.Infrastructure\\ApplicationBuilderExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T15:32:20.149Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "GenreController.cs",
-              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Web\\Controllers\\GenreController.cs",
-              "RelativeDocumentMoniker": "SparkApp.Web\\Controllers\\GenreController.cs",
-              "ToolTip": "D:\\C#\\Spark\\SparkApp.Web\\Controllers\\GenreController.cs",
-              "RelativeToolTip": "SparkApp.Web\\Controllers\\GenreController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T15:15:23.692Z",
+              "WhenOpened": "2024-11-05T17:50:43.339Z",
               "EditorCaption": ""
             }
           ]
