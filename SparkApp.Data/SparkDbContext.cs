@@ -11,7 +11,7 @@ namespace SparkApp.Data
 
 
 
-    public class SparkDbContext : IdentityDbContext
+    public class SparkDbContext : IdentityDbContext<ApplicationUser, IdentityRole<Guid>, Guid>
     {
 
         public SparkDbContext()

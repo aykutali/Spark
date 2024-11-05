@@ -3,6 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 
 using SparkApp.Data;
+using SparkApp.Data.Models;
+using SparkApp.Data.Repository.Interfaces;
+using SparkApp.Web.Infrastructure.Extesions;
 
 namespace SparkApp.Web
 {
@@ -21,13 +24,25 @@ namespace SparkApp.Web
                     options.UseSqlServer(connectionString);
                 });
 
+            builder.Services
+                .AddIdentity<ApplicationUser, IdentityRole<Guid>>(options =>
+                {
+                    options.SignIn.RequireConfirmedAccount = false;
+                })
+                .AddEntityFrameworkStores<SparkDbContext>()
+                .AddRoles<IdentityRole<Guid>>()
+                .AddSignInManager<SignInManager<ApplicationUser>>()
+                .AddUserManager<UserManager<ApplicationUser>>();
 
-            builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+            builder.Services.ConfigureApplicationCookie(cfg =>
+            {
+                cfg.LoginPath = "/Identity/Account/Login";
+            });
 
-            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<SparkDbContext>();
+            //builder.Services.RegisterRepositories(typeof(ApplicationUser).Assembly);
 
             builder.Services.AddControllersWithViews();
+            builder.Services.AddRazorPages();
 
             var app = builder.Build();
 
@@ -50,13 +65,19 @@ namespace SparkApp.Web
 
             app.UseAuthentication();
             app.UseAuthorization();
+            
 
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
+            
             app.MapRazorPages();
+
+            //app.ApplyMigrations();
 
             app.Run();
         }
+
+        
     }
 }

@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "SparkApp.Web.ViewModels/1.0.0": {
+        "dependencies": {
+          "SparkApp.Common": "1.0.0"
+        },
+        "runtime": {
+          "SparkApp.Web.ViewModels.dll": {}
+        }
+      },
+      "SparkApp.Common/1.0.0": {
+        "runtime": {
+          "SparkApp.Common.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SparkApp.Web.ViewModels/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SparkApp.Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -7,20 +7,14 @@ namespace SparkApp.Web.Controllers
 {
     public class GameController : BaseController
     {
-        private readonly SparkDbContext db;
-        public GameController(SparkDbContext db)
+
+        public IActionResult Index()
         {
-            this.db = db;
+            return View();
         }
 
-        public IActionResult All()
+        public IActionResult Details()
         {
-            List<Game> games = db.Games
-                .Include(g=> g.LeadGameDirector)
-                .Include(g=> g.Developer)
-                .Include(g => g.MainGenre)
-                .ToList();
-
             return View();
         }
     }

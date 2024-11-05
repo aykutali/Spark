@@ -1,0 +1,20 @@
+﻿@using SparkApp.Web.ViewModels.Genre
+@model AddGenreInputModel
+
+<h2>Add a Genre</h2>
+
+<form asp-action="Add" method="post">
+	<div>
+		<label asp-for="Name">Genre's Name</label>
+		<input asp-for="Name" class="form-control" />
+		<span asp-validation-for="Name" class="text-danger"></span>
+	</div>
+	<div>
+		<label asp-for="Description">Genre's Description</label>
+		<input asp-for="Description" class="form-control" />
+		<span asp-validation-for="Description" class="text-danger"></span>
+	</div>
+	<button type="submit" class="btn btn-primary mt-2">Add Genre</button>
+</form>
+
+<a asp-action="Index">Back to Index</a>

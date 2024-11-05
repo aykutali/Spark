@@ -1,0 +1,16 @@
+D:\C#\Spark\SparkApp.Web.ViewModels\bin\Debug\net8.0\SparkApp.Web.ViewModels.deps.json
+D:\C#\Spark\SparkApp.Web.ViewModels\bin\Debug\net8.0\SparkApp.Web.ViewModels.dll
+D:\C#\Spark\SparkApp.Web.ViewModels\bin\Debug\net8.0\SparkApp.Web.ViewModels.pdb
+D:\C#\Spark\SparkApp.Web.ViewModels\bin\Debug\net8.0\SparkApp.Common.dll
+D:\C#\Spark\SparkApp.Web.ViewModels\bin\Debug\net8.0\SparkApp.Common.pdb
+D:\C#\Spark\SparkApp.Web.ViewModels\obj\Debug\net8.0\SparkApp.Web.ViewModels.csproj.AssemblyReference.cache
+D:\C#\Spark\SparkApp.Web.ViewModels\obj\Debug\net8.0\SparkApp.Web.ViewModels.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#\Spark\SparkApp.Web.ViewModels\obj\Debug\net8.0\SparkApp.Web.ViewModels.AssemblyInfoInputs.cache
+D:\C#\Spark\SparkApp.Web.ViewModels\obj\Debug\net8.0\SparkApp.Web.ViewModels.AssemblyInfo.cs
+D:\C#\Spark\SparkApp.Web.ViewModels\obj\Debug\net8.0\SparkApp.Web.ViewModels.csproj.CoreCompileInputs.cache
+D:\C#\Spark\SparkApp.Web.ViewModels\obj\Debug\net8.0\SparkApp.Web.ViewModels.sourcelink.json
+D:\C#\Spark\SparkApp.Web.ViewModels\obj\Debug\net8.0\SparkApp.16631A9E.Up2Date
+D:\C#\Spark\SparkApp.Web.ViewModels\obj\Debug\net8.0\SparkApp.Web.ViewModels.dll
+D:\C#\Spark\SparkApp.Web.ViewModels\obj\Debug\net8.0\refint\SparkApp.Web.ViewModels.dll
+D:\C#\Spark\SparkApp.Web.ViewModels\obj\Debug\net8.0\SparkApp.Web.ViewModels.pdb
+D:\C#\Spark\SparkApp.Web.ViewModels\obj\Debug\net8.0\ref\SparkApp.Web.ViewModels.dll
