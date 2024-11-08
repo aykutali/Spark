@@ -5,7 +5,7 @@ using SparkApp.Web.ViewModels.Genre;
 
 namespace SparkApp.Web.Controllers
 {
-    public class GenreController : Controller
+    public class GenreController : BaseController
     {
         private readonly IGenreService genreService;
 

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+
 using SparkApp.Common;
 
 namespace SparkApp.Data.Models

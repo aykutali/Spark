@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-
+﻿
 using SparkApp.Data.Models;
 using SparkApp.Data.Repository.Interfaces;
 using SparkApp.Services.Data.Interfaces;
@@ -9,7 +8,6 @@ namespace SparkApp.Services.Data
 {
     public class GenreService : BaseService, IGenreService
     {
-
         private readonly IRepository<Genre, Guid> genreRepository;
 
         public GenreService(IRepository<Genre, Guid> genreRepository)

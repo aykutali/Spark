@@ -1,0 +1,19 @@
+﻿@model SparkApp.Web.ViewModels.Developer.AddDeveloperInputModel
+
+<h2>Add a developer</h2>
+
+<form asp-action="Add" method="post">
+	<div>
+		<label asp-for="Name">Developer studio's Name</label>
+		<input asp-for="Name" class="form-control" />
+		<span asp-validation-for="Name" class="text-danger"></span>
+	</div>
+	<div>
+		<label asp-for="LogoUrl">Logo url</label>
+		<input asp-for="LogoUrl" class="form-control" />
+		<span asp-validation-for="LogoUrl" class="text-danger"></span>
+	</div>
+	<button type="submit" class="btn btn-primary mt-2">Add Developer</button>
+</form>
+
+<a asp-action="Index">Back to Index</a>

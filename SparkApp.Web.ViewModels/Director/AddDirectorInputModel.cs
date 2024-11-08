@@ -13,8 +13,9 @@ namespace SparkApp.Web.ViewModels.Director
 
         public string? ImageUrl { get; set; }
 
+        [Required]
         [MinLength(EntityValidationConstants.Director.AboutMinLength)]
         [MaxLength(EntityValidationConstants.Director.AboutMaxLength)]
-        public string? About { get; set; }
+        public string About { get; set; } = null!;
     }
 }
