@@ -34,7 +34,7 @@ namespace SparkApp.Data.Migrations
 
                     b.HasIndex("SideGenresId");
 
-                    b.ToTable("GameGenre", (string)null);
+                    b.ToTable("GameGenre");
                 });
 
             modelBuilder.Entity("GamePlatform", b =>
@@ -49,7 +49,7 @@ namespace SparkApp.Data.Migrations
 
                     b.HasIndex("PlatformsId");
 
-                    b.ToTable("GamePlatform", (string)null);
+                    b.ToTable("GamePlatform");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<System.Guid>", b =>
@@ -265,7 +265,7 @@ namespace SparkApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Developer", (string)null);
+                    b.ToTable("Developer");
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.Director", b =>
@@ -288,7 +288,7 @@ namespace SparkApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Directors", (string)null);
+                    b.ToTable("Directors");
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.Game", b =>
@@ -298,6 +298,7 @@ namespace SparkApp.Data.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)")
                         .HasComment("Description of the game");
@@ -342,7 +343,7 @@ namespace SparkApp.Data.Migrations
 
                     b.HasIndex("MainGenreId");
 
-                    b.ToTable("Games", (string)null);
+                    b.ToTable("Games");
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.GameGenre", b =>
@@ -361,7 +362,7 @@ namespace SparkApp.Data.Migrations
 
                     b.HasIndex("GenreId");
 
-                    b.ToTable("GamesGenres", (string)null);
+                    b.ToTable("GamesGenres");
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.GamePlatform", b =>
@@ -379,7 +380,7 @@ namespace SparkApp.Data.Migrations
 
                     b.HasIndex("PlatformId");
 
-                    b.ToTable("GamesPlatforms", (string)null);
+                    b.ToTable("GamesPlatforms");
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.Genre", b =>
@@ -400,7 +401,7 @@ namespace SparkApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Genres", (string)null);
+                    b.ToTable("Genres");
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.Platform", b =>
@@ -415,7 +416,7 @@ namespace SparkApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Platforms", (string)null);
+                    b.ToTable("Platforms");
                 });
 
             modelBuilder.Entity("GameGenre", b =>

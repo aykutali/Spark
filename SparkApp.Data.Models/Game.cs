@@ -17,10 +17,11 @@ namespace SparkApp.Data.Models
         [Comment("The title of the game")]
         public string Title { get; set; } = null!;
 
+        [Required]
         [MinLength(EntityValidationConstants.Game.DescriptionMinLength)]
         [MaxLength(EntityValidationConstants.Game.DescriptionMaxLength)]
         [Comment("Description of the game")]
-        public string? Description { get; set; }
+        public string Description { get; set; } = null!;
 
         public string? ImageUrl { get; set; }
 

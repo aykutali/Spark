@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SparkApp.Common\SparkApp.Common.csproj" />
     <ProjectReference Include="..\SparkApp.Data\SparkApp.Data.csproj" />
     <ProjectReference Include="..\SparkApp.Infrastructure\SparkApp.Web.Infrastructure.csproj" />
     <ProjectReference Include="..\SparkApp.Services.Data\SparkApp.Services.Data.csproj" />

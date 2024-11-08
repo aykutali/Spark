@@ -10,7 +10,7 @@ namespace SparkApp.Common
             public const int TitleMaxLength = 100;
             public const int DescriptionMinLength = 10;
             public const int DescriptionMaxLength = 255;
-            public const string ReleasedDateFormat = "dd/MM/yyyy";
+            public const string ReleasedDateFormat = "dd-MM-yyyy";
 
         }
 

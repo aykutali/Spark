@@ -499,6 +499,9 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+              "D:\\C#\\Spark\\SparkApp.Common\\SparkApp.Common.csproj": {
+                "projectPath": "D:\\C#\\Spark\\SparkApp.Common\\SparkApp.Common.csproj"
+              },
               "D:\\C#\\Spark\\SparkApp.Data\\SparkApp.Data.csproj": {
                 "projectPath": "D:\\C#\\Spark\\SparkApp.Data\\SparkApp.Data.csproj"
               },

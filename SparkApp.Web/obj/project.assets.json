@@ -8665,6 +8665,7 @@
       "Microsoft.EntityFrameworkCore.Sqlite >= 8.0.10",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.10",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 8.0.6",
+      "SparkApp.Common >= 1.0.0",
       "SparkApp.Data >= 1.0.0",
       "SparkApp.Services.Data >= 1.0.0",
       "SparkApp.Web.Infrastructure >= 1.0.0",
@@ -8704,6 +8705,9 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
+            "D:\\C#\\Spark\\SparkApp.Common\\SparkApp.Common.csproj": {
+              "projectPath": "D:\\C#\\Spark\\SparkApp.Common\\SparkApp.Common.csproj"
+            },
             "D:\\C#\\Spark\\SparkApp.Data\\SparkApp.Data.csproj": {
               "projectPath": "D:\\C#\\Spark\\SparkApp.Data\\SparkApp.Data.csproj"
             },
