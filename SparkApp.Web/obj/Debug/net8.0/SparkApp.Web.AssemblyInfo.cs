@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SparkApp.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c19efae4b230e256190c02fc7a91e5db08be3d6e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+250c1f2d81add13d5f5147fba3810fad2514ae03")]
 [assembly: System.Reflection.AssemblyProductAttribute("SparkApp.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SparkApp.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

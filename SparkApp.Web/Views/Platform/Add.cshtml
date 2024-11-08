@@ -1,0 +1,14 @@
+﻿@model SparkApp.Web.ViewModels.Platform.AddPlatformInputModel
+
+<h2>Add a Platform</h2>
+
+<form asp-action="Add" method="post">
+	<div>
+		<label asp-for="Name">Platform's Name</label>
+		<input asp-for="Name" class="form-control" />
+		<span asp-validation-for="Name" class="text-danger"></span>
+	</div>
+	<button type="submit" class="btn btn-primary mt-2">Add Platform</button>
+</form>
+
+<a asp-action="Index">Back to Index</a>

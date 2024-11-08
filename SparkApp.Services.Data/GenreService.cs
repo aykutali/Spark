@@ -22,8 +22,8 @@ namespace SparkApp.Services.Data
                 Name = model.Name,
                 Description = model.Description
             };
+
             await genreRepository.AddAsync(genreData);
-           
         }
     }
 }
