@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace SparkApp.Data.Models
 {
+    [Table("GamesGenres")]
     public class GameGenre
     {
         [ForeignKey(nameof(GameId))]

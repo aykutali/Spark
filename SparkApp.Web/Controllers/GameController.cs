@@ -22,6 +22,13 @@ namespace SparkApp.Web.Controllers
             return View();
         }
 
+        public async Task<IActionResult> All()
+        {
+            var allGames = await gameService.GetAllGamesAsync();
+
+            return View(allGames);
+        }
+
         [HttpGet]
         public async Task<IActionResult> Add()
         {
@@ -50,5 +57,12 @@ namespace SparkApp.Web.Controllers
 
             return View(nameof(Index));
         }
+
+        public async Task<IActionResult> Details(string id)
+        {
+            var game = await gameService.GetGameDetailsAsync(id);
+            return View(game);
+        }
+
     }
 }

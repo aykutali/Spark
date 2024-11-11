@@ -432,6 +432,9 @@
             "projectReferences": {
               "D:\\C#\\Spark\\SparkApp.Common\\SparkApp.Common.csproj": {
                 "projectPath": "D:\\C#\\Spark\\SparkApp.Common\\SparkApp.Common.csproj"
+              },
+              "D:\\C#\\Spark\\SparkApp.Data.Models\\SparkApp.Data.Models.csproj": {
+                "projectPath": "D:\\C#\\Spark\\SparkApp.Data.Models\\SparkApp.Data.Models.csproj"
               }
             }
           }

@@ -1,5 +1,8 @@
-﻿using System.Reflection;
-
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Runtime.Versioning;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -37,6 +40,7 @@ namespace SparkApp.Data
 
         public virtual DbSet<GameGenre> GamesGenres { get; set; }
 
+        
         public virtual DbSet<GamePlatform> GamesPlatforms { get; set; }
 
 
@@ -58,6 +62,8 @@ namespace SparkApp.Data
 
             modelBuilder.Entity<GamePlatform>()
                 .HasKey(gp => new { gp.GameId, gp.PlatformId });
+
+        
         }
     }
 }

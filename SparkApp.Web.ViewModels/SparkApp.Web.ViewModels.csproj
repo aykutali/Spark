@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SparkApp.Common\SparkApp.Common.csproj" />
+    <ProjectReference Include="..\SparkApp.Data.Models\SparkApp.Data.Models.csproj" />
   </ItemGroup>
 
 </Project>

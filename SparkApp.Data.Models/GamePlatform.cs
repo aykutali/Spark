@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SparkApp.Data.Models
 {
+    [Table("GamesPlatforms")]
     public class GamePlatform
     {
 

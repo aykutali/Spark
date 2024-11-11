@@ -2266,7 +2266,8 @@
       },
       "SparkApp.Web.ViewModels/1.0.0": {
         "dependencies": {
-          "SparkApp.Common": "1.0.0"
+          "SparkApp.Common": "1.0.0",
+          "SparkApp.Data.Models": "1.0.0"
         },
         "runtime": {
           "SparkApp.Web.ViewModels.dll": {

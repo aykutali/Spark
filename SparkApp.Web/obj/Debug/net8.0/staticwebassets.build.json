@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "umL0Nnzr4AfyuctIRTycqWAuI/HLSPSfu1E5XSQqnD0=",
+  "Hash": "NieMNltgbyckx+o6ADlNFSoc4QWxEUUwC7QI1OBghxY=",
   "Source": "SparkApp.Web",
   "BasePath": "_content/SparkApp.Web",
   "Mode": "Default",
@@ -1231,6 +1231,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\C#\\Spark\\SparkApp.Web\\wwwroot\\game.png",
+      "SourceId": "SparkApp.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\C#\\Spark\\SparkApp.Web\\wwwroot\\",
+      "BasePath": "_content/SparkApp.Web",
+      "RelativePath": "game.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\game.png"
     },
     {
       "Identity": "D:\\C#\\Spark\\SparkApp.Web\\wwwroot\\js\\site.js",

@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\C#\\Spark\\SparkApp.Web\\wwwroot\\game.png",
+      "PackagePath": "staticwebassets\\game.png"
+    },
+    {
       "Id": "D:\\C#\\Spark\\SparkApp.Web\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

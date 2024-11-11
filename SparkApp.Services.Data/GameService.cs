@@ -8,11 +8,14 @@ using SparkApp.Web.ViewModels.Director;
 using SparkApp.Web.ViewModels.Game;
 using SparkApp.Web.ViewModels.Genre;
 using System.Globalization;
+using Microsoft.EntityFrameworkCore;
+using SparkApp.Data;
 
 namespace SparkApp.Services.Data
 {
     public class GameService : BaseService, IGameService
     {
+        private readonly SparkDbContext db;
         private readonly IRepository<Game, Guid> gameRepository;
 
         private readonly IRepository<Developer, Guid> devRepository;
@@ -22,13 +25,66 @@ namespace SparkApp.Services.Data
         public GameService(IRepository<Game, Guid> gameRepository,
                            IRepository<Director, Guid> dirRepository,
                            IRepository<Genre, Guid> genreRepository,
-                           IRepository<Developer, Guid> devRepository)
+                           IRepository<Developer, Guid> devRepository,
+                           SparkDbContext db)
         {
             this.gameRepository = gameRepository;
             this.dirRepository = dirRepository;
             this.genreRepository = genreRepository;
             this.devRepository = devRepository;
+            this.db = db;
         }
+
+        public async Task<List<GameAllViewModel>> GetAllGamesAsync()
+        {
+            List<GameAllViewModel> games = await gameRepository.GetAllAttached()
+                .Select(g => new GameAllViewModel
+                {
+                    Id = g.Id,
+                    Title = g.Title,
+                    ImageUrl = g.ImageUrl
+                })
+                .ToListAsync();
+
+            return games;
+        }
+
+        public async Task<GameDetailsViewModel> GetGameDetailsAsync(string title)
+        {
+            Game game = await gameRepository.GetAllAttached()
+                .Where(g => g.Title == title)
+                .Include(g => g.LeadGameDirector)
+                .Include(g => g.Developer)
+                .Include(g => g.MainGenre)
+                .FirstOrDefaultAsync();
+
+            var genres = await db.GamesGenres
+                .Where(gg => gg.Game.Title == title)
+                .Select(gg=> gg.Genre)
+                .ToListAsync();
+
+            var platforms = await db.GamesPlatforms
+                .Where(gp => gp.Game.Title == title)
+                .Include(gp=>gp.Platform)
+                .ToListAsync();
+
+            GameDetailsViewModel gameDetailsModel = new GameDetailsViewModel
+            {
+                Id = game.Id.ToString(),
+                Title = game.Title,
+                Description = game.Description,
+                ImageUrl = game.ImageUrl,
+                Developer = game.Developer,
+                LeadDirector = game.LeadGameDirector,
+                MainGenre = game.MainGenre,
+                ReleasedDate = game.ReleaseDate,
+                SubGenres = genres,
+                PlatformsList = platforms
+            };
+
+            return gameDetailsModel;
+        }
+
         public async Task<AddGameInputModel> GetInputGameModelAsync()
         {
             IEnumerable<Genre> genresList = await genreRepository.GetAllAsync();
