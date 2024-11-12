@@ -3,11 +3,10 @@ using System.ComponentModel.DataAnnotations;
 using SparkApp.Web.ViewModels.Developer;
 using SparkApp.Web.ViewModels.Director;
 using SparkApp.Web.ViewModels.Genre;
-
 namespace SparkApp.Web.ViewModels.Game
 {
-    public class AddGameInputModel
-    {
+    public class AddGameInputModel 
+	{
         [Required]
         [MinLength(EntityValidationConstants.Game.TitleMinLength)]
         [MaxLength(EntityValidationConstants.Game.TitleMaxLength)]

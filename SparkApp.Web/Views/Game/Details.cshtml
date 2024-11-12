@@ -13,20 +13,21 @@
 		<div class="card-body" align="center">
 			<h5 class="card-title" align="center">@Model.Title</h5>
 			<p class="card-text">@Model.Description</p>
-			<p class="card-text"><small class="text-muted">@Model.MainGenre.Name</small></p>
-			<p class="card-text"><small class="text-muted">@Model.ReleasedDate.ToShortDateString()</small></p>
-			<p class="card-text"><small class="text-muted">Developer: @Model.Developer.Name</small></p>
-			<p class="card-text"><small class="text-muted">Director: @Model.LeadDirector.Name</small></p>
+			
+			<p class="card-text"><small>@Model.ReleasedDate.ToShortDateString()</small></p>
+			<p class="card-text"><small>Developer: @Model.Developer.Name</small></p>
+			<p class="card-text"><small>Director: @Model.LeadDirector.Name</small></p>
 			
 			<hr/>
-			<p class="card-text"><small class="text-muted">Sub Genres:</small></p>
+			<p class="card-text"><small>Main Genre: <a asp-controller="Genre" asp-action="Details" asp-route-id="@Model.MainGenre.Name">@Model.MainGenre.Name</a></small></p>
+			<p class="card-text"><small>Sub Genres:</small></p>
 			@foreach (var genre in Model.SubGenres)
 			{
-				<p class="card-text"><small class="text-muted">@genre.Name</small></p>
+				<p class="card-text"><small>@genre.Name</small></p>
 			}
 			
 			<hr/>
-			<p class="card-text"><small class="text-muted">Platforms:</small></p>
+			<p class="card-text"><small>Platforms:</small></p>
 			@foreach (var p in Model.PlatformsList)
 			{
 				<a href="@p.LinkToPlatform">@p.Platform.Name</a>
