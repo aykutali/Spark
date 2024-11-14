@@ -32,8 +32,7 @@ namespace SparkApp.Services.Data
 						   IRepository<Developer, Guid> devRepository,
 						   IRepository<Platform, Guid> platformRepository,
 						   IRepository<GamePlatform, object> gamePlatformRepository,
-						   IRepository<GameGenre, object> gameGenreRepository,
-						   SparkDbContext db)
+						   IRepository<GameGenre, object> gameGenreRepository)
 		{
 			this.gameRepository = gameRepository;
 			this.dirRepository = dirRepository;
@@ -42,7 +41,7 @@ namespace SparkApp.Services.Data
 			this.platformRepository = platformRepository;
 			this.gamePlatformRepository = gamePlatformRepository;
 			this.gameGenreRepository = gameGenreRepository;
-			this.db = db;
+			
 		}
 
 		public async Task<List<GameAllViewModel>> GetAllGamesAsync()
@@ -54,6 +53,7 @@ namespace SparkApp.Services.Data
 					Title = g.Title,
 					ImageUrl = g.ImageUrl
 				})
+				.OrderBy(g => g.Title)
 				.ToListAsync();
 
 			return games;
@@ -137,12 +137,9 @@ namespace SparkApp.Services.Data
 				.Include(g => g.MainGenre)
 				.Include(g => g.GamePlatforms)
 				.ThenInclude(gp => gp.Platform)
+				.Include(g => g.SideGenres)
+				.ThenInclude(gg => gg.Genre)
 				.FirstOrDefaultAsync();
-
-			var genres = await db.GamesGenres
-				.Where(gg => gg.Game.Title == title)
-				.Select(gg => gg.Genre)
-				.ToListAsync();
 
 			if (game != null)
 			{
@@ -156,7 +153,7 @@ namespace SparkApp.Services.Data
 					LeadDirector = game.LeadGameDirector,
 					MainGenre = game.MainGenre,
 					ReleasedDate = game.ReleaseDate,
-					SubGenres = genres,
+					SubGenres = game.SideGenres,
 					PlatformsList = game.GamePlatforms
 				};
 				return gameDetailsModel;

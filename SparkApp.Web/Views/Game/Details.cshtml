@@ -22,12 +22,15 @@
 			<p class="card-text"><small>Director: @Model.LeadDirector.Name</small></p>
 			<hr />
 			<p class="card-text"><small>Main Genre: <a asp-controller="Genre" asp-action="Details" asp-route-id="@Model.MainGenre.Name">@Model.MainGenre.Name</a></small></p>
+			<hr/>
 			<p class="card-text"><small>Sub Genres:</small></p>
 			@foreach (var genre in Model.SubGenres)
 			{
-				<p class="card-text"><small>@genre.Name</small></p>
+				if (!genre.IsDeleted)
+				{
+					<a asp-controller="Genre" asp-action="Details" asp-route-id="@genre.Genre.Name" class="card-text"><small>@genre.Genre.Name</small></a>
+				}
 			}
-
 			<hr />
 			<p class="card-text"><small>Platforms:</small></p>
 			@foreach (var p in Model.PlatformsList)

@@ -7,5 +7,7 @@ namespace SparkApp.Services.Data.Interfaces
     {
         Task AddGenreAsync(AddGenreInputModel model);
 
+        Task<GenreDetailsViewModel?> GetGenreDetailsAsync(string name);
+
     }
 }

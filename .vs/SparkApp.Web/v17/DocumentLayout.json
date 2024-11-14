@@ -3,40 +3,40 @@
   "WorkspaceRootPath": "D:\\C#\\Spark\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E1EC05C1-2E95-46A6-8685-7FC19391AC2B}|SparkApp.Web\\SparkApp.Web.csproj|d:\\c#\\spark\\sparkapp.web\\views\\game\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E1EC05C1-2E95-46A6-8685-7FC19391AC2B}|SparkApp.Web\\SparkApp.Web.csproj|solutionrelative:sparkapp.web\\views\\game\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{56CB79F2-3F8D-48F1-8174-AD80168F7C88}|SparkApp.Web.ViewModels\\SparkApp.Web.ViewModels.csproj|d:\\c#\\spark\\sparkapp.web.viewmodels\\genre\\genreviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56CB79F2-3F8D-48F1-8174-AD80168F7C88}|SparkApp.Web.ViewModels\\SparkApp.Web.ViewModels.csproj|solutionrelative:sparkapp.web.viewmodels\\genre\\genreviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E1EC05C1-2E95-46A6-8685-7FC19391AC2B}|SparkApp.Web\\SparkApp.Web.csproj|d:\\c#\\spark\\sparkapp.web\\views\\game\\all.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E1EC05C1-2E95-46A6-8685-7FC19391AC2B}|SparkApp.Web\\SparkApp.Web.csproj|solutionrelative:sparkapp.web\\views\\game\\all.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E1EC05C1-2E95-46A6-8685-7FC19391AC2B}|SparkApp.Web\\SparkApp.Web.csproj|d:\\c#\\spark\\sparkapp.web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E1EC05C1-2E95-46A6-8685-7FC19391AC2B}|SparkApp.Web\\SparkApp.Web.csproj|solutionrelative:sparkapp.web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E1EC05C1-2E95-46A6-8685-7FC19391AC2B}|SparkApp.Web\\SparkApp.Web.csproj|d:\\c#\\spark\\sparkapp.web\\views\\game\\manageplatforms.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E1EC05C1-2E95-46A6-8685-7FC19391AC2B}|SparkApp.Web\\SparkApp.Web.csproj|solutionrelative:sparkapp.web\\views\\game\\manageplatforms.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E1EC05C1-2E95-46A6-8685-7FC19391AC2B}|SparkApp.Web\\SparkApp.Web.csproj|d:\\c#\\spark\\sparkapp.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E1EC05C1-2E95-46A6-8685-7FC19391AC2B}|SparkApp.Web\\SparkApp.Web.csproj|solutionrelative:sparkapp.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E1EC05C1-2E95-46A6-8685-7FC19391AC2B}|SparkApp.Web\\SparkApp.Web.csproj|d:\\c#\\spark\\sparkapp.web\\views\\game\\managesubgenres.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E1EC05C1-2E95-46A6-8685-7FC19391AC2B}|SparkApp.Web\\SparkApp.Web.csproj|solutionrelative:sparkapp.web\\views\\game\\managesubgenres.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E1EC05C1-2E95-46A6-8685-7FC19391AC2B}|SparkApp.Web\\SparkApp.Web.csproj|d:\\c#\\spark\\sparkapp.web\\controllers\\gamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E1EC05C1-2E95-46A6-8685-7FC19391AC2B}|SparkApp.Web\\SparkApp.Web.csproj|solutionrelative:sparkapp.web\\controllers\\gamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E1EC05C1-2E95-46A6-8685-7FC19391AC2B}|SparkApp.Web\\SparkApp.Web.csproj|d:\\c#\\spark\\sparkapp.web\\views\\genre\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E1EC05C1-2E95-46A6-8685-7FC19391AC2B}|SparkApp.Web\\SparkApp.Web.csproj|solutionrelative:sparkapp.web\\views\\genre\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3DE08D46-8402-4307-99FC-283C470C91AE}|SparkApp.Services.Data\\SparkApp.Services.Data.csproj|d:\\c#\\spark\\sparkapp.services.data\\gameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3DE08D46-8402-4307-99FC-283C470C91AE}|SparkApp.Services.Data\\SparkApp.Services.Data.csproj|solutionrelative:sparkapp.services.data\\gameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3DE08D46-8402-4307-99FC-283C470C91AE}|SparkApp.Services.Data\\SparkApp.Services.Data.csproj|d:\\c#\\spark\\sparkapp.services.data\\interfaces\\igameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3DE08D46-8402-4307-99FC-283C470C91AE}|SparkApp.Services.Data\\SparkApp.Services.Data.csproj|solutionrelative:sparkapp.services.data\\interfaces\\igameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E1EC05C1-2E95-46A6-8685-7FC19391AC2B}|SparkApp.Web\\SparkApp.Web.csproj|d:\\c#\\spark\\sparkapp.web\\controllers\\genrecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1EC05C1-2E95-46A6-8685-7FC19391AC2B}|SparkApp.Web\\SparkApp.Web.csproj|solutionrelative:sparkapp.web\\controllers\\genrecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DE08D46-8402-4307-99FC-283C470C91AE}|SparkApp.Services.Data\\SparkApp.Services.Data.csproj|d:\\c#\\spark\\sparkapp.services.data\\genreservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DE08D46-8402-4307-99FC-283C470C91AE}|SparkApp.Services.Data\\SparkApp.Services.Data.csproj|solutionrelative:sparkapp.services.data\\genreservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DE08D46-8402-4307-99FC-283C470C91AE}|SparkApp.Services.Data\\SparkApp.Services.Data.csproj|d:\\c#\\spark\\sparkapp.services.data\\interfaces\\igenreservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DE08D46-8402-4307-99FC-283C470C91AE}|SparkApp.Services.Data\\SparkApp.Services.Data.csproj|solutionrelative:sparkapp.services.data\\interfaces\\igenreservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0FDBE314-5015-4FB9-A8BB-EF5BA34E3922}|SparkApp.Data.Models\\SparkApp.Data.Models.csproj|d:\\c#\\spark\\sparkapp.data.models\\genre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0FDBE314-5015-4FB9-A8BB-EF5BA34E3922}|SparkApp.Data.Models\\SparkApp.Data.Models.csproj|solutionrelative:sparkapp.data.models\\genre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56CB79F2-3F8D-48F1-8174-AD80168F7C88}|SparkApp.Web.ViewModels\\SparkApp.Web.ViewModels.csproj|d:\\c#\\spark\\sparkapp.web.viewmodels\\genre\\genredetailsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56CB79F2-3F8D-48F1-8174-AD80168F7C88}|SparkApp.Web.ViewModels\\SparkApp.Web.ViewModels.csproj|solutionrelative:sparkapp.web.viewmodels\\genre\\genredetailsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56CB79F2-3F8D-48F1-8174-AD80168F7C88}|SparkApp.Web.ViewModels\\SparkApp.Web.ViewModels.csproj|d:\\c#\\spark\\sparkapp.web.viewmodels\\game\\gameallviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56CB79F2-3F8D-48F1-8174-AD80168F7C88}|SparkApp.Web.ViewModels\\SparkApp.Web.ViewModels.csproj|solutionrelative:sparkapp.web.viewmodels\\game\\gameallviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,43 +50,29 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "GameService.cs",
-              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Services.Data\\GameService.cs",
-              "RelativeDocumentMoniker": "SparkApp.Services.Data\\GameService.cs",
-              "ToolTip": "D:\\C#\\Spark\\SparkApp.Services.Data\\GameService.cs",
-              "RelativeToolTip": "SparkApp.Services.Data\\GameService.cs",
-              "ViewState": "AgIAAFABAAAAAAAAAAAAAIcBAAACAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "GenreService.cs",
+              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Services.Data\\GenreService.cs",
+              "RelativeDocumentMoniker": "SparkApp.Services.Data\\GenreService.cs",
+              "ToolTip": "D:\\C#\\Spark\\SparkApp.Services.Data\\GenreService.cs",
+              "RelativeToolTip": "SparkApp.Services.Data\\GenreService.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAzwCMAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T19:31:04.577Z",
+              "WhenOpened": "2024-11-14T18:31:02.968Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "GameController.cs",
-              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Web\\Controllers\\GameController.cs",
-              "RelativeDocumentMoniker": "SparkApp.Web\\Controllers\\GameController.cs",
-              "ToolTip": "D:\\C#\\Spark\\SparkApp.Web\\Controllers\\GameController.cs",
-              "RelativeToolTip": "SparkApp.Web\\Controllers\\GameController.cs",
-              "ViewState": "AgIAAH0AAAAAAAAAAAAewKsAAAAEAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "GenreController.cs",
+              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Web\\Controllers\\GenreController.cs",
+              "RelativeDocumentMoniker": "SparkApp.Web\\Controllers\\GenreController.cs",
+              "ToolTip": "D:\\C#\\Spark\\SparkApp.Web\\Controllers\\GenreController.cs",
+              "RelativeToolTip": "SparkApp.Web\\Controllers\\GenreController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-12T19:49:40.344Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "IGameService.cs",
-              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Services.Data\\Interfaces\\IGameService.cs",
-              "RelativeDocumentMoniker": "SparkApp.Services.Data\\Interfaces\\IGameService.cs",
-              "ToolTip": "D:\\C#\\Spark\\SparkApp.Services.Data\\Interfaces\\IGameService.cs",
-              "RelativeToolTip": "SparkApp.Services.Data\\Interfaces\\IGameService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAABQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T22:39:11.92Z",
+              "WhenOpened": "2024-11-14T18:08:34.74Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
@@ -100,80 +86,93 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Web\\Views\\Game\\Details.cshtml",
-              "RelativeDocumentMoniker": "SparkApp.Web\\Views\\Game\\Details.cshtml",
-              "ToolTip": "D:\\C#\\Spark\\SparkApp.Web\\Views\\Game\\Details.cshtml",
-              "RelativeToolTip": "SparkApp.Web\\Views\\Game\\Details.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-14T17:49:33.261Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "All.cshtml",
-              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Web\\Views\\Game\\All.cshtml",
-              "RelativeDocumentMoniker": "SparkApp.Web\\Views\\Game\\All.cshtml",
-              "ToolTip": "D:\\C#\\Spark\\SparkApp.Web\\Views\\Game\\All.cshtml",
-              "RelativeToolTip": "SparkApp.Web\\Views\\Game\\All.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAAAAAAAAAAAAA==",
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Web\\Views\\Genre\\Details.cshtml",
+              "RelativeDocumentMoniker": "SparkApp.Web\\Views\\Genre\\Details.cshtml",
+              "ToolTip": "D:\\C#\\Spark\\SparkApp.Web\\Views\\Genre\\Details.cshtml",
+              "RelativeToolTip": "SparkApp.Web\\Views\\Genre\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-14T17:45:03.153Z",
+              "WhenOpened": "2024-11-14T19:06:55.285Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Web\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "SparkApp.Web\\Views\\Home\\Index.cshtml",
-              "ToolTip": "D:\\C#\\Spark\\SparkApp.Web\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "SparkApp.Web\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-14T17:39:02.878Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ManagePlatforms.cshtml",
-              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Web\\Views\\Game\\ManagePlatforms.cshtml",
-              "RelativeDocumentMoniker": "SparkApp.Web\\Views\\Game\\ManagePlatforms.cshtml",
-              "ToolTip": "D:\\C#\\Spark\\SparkApp.Web\\Views\\Game\\ManagePlatforms.cshtml",
-              "RelativeToolTip": "SparkApp.Web\\Views\\Game\\ManagePlatforms.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-14T17:39:14.519Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Web\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "SparkApp.Web\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "D:\\C#\\Spark\\SparkApp.Web\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "SparkApp.Web\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-14T17:38:42.708Z",
+              "DocumentIndex": 0,
+              "Title": "GenreViewModel.cs",
+              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Web.ViewModels\\Genre\\GenreViewModel.cs",
+              "RelativeDocumentMoniker": "SparkApp.Web.ViewModels\\Genre\\GenreViewModel.cs",
+              "ToolTip": "D:\\C#\\Spark\\SparkApp.Web.ViewModels\\Genre\\GenreViewModel.cs",
+              "RelativeToolTip": "SparkApp.Web.ViewModels\\Genre\\GenreViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T18:24:57.531Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "ManageSubGenres.cshtml",
-              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Web\\Views\\Game\\ManageSubGenres.cshtml",
-              "RelativeDocumentMoniker": "SparkApp.Web\\Views\\Game\\ManageSubGenres.cshtml",
-              "ToolTip": "D:\\C#\\Spark\\SparkApp.Web\\Views\\Game\\ManageSubGenres.cshtml",
-              "RelativeToolTip": "SparkApp.Web\\Views\\Game\\ManageSubGenres.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-14T17:23:44.718Z",
+              "Title": "IGenreService.cs",
+              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Services.Data\\Interfaces\\IGenreService.cs",
+              "RelativeDocumentMoniker": "SparkApp.Services.Data\\Interfaces\\IGenreService.cs",
+              "ToolTip": "D:\\C#\\Spark\\SparkApp.Services.Data\\Interfaces\\IGenreService.cs",
+              "RelativeToolTip": "SparkApp.Services.Data\\Interfaces\\IGenreService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T18:30:28.699Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GameService.cs",
+              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Services.Data\\GameService.cs",
+              "RelativeDocumentMoniker": "SparkApp.Services.Data\\GameService.cs",
+              "ToolTip": "D:\\C#\\Spark\\SparkApp.Services.Data\\GameService.cs",
+              "RelativeToolTip": "SparkApp.Services.Data\\GameService.cs",
+              "ViewState": "AgIAAD0BAAAAAAAAAAAkwFsBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T19:56:21.655Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Genre.cs",
+              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Data.Models\\Genre.cs",
+              "RelativeDocumentMoniker": "SparkApp.Data.Models\\Genre.cs",
+              "ToolTip": "D:\\C#\\Spark\\SparkApp.Data.Models\\Genre.cs",
+              "RelativeToolTip": "SparkApp.Data.Models\\Genre.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T18:13:38.469Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "GenreDetailsViewModel.cs",
+              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Web.ViewModels\\Genre\\GenreDetailsViewModel.cs",
+              "RelativeDocumentMoniker": "SparkApp.Web.ViewModels\\Genre\\GenreDetailsViewModel.cs",
+              "ToolTip": "D:\\C#\\Spark\\SparkApp.Web.ViewModels\\Genre\\GenreDetailsViewModel.cs",
+              "RelativeToolTip": "SparkApp.Web.ViewModels\\Genre\\GenreDetailsViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T18:11:46.702Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "GameAllViewModel.cs",
+              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Web.ViewModels\\Game\\GameAllViewModel.cs",
+              "RelativeDocumentMoniker": "SparkApp.Web.ViewModels\\Game\\GameAllViewModel.cs",
+              "ToolTip": "D:\\C#\\Spark\\SparkApp.Web.ViewModels\\Game\\GameAllViewModel.cs",
+              "RelativeToolTip": "SparkApp.Web.ViewModels\\Game\\GameAllViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T18:23:48.93Z",
               "EditorCaption": ""
             }
           ]

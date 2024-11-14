@@ -102,6 +102,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VucmVcQWRkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/C\#/Spark/SparkApp.Web/Views/Genre/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VucmVcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/C\#/Spark/SparkApp.Web/Views/Genre/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VucmVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

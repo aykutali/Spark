@@ -1,11 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Globalization;
+using Microsoft.AspNetCore.Mvc;
 
 using SparkApp.Services.Data.Interfaces;
 using SparkApp.Web.ViewModels.Genre;
 
 namespace SparkApp.Web.Controllers
 {
-    public class GenreController : BaseController
+	[Route("[controller]/[action]")]
+	public class GenreController : BaseController
     {
         private readonly IGenreService genreService;
 
@@ -34,9 +36,21 @@ namespace SparkApp.Web.Controllers
 
             await genreService.AddGenreAsync(model);
 
-            return View(nameof(Index));
+            return RedirectToAction(nameof(Index));
         }
 
+        [HttpGet]
+        [Route("{name}")]
+		public async Task<IActionResult> Details(string name)
+        {
+	        GenreDetailsViewModel genreModel = await  genreService.GetGenreDetailsAsync(name);
 
+	        if (genreModel != null)
+	        {
+				return View(genreModel);
+			}
+
+	        return RedirectToAction(nameof(Index));
+        }
     }
 }
