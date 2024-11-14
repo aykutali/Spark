@@ -8,6 +8,7 @@ using SparkApp.Web.ViewModels.Game;
 
 namespace SparkApp.Web.Controllers
 {
+	[Route("[controller]/[action]")]
 	public class GameController : BaseController
 	{
 		private readonly IGameService gameService;
@@ -58,10 +59,18 @@ namespace SparkApp.Web.Controllers
 			return RedirectToAction(nameof(Index));
 		}
 
-		public async Task<IActionResult> Details(string id)
+		[HttpGet]
+		[Route("{title}")]
+		public async Task<IActionResult> Details(string title)
 		{
-			var game = await gameService.GetGameDetailsAsync(id);
-			return View(game);
+			var game = await gameService.GetGameDetailsAsync(title);
+
+			if (game != null)
+			{
+				return View(game);
+			}
+
+			return RedirectToAction(nameof(Index));
 		}
 
 		[HttpGet]
@@ -78,7 +87,7 @@ namespace SparkApp.Web.Controllers
 			string dateTimeSting = $"{gameEditModel.ReleasedDate}";
 
 			if (!DateTime.TryParseExact(dateTimeSting, ReleasedDateFormat, CultureInfo.InvariantCulture,
-				    DateTimeStyles.None, out DateTime parseDateTime))
+					DateTimeStyles.None, out DateTime parseDateTime))
 			{
 				ModelState.AddModelError("ReleasedDate", "Invalid Date Format!");
 			}
@@ -101,6 +110,47 @@ namespace SparkApp.Web.Controllers
 				gameEditModel = await gameService.GetEditGameModelAsync(gameEditModel);
 				return View(gameEditModel);
 			}
+		}
+
+		[HttpGet]
+		public async Task<IActionResult> ManagePlatforms(string id)
+		{
+			AddPlatformsToGameInputModel? inputModel = await gameService.GetInputPlatformsToGameModelAsync(id);
+
+			if (inputModel != null)
+			{
+				return View(inputModel);
+			}
+			else
+			{
+				return RedirectToAction(nameof(Index));
+			}
+
+		}
+
+		[HttpPost]
+		public async Task<IActionResult> ManagePlatforms(AddPlatformsToGameInputModel model)
+		{
+			if (!this.ModelState.IsValid)
+			{
+				return View(model);
+			}
+
+			Guid movieGuid = Guid.Empty;
+			bool isGuidValid = this.IsGuidValid(model.Id, ref movieGuid);
+			if (!isGuidValid)
+			{
+				return RedirectToAction(nameof(Index));
+			}
+
+			await gameService.AddPlatformsToGameAsync(model);
+
+			return RedirectToAction(nameof(Index));
+		}
+
+		public async Task<IActionResult> ManageSubGenres()
+		{
+			return View();
 		}
 	}
 }

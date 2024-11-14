@@ -79,7 +79,7 @@ namespace SparkApp.Web
             
             app.MapRazorPages();
 
-            //app.ApplyMigrations();
+            app.ApplyMigrations();
 
             app.Run();
         }

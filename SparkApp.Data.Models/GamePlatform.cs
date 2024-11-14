@@ -4,7 +4,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SparkApp.Data.Models
 {
-    [Table("GamesPlatforms")]
     public class GamePlatform
     {
 
@@ -19,5 +18,7 @@ namespace SparkApp.Data.Models
         public Platform Platform { get; set; } = null!;
 
         public string? LinkToPlatform { get; set; }
+
+        public bool IsDeleted { get; set; } = false;
     }
 }

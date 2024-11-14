@@ -17,14 +17,17 @@ namespace SparkApp.Services.Data.Interfaces
 
         public Task<bool> EditGameAsync(Game gameToEdit, GameEditViewModel editModel);
 
-		public Task<GameDetailsViewModel> GetGameDetailsAsync(string id);
+		public Task<GameDetailsViewModel?> GetGameDetailsAsync(string title);
 
         public Task<AddGameInputModel> GetInputGameModelAsync();
 
         public Task<AddGameInputModel> GetInputGameModelAsync(AddGameInputModel model);
 
+        public Task<AddPlatformsToGameInputModel?> GetInputPlatformsToGameModelAsync(string id);
+
         public Task AddGameAsync(AddGameInputModel model);
 
+        public Task AddPlatformsToGameAsync(AddPlatformsToGameInputModel model);
         
     }
 }

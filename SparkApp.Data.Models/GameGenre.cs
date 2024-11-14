@@ -8,7 +8,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace SparkApp.Data.Models
 {
-    [Table("GamesGenres")]
     public class GameGenre
     {
         [ForeignKey(nameof(GameId))]
@@ -21,5 +20,7 @@ namespace SparkApp.Data.Models
 
         [Comment("Shows is the genre is a main or sub(secondary) of the game")]
         public bool IsSubGenre { get; set; } = false;
+
+        public bool IsDeleted { get; set; } = false;
     }
 }

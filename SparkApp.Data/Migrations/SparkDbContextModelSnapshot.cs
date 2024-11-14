@@ -22,36 +22,6 @@ namespace SparkApp.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("GameGenre", b =>
-                {
-                    b.Property<Guid>("GamesId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("SideGenresId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("GamesId", "SideGenresId");
-
-                    b.HasIndex("SideGenresId");
-
-                    b.ToTable("GameGenre", (string)null);
-                });
-
-            modelBuilder.Entity("GamePlatform", b =>
-                {
-                    b.Property<Guid>("GamesId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("PlatformsId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("GamesId", "PlatformsId");
-
-                    b.HasIndex("PlatformsId");
-
-                    b.ToTable("GamePlatform", (string)null);
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<System.Guid>", b =>
                 {
                     b.Property<Guid>("Id")
@@ -265,7 +235,7 @@ namespace SparkApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Developer", (string)null);
+                    b.ToTable("Developer");
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.Director", b =>
@@ -288,7 +258,7 @@ namespace SparkApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Directors", (string)null);
+                    b.ToTable("Directors");
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.Game", b =>
@@ -343,7 +313,7 @@ namespace SparkApp.Data.Migrations
 
                     b.HasIndex("MainGenreId");
 
-                    b.ToTable("Games", (string)null);
+                    b.ToTable("Games");
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.GameGenre", b =>
@@ -354,6 +324,9 @@ namespace SparkApp.Data.Migrations
                     b.Property<Guid>("GenreId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("IsSubGenre")
                         .HasColumnType("bit")
                         .HasComment("Shows is the genre is a main or sub(secondary) of the game");
@@ -362,7 +335,7 @@ namespace SparkApp.Data.Migrations
 
                     b.HasIndex("GenreId");
 
-                    b.ToTable("GamesGenres", (string)null);
+                    b.ToTable("GamesGenres");
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.GamePlatform", b =>
@@ -373,6 +346,9 @@ namespace SparkApp.Data.Migrations
                     b.Property<Guid>("PlatformId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<string>("LinkToPlatform")
                         .HasColumnType("nvarchar(max)");
 
@@ -380,7 +356,7 @@ namespace SparkApp.Data.Migrations
 
                     b.HasIndex("PlatformId");
 
-                    b.ToTable("GamesPlatforms", (string)null);
+                    b.ToTable("GamesPlatforms");
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.Genre", b =>
@@ -401,7 +377,7 @@ namespace SparkApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Genres", (string)null);
+                    b.ToTable("Genres");
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.Platform", b =>
@@ -416,37 +392,7 @@ namespace SparkApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Platforms", (string)null);
-                });
-
-            modelBuilder.Entity("GameGenre", b =>
-                {
-                    b.HasOne("SparkApp.Data.Models.Game", null)
-                        .WithMany()
-                        .HasForeignKey("GamesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("SparkApp.Data.Models.Genre", null)
-                        .WithMany()
-                        .HasForeignKey("SideGenresId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("GamePlatform", b =>
-                {
-                    b.HasOne("SparkApp.Data.Models.Game", null)
-                        .WithMany()
-                        .HasForeignKey("GamesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("SparkApp.Data.Models.Platform", null)
-                        .WithMany()
-                        .HasForeignKey("PlatformsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.ToTable("Platforms");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -528,13 +474,13 @@ namespace SparkApp.Data.Migrations
             modelBuilder.Entity("SparkApp.Data.Models.GameGenre", b =>
                 {
                     b.HasOne("SparkApp.Data.Models.Game", "Game")
-                        .WithMany()
+                        .WithMany("SideGenres")
                         .HasForeignKey("GameId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("SparkApp.Data.Models.Genre", "Genre")
-                        .WithMany()
+                        .WithMany("Games")
                         .HasForeignKey("GenreId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -547,13 +493,13 @@ namespace SparkApp.Data.Migrations
             modelBuilder.Entity("SparkApp.Data.Models.GamePlatform", b =>
                 {
                     b.HasOne("SparkApp.Data.Models.Game", "Game")
-                        .WithMany()
+                        .WithMany("Platforms")
                         .HasForeignKey("GameId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("SparkApp.Data.Models.Platform", "Platform")
-                        .WithMany()
+                        .WithMany("Games")
                         .HasForeignKey("PlatformId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -569,6 +515,23 @@ namespace SparkApp.Data.Migrations
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.Director", b =>
+                {
+                    b.Navigation("Games");
+                });
+
+            modelBuilder.Entity("SparkApp.Data.Models.Game", b =>
+                {
+                    b.Navigation("Platforms");
+
+                    b.Navigation("SideGenres");
+                });
+
+            modelBuilder.Entity("SparkApp.Data.Models.Genre", b =>
+                {
+                    b.Navigation("Games");
+                });
+
+            modelBuilder.Entity("SparkApp.Data.Models.Platform", b =>
                 {
                     b.Navigation("Games");
                 });

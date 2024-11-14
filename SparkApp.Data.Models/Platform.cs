@@ -10,7 +10,7 @@ namespace SparkApp.Data.Models
         [Required]
         public string Name { get; set; } = null!;
 
-        public virtual ICollection<Game> Games { get; set; }
-            = new List<Game>();
+        public virtual ICollection<GamePlatform> GamesPlatform { get; set; }
+            = new List<GamePlatform>();
     }
 }

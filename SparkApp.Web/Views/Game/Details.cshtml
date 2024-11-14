@@ -30,17 +30,22 @@
 			<p class="card-text"><small>Platforms:</small></p>
 			@foreach (var p in Model.PlatformsList)
 			{
-				<a href="@p.LinkToPlatform">@p.Platform.Name</a>
+				if (!p.IsDeleted)
+				{
+					<a href="@p.LinkToPlatform">@p.Platform.Name</a>
+				}
 			}
 
 		</div>
 
-		<a asp-controller="Game" asp-action="All" class="btn btn-warning btn-dark-text btn-rounded mb-2 w-100 p-3 fw-bold">Back to All Games</a>
-		
 		<a asp-controller="Game" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning btn-dark-text btn-rounded mb-2 w-100 p-3 fw-bold">Edit</a>
 		<a asp-controller="Game" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger btn-rounded mb-2 w-100 p-3 fw-bold">Delete</a>
-		
+		<hr/>
+		<a asp-controller="Game" asp-action="ManagePlatforms" asp-route-id="@Model.Id" class="btn btn-warning btn-dark-text btn-rounded mb-2 w-100 p-3 fw-bold">Manage Platform</a>
+		<a asp-controller="Game" asp-action="ManageSubGenres" asp-route-id="@Model.Id" class="btn btn-danger btn-rounded mb-2 w-100 p-3 fw-bold">Manage Sub Genres</a>
 	</div>
+
+	<a asp-controller="Game" asp-action="All" class="btn btn-warning btn-dark-text btn-rounded mb-2 w-100 p-3 fw-bold">Back to All Games</a>
 </div>
 
 @section Scripts {

@@ -49,8 +49,8 @@ namespace SparkApp.Data.Models
         [ForeignKey(nameof(LeadGameDirectorId))]
         public virtual Director? LeadGameDirector { get; set; }
 
-        public virtual ICollection<Platform> Platforms { get; set; }
-            = new List<Platform>();
+        public virtual ICollection<GamePlatform> GamePlatforms { get; set; }
+            = new List<GamePlatform>();
 
         [Required]
         public Guid MainGenreId { get; set; }
@@ -59,7 +59,7 @@ namespace SparkApp.Data.Models
         [ForeignKey(nameof(MainGenreId))]
         public virtual Genre MainGenre { get; set; } = null!;
 
-        public virtual ICollection<Genre> SideGenres { get; set; }
-            = new List<Genre>();
+        public virtual ICollection<GameGenre> SideGenres { get; set; }
+            = new List<GameGenre>();
     }
 }

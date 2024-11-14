@@ -22,8 +22,8 @@ namespace SparkApp.Web.ViewModels.Game
 
         public Developer Developer { get; set; }
 
-        public List<GamePlatform> PlatformsList { get; set; }
+        public IEnumerable<GamePlatform> PlatformsList { get; set; } = new List<GamePlatform>();
 
-        public List<Genre> SubGenres { get; set; }
+        public List<Genre> SubGenres { get; set; } = new List<Genre>();
     }
 }

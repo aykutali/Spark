@@ -19,7 +19,7 @@ namespace SparkApp.Data.Models
         [MaxLength(EntityValidationConstants.Genre.DescriptionMaxLength)]
         public string Description { get; set; } = null!;
 
-        public virtual ICollection<Game> Games { get; set; }
-            = new List<Game>();
+        public virtual ICollection<GameGenre> GamesGenre { get; set; }
+            = new List<GameGenre>();
     }
 }

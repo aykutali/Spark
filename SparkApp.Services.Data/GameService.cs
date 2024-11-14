@@ -10,6 +10,7 @@ using SparkApp.Web.ViewModels.Genre;
 using System.Globalization;
 using Microsoft.EntityFrameworkCore;
 using SparkApp.Data;
+using SparkApp.Web.ViewModels.Platform;
 
 namespace SparkApp.Services.Data
 {
@@ -21,17 +22,26 @@ namespace SparkApp.Services.Data
 		private readonly IRepository<Developer, Guid> devRepository;
 		private readonly IRepository<Director, Guid> dirRepository;
 		private readonly IRepository<Genre, Guid> genreRepository;
+		private readonly IRepository<Platform, Guid> platformRepository;
+		private readonly IRepository<GamePlatform, object> gamePlatformRepository;
+		private readonly IRepository<GameGenre, object> gameGenreRepository;
 
 		public GameService(IRepository<Game, Guid> gameRepository,
 						   IRepository<Director, Guid> dirRepository,
 						   IRepository<Genre, Guid> genreRepository,
 						   IRepository<Developer, Guid> devRepository,
+						   IRepository<Platform, Guid> platformRepository,
+						   IRepository<GamePlatform, object> gamePlatformRepository,
+						   IRepository<GameGenre, object> gameGenreRepository,
 						   SparkDbContext db)
 		{
 			this.gameRepository = gameRepository;
 			this.dirRepository = dirRepository;
 			this.genreRepository = genreRepository;
 			this.devRepository = devRepository;
+			this.platformRepository = platformRepository;
+			this.gamePlatformRepository = gamePlatformRepository;
+			this.gameGenreRepository = gameGenreRepository;
 			this.db = db;
 		}
 
@@ -67,7 +77,7 @@ namespace SparkApp.Services.Data
 				Title = gameData.Title,
 				Description = gameData.Description,
 				ImageUrl = gameData.ImageUrl,
-				ReleasedDate = gameData.ReleaseDate.ToString(format:ReleasedDateFormat),
+				ReleasedDate = gameData.ReleaseDate.ToString(format: ReleasedDateFormat),
 				DeveloperId = gameData.DeveloperId.ToString(),
 				LeadGameDirectorId = gameData.LeadGameDirectorId.ToString(),
 				MainGenreId = gameData.MainGenreId.ToString(),
@@ -118,13 +128,15 @@ namespace SparkApp.Services.Data
 		}
 
 
-		public async Task<GameDetailsViewModel> GetGameDetailsAsync(string title)
+		public async Task<GameDetailsViewModel?> GetGameDetailsAsync(string title)
 		{
-			Game game = await gameRepository.GetAllAttached()
+			Game? game = await gameRepository.GetAllAttached()
 				.Where(g => g.Title == title)
 				.Include(g => g.LeadGameDirector)
 				.Include(g => g.Developer)
 				.Include(g => g.MainGenre)
+				.Include(g=>g.GamePlatforms)
+				.ThenInclude(gp=>gp.Platform)
 				.FirstOrDefaultAsync();
 
 			var genres = await db.GamesGenres
@@ -132,26 +144,25 @@ namespace SparkApp.Services.Data
 				.Select(gg => gg.Genre)
 				.ToListAsync();
 
-			var platforms = await db.GamesPlatforms
-				.Where(gp => gp.Game.Title == title)
-				.Include(gp => gp.Platform)
-				.ToListAsync();
-
-			GameDetailsViewModel gameDetailsModel = new GameDetailsViewModel
+			if (game != null)
 			{
-				Id = game.Id.ToString(),
-				Title = game.Title,
-				Description = game.Description,
-				ImageUrl = game.ImageUrl,
-				Developer = game.Developer,
-				LeadDirector = game.LeadGameDirector,
-				MainGenre = game.MainGenre,
-				ReleasedDate = game.ReleaseDate,
-				SubGenres = genres,
-				PlatformsList = platforms
-			};
+				GameDetailsViewModel gameDetailsModel = new GameDetailsViewModel
+				{
+					Id = game.Id.ToString(),
+					Title = game.Title,
+					Description = game.Description,
+					ImageUrl = game.ImageUrl,
+					Developer = game.Developer,
+					LeadDirector = game.LeadGameDirector,
+					MainGenre = game.MainGenre,
+					ReleasedDate = game.ReleaseDate,
+					SubGenres = genres,
+					PlatformsList = game.GamePlatforms
+				};
+				return gameDetailsModel;
+			}
 
-			return gameDetailsModel;
+			return null;
 		}
 
 		public async Task<AddGameInputModel> GetInputGameModelAsync()
@@ -206,6 +217,42 @@ namespace SparkApp.Services.Data
 			return gameModel;
 		}
 
+		public async Task<AddPlatformsToGameInputModel?> GetInputPlatformsToGameModelAsync(string id)
+		{
+			Game? game = await gameRepository.GetByIdAsync(Guid.Parse(id));
+			AddPlatformsToGameInputModel? viewModel = null;
+
+			if (game != null)
+			{
+				viewModel = new AddPlatformsToGameInputModel()
+				{
+					Id = id,
+					Title = game.Title,
+
+					Platforms = await platformRepository
+						.GetAllAttached()
+						.Include(p => p.GamesPlatform)
+						.ThenInclude(gp => gp.Game)
+						.Select(p => new PlatformCheckBoxInputModel()
+						{
+							Id = p.Id.ToString(),
+							Name = p.Name,
+							IsSelected = p.GamesPlatform
+								.Any(gp => gp.GameId == Guid.Parse(id) && gp.IsDeleted == false),
+
+							LinkToPlatform = p.GamesPlatform
+								.Where(gp => gp.GameId == Guid.Parse(id))
+								.Select(gp => gp.LinkToPlatform)
+								.First()
+						})
+						.ToListAsync()
+				};
+
+			}
+
+			return viewModel;
+		}
+
 		public async Task AddGameAsync(AddGameInputModel model)
 		{
 			var dateTimeString = $"{model.ReleasedDate}";
@@ -225,6 +272,49 @@ namespace SparkApp.Services.Data
 			};
 
 			await gameRepository.AddAsync(gameData);
+		}
+
+		public async Task AddPlatformsToGameAsync(AddPlatformsToGameInputModel model)
+		{
+			List<GamePlatform> platformsToAdd = new List<GamePlatform>();
+			foreach (var platform in model.Platforms)
+			{
+				Game? game = await gameRepository.GetByIdAsync(Guid.Parse(model.Id));
+				if (game == null || game.IsDeleted)
+				{
+					return;
+				}
+
+				GamePlatform? gamePlatform = await gamePlatformRepository
+					.FirstOrDefaultAsync(gp => gp.GameId == game.Id && gp.PlatformId == Guid.Parse(platform.Id));
+
+				if (platform.IsSelected)
+				{
+					if (gamePlatform == null)
+					{
+						platformsToAdd.Add(new GamePlatform()
+						{
+							GameId = game.Id,
+							PlatformId = Guid.Parse(platform.Id),
+							LinkToPlatform = platform.LinkToPlatform
+
+						});
+					}
+					else
+					{
+						gamePlatform.IsDeleted = false;
+					}
+				}
+				else
+				{
+					if (gamePlatform!=null)
+					{
+						gamePlatform.IsDeleted=true;
+					}
+				}
+			}
+
+			await gamePlatformRepository.AddRangeAsync(platformsToAdd.ToArray());
 		}
 	}
 }
