@@ -103,7 +103,7 @@ namespace SparkApp.Web.Controllers
 			try
 			{
 				await gameService.EditGameAsync(gameToEdit, gameEditModel);
-				return RedirectToAction(nameof(Index));
+				return Redirect($"{nameof(Details)}/{gameToEdit.Title}");
 			}
 			catch (Exception e)
 			{
@@ -145,12 +145,42 @@ namespace SparkApp.Web.Controllers
 
 			await gameService.AddPlatformsToGameAsync(model);
 
-			return RedirectToAction(nameof(Index));
+			return Redirect($"{nameof(Details)}/{model.Title}");
 		}
 
-		public async Task<IActionResult> ManageSubGenres()
+		[HttpGet]
+		public async Task<IActionResult> ManageSubGenres(string id)
 		{
-			return View();
+			AddSubGenresToGameInputModel? inputModel =  await gameService.GetInputGenresToGameModelAsync(id);
+
+			if (inputModel != null)
+			{
+				return View(inputModel);
+			}
+			else
+			{
+				return RedirectToAction(nameof(Index));
+			}
+		}
+
+		[HttpPost]
+		public async Task<IActionResult> ManageSubGenres(AddSubGenresToGameInputModel model)
+		{
+			if (!this.ModelState.IsValid)
+			{
+				return View(model);
+			}
+
+			Guid movieGuid = Guid.Empty;
+			bool isGuidValid = this.IsGuidValid(model.Id, ref movieGuid);
+			if (!isGuidValid)
+			{
+				return RedirectToAction(nameof(Index));
+			}
+
+			await gameService.AddSubGenresToGameAsync(model);
+
+			return Redirect($"{nameof(Details)}/{model.Title}");
 		}
 	}
 }

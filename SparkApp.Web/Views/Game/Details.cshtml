@@ -12,21 +12,23 @@
 		}
 		<div class="card-body" align="center">
 			<h5 class="card-title" align="center">@Model.Title</h5>
+			
 			<p class="card-text">@Model.Description</p>
-			
-			<p class="card-text"><small>@Model.ReleasedDate.ToShortDateString()</small></p>
+			<hr />
+			<p class="card-text"><small>Release date: @Model.ReleasedDate.ToShortDateString()</small></p>
+			<hr />
 			<p class="card-text"><small>Developer: @Model.Developer.Name</small></p>
+			<hr />
 			<p class="card-text"><small>Director: @Model.LeadDirector.Name</small></p>
-			
-			<hr/>
+			<hr />
 			<p class="card-text"><small>Main Genre: <a asp-controller="Genre" asp-action="Details" asp-route-id="@Model.MainGenre.Name">@Model.MainGenre.Name</a></small></p>
 			<p class="card-text"><small>Sub Genres:</small></p>
 			@foreach (var genre in Model.SubGenres)
 			{
 				<p class="card-text"><small>@genre.Name</small></p>
 			}
-			
-			<hr/>
+
+			<hr />
 			<p class="card-text"><small>Platforms:</small></p>
 			@foreach (var p in Model.PlatformsList)
 			{
@@ -39,10 +41,9 @@
 		</div>
 
 		<a asp-controller="Game" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning btn-dark-text btn-rounded mb-2 w-100 p-3 fw-bold">Edit</a>
-		<a asp-controller="Game" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger btn-rounded mb-2 w-100 p-3 fw-bold">Delete</a>
-		<hr/>
 		<a asp-controller="Game" asp-action="ManagePlatforms" asp-route-id="@Model.Id" class="btn btn-warning btn-dark-text btn-rounded mb-2 w-100 p-3 fw-bold">Manage Platform</a>
-		<a asp-controller="Game" asp-action="ManageSubGenres" asp-route-id="@Model.Id" class="btn btn-danger btn-rounded mb-2 w-100 p-3 fw-bold">Manage Sub Genres</a>
+		<a asp-controller="Game" asp-action="ManageSubGenres" asp-route-id="@Model.Id" class="btn btn-warning btn-dark-text btn-rounded mb-2 w-100 p-3 fw-bold">Manage Sub Genres</a>
+		<a asp-controller="Game" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger btn-rounded mb-2 w-100 p-3 fw-bold">Delete</a>
 	</div>
 
 	<a asp-controller="Game" asp-action="All" class="btn btn-warning btn-dark-text btn-rounded mb-2 w-100 p-3 fw-bold">Back to All Games</a>

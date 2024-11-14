@@ -135,8 +135,8 @@ namespace SparkApp.Services.Data
 				.Include(g => g.LeadGameDirector)
 				.Include(g => g.Developer)
 				.Include(g => g.MainGenre)
-				.Include(g=>g.GamePlatforms)
-				.ThenInclude(gp=>gp.Platform)
+				.Include(g => g.GamePlatforms)
+				.ThenInclude(gp => gp.Platform)
 				.FirstOrDefaultAsync();
 
 			var genres = await db.GamesGenres
@@ -253,6 +253,38 @@ namespace SparkApp.Services.Data
 			return viewModel;
 		}
 
+		public async Task<AddSubGenresToGameInputModel?> GetInputGenresToGameModelAsync(string id)
+		{
+			Game? game = await gameRepository.GetByIdAsync(Guid.Parse(id));
+			AddSubGenresToGameInputModel? genresViewModel = null;
+
+			if (game != null)
+			{
+				genresViewModel = new AddSubGenresToGameInputModel()
+				{
+					Id = id,
+					Title = game.Title,
+
+					SubGenres = await genreRepository
+						.GetAllAttached()
+						.Include(g => g.GamesGenre)
+						.ThenInclude(gg => gg.Game)
+						.Where(g => g.Id != game.MainGenreId)
+						.Select(g => new GenreCheckBoxInputModel()
+						{
+							Id = g.Id.ToString(),
+							Name = g.Name,
+							IsSelected = g.GamesGenre
+								.Any(gg => gg.GameId == game.Id && gg.IsDeleted == false)
+						})
+						.ToListAsync()
+
+				};
+			}
+
+			return genresViewModel;
+		}
+
 		public async Task AddGameAsync(AddGameInputModel model)
 		{
 			var dateTimeString = $"{model.ReleasedDate}";
@@ -276,15 +308,16 @@ namespace SparkApp.Services.Data
 
 		public async Task AddPlatformsToGameAsync(AddPlatformsToGameInputModel model)
 		{
+			Game? game = await gameRepository.GetByIdAsync(Guid.Parse(model.Id));
+			if (game == null || game.IsDeleted)
+			{
+				return;
+			}
+
 			List<GamePlatform> platformsToAdd = new List<GamePlatform>();
+
 			foreach (var platform in model.Platforms)
 			{
-				Game? game = await gameRepository.GetByIdAsync(Guid.Parse(model.Id));
-				if (game == null || game.IsDeleted)
-				{
-					return;
-				}
-
 				GamePlatform? gamePlatform = await gamePlatformRepository
 					.FirstOrDefaultAsync(gp => gp.GameId == game.Id && gp.PlatformId == Guid.Parse(platform.Id));
 
@@ -297,7 +330,6 @@ namespace SparkApp.Services.Data
 							GameId = game.Id,
 							PlatformId = Guid.Parse(platform.Id),
 							LinkToPlatform = platform.LinkToPlatform
-
 						});
 					}
 					else
@@ -307,14 +339,56 @@ namespace SparkApp.Services.Data
 				}
 				else
 				{
-					if (gamePlatform!=null)
+					if (gamePlatform != null)
 					{
-						gamePlatform.IsDeleted=true;
+						gamePlatform.IsDeleted = true;
 					}
 				}
 			}
 
 			await gamePlatformRepository.AddRangeAsync(platformsToAdd.ToArray());
+		}
+
+		public async Task AddSubGenresToGameAsync(AddSubGenresToGameInputModel model)
+		{
+			Game? game = await gameRepository.GetByIdAsync(Guid.Parse(model.Id));
+			if (game == null || game.IsDeleted)
+			{
+				return;
+			}
+
+			List<GameGenre> genresToAdd = new List<GameGenre>();
+
+			foreach (var subGenre in model.SubGenres)
+			{
+				GameGenre? gameGenre = await gameGenreRepository
+					.FirstOrDefaultAsync(gg => gg.GameId == game.Id && gg.GenreId == Guid.Parse(subGenre.Id));
+
+				if (subGenre.IsSelected)
+				{
+					if (gameGenre == null)
+					{
+						genresToAdd.Add(new GameGenre()
+						{
+							GameId = game.Id,
+							GenreId = Guid.Parse(subGenre.Id)
+						});
+					}
+					else
+					{
+						gameGenre.IsDeleted = false;
+					}
+				}
+				else
+				{
+					if (gameGenre != null)
+					{
+						gameGenre.IsDeleted = true;
+					}
+				}
+			}
+
+			await gameGenreRepository.AddRangeAsync(genresToAdd.ToArray());
 		}
 	}
 }

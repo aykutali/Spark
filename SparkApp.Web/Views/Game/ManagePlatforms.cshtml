@@ -11,6 +11,7 @@
 	<div class="form-group">
 		@for (int i = 0; i < Model.Platforms.Count; i++)
 		{
+			<hr />
 			<div class="form-check">
 
 				<input type="hidden" asp-for="@Model.Platforms[i].Id"/>
@@ -21,7 +22,6 @@
 				<label class="form-check-label">Link To Platform:</label>
 				<input asp-for="@Model.Platforms[i].LinkToPlatform" class="form-control" aria-required="false" placeholder="Enter Url to platform (optional)"/>
 			</div>
-			<hr/>
 		}
 
 		<button type="submit" class="btn btn-primary">Confirm</button>

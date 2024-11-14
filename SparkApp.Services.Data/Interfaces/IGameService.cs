@@ -25,9 +25,13 @@ namespace SparkApp.Services.Data.Interfaces
 
         public Task<AddPlatformsToGameInputModel?> GetInputPlatformsToGameModelAsync(string id);
 
+        public Task<AddSubGenresToGameInputModel?> GetInputGenresToGameModelAsync(string id);
+
         public Task AddGameAsync(AddGameInputModel model);
 
         public Task AddPlatformsToGameAsync(AddPlatformsToGameInputModel model);
-        
+
+        public Task AddSubGenresToGameAsync(AddSubGenresToGameInputModel model);
+
     }
 }
