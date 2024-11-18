@@ -43,7 +43,7 @@ namespace SparkApp.Web.Controllers
         [Route("{name}")]
 		public async Task<IActionResult> Details(string name)
         {
-	        GenreDetailsViewModel genreModel = await  genreService.GetGenreDetailsAsync(name);
+	        GenreDetailsViewModel? genreModel = await  genreService.GetGenreDetailsAsync(name);
 
 	        if (genreModel != null)
 	        {

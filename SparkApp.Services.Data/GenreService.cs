@@ -54,12 +54,15 @@ namespace SparkApp.Services.Data
 
 				foreach (var gg in genre.GamesGenre)
 				{
-					games.Add(new GameAllViewModel()
+					if (!gg.IsDeleted)
 					{
-						Id = gg.GameId,
-						ImageUrl = gg.Game.ImageUrl,
-						Title = gg.Game.Title
-					});
+						games.Add(new GameAllViewModel()
+						{
+							Id = gg.GameId,
+							ImageUrl = gg.Game.ImageUrl,
+							Title = gg.Game.Title
+						});
+					}
 				}
 
 				GenreDetailsViewModel genreModel = new GenreDetailsViewModel()

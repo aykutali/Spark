@@ -5,7 +5,8 @@ using SparkApp.Web.ViewModels.Platform;
 
 namespace SparkApp.Web.Controllers
 {
-    public class PlatformController: BaseController
+	[Route("[controller]/[action]")]
+	public class PlatformController: BaseController
     {
         private readonly IPlatformService platformService;
 
@@ -35,6 +36,20 @@ namespace SparkApp.Web.Controllers
             await platformService.AddPlatformAsync(model);
 
             return View(nameof(Index));
+        }
+
+        [HttpGet]
+        [Route("{name}")]
+        public async Task<IActionResult> Details(string name)
+        {
+            PlatformDetailsViewModel? platformModel = await platformService.GetPlatformDetailsAsync(name);
+
+            if (platformModel != null)
+            {
+                return View(platformModel);
+            }
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }
