@@ -6,7 +6,8 @@ using SparkApp.Web.ViewModels.Director;
 
 namespace SparkApp.Web.Controllers
 {
-    public class DeveloperController : BaseController
+	[Route("[controller]/[action]")]
+	public class DeveloperController : BaseController
     {
         private readonly IDeveloperService developerService;
 
@@ -37,5 +38,19 @@ namespace SparkApp.Web.Controllers
 
             return View(nameof(Index));
         }
+
+        [HttpGet]
+        [Route("{name}")]
+		public async Task<IActionResult> Details(string name)
+		{
+			DeveloperDetailsViewModel? developerModel = await developerService.GetDeveloperDetailsAsync(name);
+
+			if (developerModel!= null)
+			{
+				return View(developerModel);
+			}
+
+			return RedirectToAction(nameof(Index));
+		}
     }
 }

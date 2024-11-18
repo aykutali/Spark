@@ -41,12 +41,14 @@ namespace SparkApp.Services.Data
 			this.platformRepository = platformRepository;
 			this.gamePlatformRepository = gamePlatformRepository;
 			this.gameGenreRepository = gameGenreRepository;
-			
+
 		}
 
 		public async Task<List<GameAllViewModel>> GetAllGamesAsync()
 		{
-			List<GameAllViewModel> games = await gameRepository.GetAllAttached()
+			List<GameAllViewModel> games = await gameRepository
+				.GetAllAttached()
+				.Where(g => g.IsConfirmed && !g.IsDeleted)
 				.Select(g => new GameAllViewModel
 				{
 					Id = g.Id,

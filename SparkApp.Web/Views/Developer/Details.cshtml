@@ -1,0 +1,46 @@
+﻿@model SparkApp.Web.ViewModels.Developer.DeveloperDetailsViewModel
+
+<div>
+	<div>
+		<div align="center">
+			<img src="@Model.LogoUrl" class="card-img img-fluid" style="height: 100px; object-fit: contain;" alt="Developer Logo" />
+			<h2 align="center">@Model.Name</h2>
+		</div>
+	</div>
+	<hr />
+	@if (@Model.Games.Any())
+	{
+		<h3 align="left">Games from this developer:</h3>
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th>Image</th>
+					<th>Title</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var game in Model.Games)
+				{
+					<tr>
+						<input type="hidden" asp-for="@game.Id" />
+						<input type="hidden" asp-for="@game.Title" />
+						<th><img src="@game.ImageUrl" class="card-img img-fluid" style="height: 200px; object-fit: cover;" alt="Game Image"></th>
+						<th>@game.Title</th>
+						<th>
+							<a asp-controller="Game" asp-action="Details" asp-route-id="@game.Title" class="btn btn-info btn-dark-text btn-rounded mb-2 w-20 p-3 fw-bold">Go to Game</a>
+						</th>
+					</tr>
+				}
+			</tbody>
+		</table>
+	}
+	else
+	{
+		<div align="center">
+			<h4>There is no games from this developer for now...</h4>
+			<a asp-controller="Game" asp-action="All" class="btn btn-info btn-dark-text btn-rounded mb-2 w-20 p-3 fw-bold">Go to All Games</a>
+		</div>
+	}
+
+</div>
