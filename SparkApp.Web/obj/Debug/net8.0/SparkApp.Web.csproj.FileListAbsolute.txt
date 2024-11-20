@@ -460,3 +460,7 @@ D:\C#\Spark\SparkApp.Web\bin\Debug\net8.0\SparkApp.Web.Infrastructure.dll
 D:\C#\Spark\SparkApp.Web\bin\Debug\net8.0\SparkApp.Web.Infrastructure.pdb
 D:\C#\Spark\SparkApp.Web\bin\Debug\net8.0\SparkApp.Services.Data.dll
 D:\C#\Spark\SparkApp.Web\bin\Debug\net8.0\SparkApp.Services.Data.pdb
+D:\C#\Spark\SparkApp.Web\bin\Debug\net8.0\SparkApp.Web.staticwebassets.endpoints.json
+D:\C#\Spark\SparkApp.Web\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+D:\C#\Spark\SparkApp.Web\obj\Debug\net8.0\staticwebassets\msbuild.SparkApp.Web.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+D:\C#\Spark\SparkApp.Web\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

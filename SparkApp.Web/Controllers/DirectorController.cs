@@ -1,11 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Globalization;
+using Microsoft.AspNetCore.Mvc;
 
 using SparkApp.Services.Data.Interfaces;
 using SparkApp.Web.ViewModels.Director;
 
 namespace SparkApp.Web.Controllers
 {
-    public class DirectorController : BaseController
+	[Route("[controller]/[action]")]
+	public class DirectorController : BaseController
     {
         private readonly IDirectorService directorService;
 
@@ -36,6 +38,20 @@ namespace SparkApp.Web.Controllers
             await directorService.AddDirectorAsync(model);
 
             return View(nameof(Index));
+        }
+
+        [HttpGet]
+        [Route("{name}")]
+		public async Task<IActionResult> Details(string name)
+		{
+			DirectorDetailsViewModel? directorModel = await directorService.GetDirectorDetailsAsync(name);
+
+			if (directorModel != null)
+			{
+                return View(directorModel);
+			}
+
+			return RedirectToAction(nameof(Index));
         }
     }
 }

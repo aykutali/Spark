@@ -2,7 +2,7 @@
   "Files": [
     {
       "Id": "D:\\C#\\Spark\\SparkApp.Web\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SparkApp.Web.bundle.scp.css",
-      "PackagePath": "staticwebassets\\SparkApp.Web.bundle.scp.css"
+      "PackagePath": "staticwebassets\\SparkApp.Web.knct42l1t6.bundle.scp.css"
     },
     {
       "Id": "D:\\C#\\Spark\\SparkApp.Web\\wwwroot\\css\\site.css",
@@ -247,6 +247,10 @@
     {
       "Id": "D:\\C#\\Spark\\SparkApp.Web\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.SparkApp.Web.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.SparkApp.Web.Microsoft.AspNetCore.StaticWebAssets.props",
