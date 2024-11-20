@@ -29,6 +29,18 @@ namespace SparkApp.Services.Data
 			await directorRepository.AddAsync(directorData);
 		}
 
+		public async Task<List<DirectorViewModel>?> GetAllAsync()
+		{
+			return await directorRepository.GetAllAttached()
+				.Select(d => new DirectorViewModel()
+				{
+					Id = d.Id,
+					Name = d.Name,
+				})
+				.OrderBy(d => d.Name)
+				.ToListAsync();
+		}
+
 		public async Task<DirectorDetailsViewModel> GetDirectorDetailsAsync(string name)
 		{
 			Director? director = await directorRepository

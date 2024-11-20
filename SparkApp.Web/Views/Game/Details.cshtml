@@ -1,4 +1,8 @@
-﻿@model SparkApp.Web.ViewModels.Game.GameDetailsViewModel
+﻿@using SparkApp.Common
+@model SparkApp.Web.ViewModels.Game.GameDetailsViewModel
+@{
+	string date = @Model.ReleasedDate.ToString("dd/MM/yyyy");
+}
 
 <div class="row">
 	<div class="card mb-3">
@@ -15,11 +19,11 @@
 			
 			<p class="card-text">@Model.Description</p>
 			<hr />
-			<p class="card-text"><small>Release date: @Model.ReleasedDate.ToShortDateString()</small></p>
+			<p class="card-text"><small>Release date: @date</small></p>
 			<hr />
-			<p class="card-text"><small>Developer: @Model.Developer.Name</small></p>
+			<p class="card-text"><small>Developer: <a asp-controller="Developer" asp-action="Details" asp-route-id="@Model.Developer.Name">@Model.Developer.Name</a></small></p>
 			<hr />
-			<p class="card-text"><small>Director: @Model.LeadDirector.Name</small></p>
+			<p class="card-text"><small>Director: <a asp-controller="Director" asp-action="Details" asp-route-id="@Model.LeadDirector.Id">@Model.LeadDirector.Name</a></small></p>
 			<hr />
 			<p class="card-text"><small>Main Genre: <a asp-controller="Genre" asp-action="Details" asp-route-id="@Model.MainGenre.Name">@Model.MainGenre.Name</a></small></p>
 			<hr/>

@@ -15,9 +15,12 @@ namespace SparkApp.Web.Controllers
         {
             this.developerService = developerService;
         }
-        public IActionResult Index()
+
+        public async Task<IActionResult> Index()
         {
-            return View();
+	        List<DeveloperViewModel>? developers = await developerService.GetAllAsync();
+
+            return View(developers);
         }
 
         [HttpGet]

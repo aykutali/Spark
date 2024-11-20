@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SparkApp.Web.ViewModels")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7980673eda8a55a5a2fd1c4648f03720af7b7c0a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f39d07de7b60dac025d358e54c39217195af045e")]
 [assembly: System.Reflection.AssemblyProductAttribute("SparkApp.Web.ViewModels")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SparkApp.Web.ViewModels")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

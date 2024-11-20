@@ -8,6 +8,8 @@ namespace SparkApp.Services.Data.Interfaces
     {
         Task AddDeveloperAsync(AddDeveloperInputModel model);
 
+        Task<List<DeveloperViewModel>?> GetAllAsync();
+
         Task<DeveloperDetailsViewModel?> GetDeveloperDetailsAsync(string name);
     }
 }

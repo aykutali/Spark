@@ -28,6 +28,19 @@ namespace SparkApp.Services.Data
 			await developerRepository.AddAsync(devData);
 		}
 
+		public async Task<List<DeveloperViewModel>?> GetAllAsync()
+		{
+			return await developerRepository.GetAllAttached()
+				.Select(d => new DeveloperViewModel()
+				{
+					Id = d.Id,
+					Name = d.Name
+				})
+				.OrderBy(d => d.Name)
+				.ToListAsync();
+
+		}
+
 		public async Task<DeveloperDetailsViewModel?> GetDeveloperDetailsAsync(string name)
 		{
 			Developer? developer = await developerRepository

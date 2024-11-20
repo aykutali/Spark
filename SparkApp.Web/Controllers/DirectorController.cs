@@ -16,9 +16,11 @@ namespace SparkApp.Web.Controllers
             this.directorService = directorService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+	        List<DirectorViewModel>? directors = await directorService.GetAllAsync();
+
+	        return View(directors);
         }
 
         [HttpGet]

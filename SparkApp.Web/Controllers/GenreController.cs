@@ -15,9 +15,12 @@ namespace SparkApp.Web.Controllers
         {
             this.genreService = genreService;
         }
-        public IActionResult Index()
+
+        public async Task<IActionResult> Index()
         {
-            return View();
+	        List<GenreViewModel> genres = await genreService.GetAllAsync();
+
+            return View(genres);
         }
 
         [HttpGet]

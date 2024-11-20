@@ -31,6 +31,17 @@ namespace SparkApp.Services.Data
 			await genreRepository.AddAsync(genreData);
 		}
 
+		public async Task<List<GenreViewModel>?> GetAllAsync()
+		{
+			return await genreRepository.GetAllAttached()
+				.Select(g=> new GenreViewModel()
+				{
+					Id = g.Id,
+					Name = g.Name,
+				})
+				.OrderBy(g => g.Name)
+				.ToListAsync();
+		}
 		public async Task<GenreDetailsViewModel?> GetGenreDetailsAsync(string name)
 		{
 			Genre? genre = await genreRepository

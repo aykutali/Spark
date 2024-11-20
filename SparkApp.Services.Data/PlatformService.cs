@@ -27,6 +27,18 @@ namespace SparkApp.Services.Data
 			await platformRepository.AddAsync(platformData);
 		}
 
+		public async Task<List<PlatformViewModel>?> GetAllAsync()
+		{
+			return await platformRepository.GetAllAttached()
+				.Select(p=> new PlatformViewModel()
+				{
+					Id = p.Id.ToString(),
+					Name = p.Name,
+				})
+				.OrderBy(p => p.Name)
+				.ToListAsync();
+		}
+
 		public async Task<PlatformDetailsViewModel?> GetPlatformDetailsAsync(string name)
 		{
 			Platform? platform = await platformRepository

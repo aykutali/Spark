@@ -1,3 +1,15 @@
-﻿<h2>Developer index</h2>
+﻿@using SparkApp.Web.ViewModels.Developer
+@model List<DeveloperViewModel>
 
-<a asp-action="Add">Add developer</a>
+<h2>Developer index</h2>
+<div class="col-md-12 bg-light text-right">
+	<button asp-controller="Genre" asp-action="Add" class="btn btn-success btn-dark-text btn-rounded mb-3 w-10 p-8 fw-bold">Add a Developer</button>
+</div>
+
+<h4>All Developers..</h4>
+<hr />
+@foreach (var d in Model)
+{
+	<a asp-controller="Developer" asp-action="Details" asp-route-id="@d.Name">@d.Name</a>
+	<hr />
+}

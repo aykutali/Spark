@@ -1,3 +1,15 @@
-﻿<h2>Platforms index</h2>
+﻿@using SparkApp.Web.ViewModels.Platform
+@model List<PlatformViewModel>
 
-<a asp-action="Add">Add a Platform</a>
+<h2>Platforms index</h2>
+<div class="col-md-12 bg-light text-right">
+	<button asp-controller="Platform" asp-action="Add" class="btn btn-success btn-dark-text btn-rounded mb-3 w-10 p-8 fw-bold">Add a Platform</button>
+</div>
+
+<h4>All Platforms..</h4>
+<hr />
+@foreach (var p in Model)
+{
+	<a asp-controller="Genre" asp-action="Details" asp-route-id="@p.Name">@p.Name</a>
+	<hr />
+}

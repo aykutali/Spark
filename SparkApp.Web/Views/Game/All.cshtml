@@ -9,11 +9,11 @@
         <div class="card col-3 h-100" style="width: 20rem;" align="center">
             @if (!string.IsNullOrEmpty(e.ImageUrl))
             {
-                <img src="@e.ImageUrl" class="card-img-top img-fluid" style="height: 200px; object-fit: cover;" alt="Game Image">
+                <img src="@e.ImageUrl" class="card-img-top img-fluid" style="height: 200px; object-fit: contain;" alt="Game Image">
             }
             else
             {
-                <img src="~/game.png" class="card-img-top img-fluid" style="height: 200px; object-fit: cover;" alt="Placeholder Image">
+                <img src="~/game.png" class="card-img-top img-fluid" style="height: 200px; object-fit: contain;" alt="Placeholder Image">
             }
             <div class="card-body" style="height: calc(100% - 150px); overflow: auto;">
                 <div class="row">

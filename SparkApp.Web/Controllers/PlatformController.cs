@@ -14,9 +14,11 @@ namespace SparkApp.Web.Controllers
         {
             this.platformService = platformService;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+	        List<PlatformViewModel>? platforms = await platformService.GetAllAsync();
+
+            return View(platforms);
         }
 
         [HttpGet]

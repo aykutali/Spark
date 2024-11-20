@@ -11,6 +11,8 @@ namespace SparkApp.Services.Data.Interfaces
     {
         Task AddPlatformAsync(AddPlatformInputModel model);
 
+        Task<List<PlatformViewModel>?> GetAllAsync();
+
         Task<PlatformDetailsViewModel?> GetPlatformDetailsAsync(string name);
     }
 }
