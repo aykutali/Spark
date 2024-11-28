@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
 using System.Globalization;
+using Microsoft.AspNetCore.Authorization;
 using SparkApp.Data.Models;
 using static SparkApp.Common.EntityValidationConstants.Game;
 using SparkApp.Services.Data.Interfaces;
@@ -74,6 +75,7 @@ namespace SparkApp.Web.Controllers
 		}
 
 		[HttpGet]
+		[Authorize(Roles = "Moderator")]
 		public async Task<IActionResult> Edit(string id)
 		{
 			GameEditViewModel gameEditModel = await gameService.GetEditGameModelAsync(id);
@@ -82,6 +84,7 @@ namespace SparkApp.Web.Controllers
 		}
 
 		[HttpPost]
+		[Authorize(Roles = "Moderator")]
 		public async Task<IActionResult> Edit(GameEditViewModel gameEditModel)
 		{
 			string dateTimeSting = $"{gameEditModel.ReleasedDate}";
@@ -113,6 +116,7 @@ namespace SparkApp.Web.Controllers
 		}
 
 		[HttpGet]
+		[Authorize(Roles = "Moderator")]
 		public async Task<IActionResult> ManagePlatforms(string id)
 		{
 			AddPlatformsToGameInputModel? inputModel = await gameService.GetInputPlatformsToGameModelAsync(id);
@@ -129,6 +133,7 @@ namespace SparkApp.Web.Controllers
 		}
 
 		[HttpPost]
+		[Authorize(Roles = "Moderator")]
 		public async Task<IActionResult> ManagePlatforms(AddPlatformsToGameInputModel model)
 		{
 			if (!this.ModelState.IsValid)
@@ -149,6 +154,7 @@ namespace SparkApp.Web.Controllers
 		}
 
 		[HttpGet]
+		[Authorize(Roles = "Moderator")]
 		public async Task<IActionResult> ManageSubGenres(string id)
 		{
 			AddSubGenresToGameInputModel? inputModel =  await gameService.GetInputGenresToGameModelAsync(id);
@@ -164,6 +170,7 @@ namespace SparkApp.Web.Controllers
 		}
 
 		[HttpPost]
+		[Authorize(Roles = "Moderator")]
 		public async Task<IActionResult> ManageSubGenres(AddSubGenresToGameInputModel model)
 		{
 			if (!this.ModelState.IsValid)

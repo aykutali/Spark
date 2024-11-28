@@ -8,5 +8,7 @@ namespace SparkApp.Data.Models
         {
             this.Id = Guid.NewGuid();
         }
+
+        public int GameOfTheDayStreak { get; set; }
     }
 }

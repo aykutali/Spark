@@ -173,6 +173,9 @@ namespace SparkApp.Data.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<int>("GameOfTheDayStreak")
+                        .HasColumnType("int");
+
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
 
@@ -338,6 +341,21 @@ namespace SparkApp.Data.Migrations
                     b.ToTable("GamesGenres");
                 });
 
+            modelBuilder.Entity("SparkApp.Data.Models.GameOfTheDay", b =>
+                {
+                    b.Property<DateOnly>("Day")
+                        .HasColumnType("date");
+
+                    b.Property<Guid>("GameId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Day");
+
+                    b.HasIndex("GameId");
+
+                    b.ToTable("GamesOfTheDays");
+                });
+
             modelBuilder.Entity("SparkApp.Data.Models.GamePlatform", b =>
                 {
                     b.Property<Guid>("GameId")
@@ -480,7 +498,7 @@ namespace SparkApp.Data.Migrations
                         .IsRequired();
 
                     b.HasOne("SparkApp.Data.Models.Genre", "Genre")
-                        .WithMany("Games")
+                        .WithMany("GamesGenre")
                         .HasForeignKey("GenreId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -490,16 +508,27 @@ namespace SparkApp.Data.Migrations
                     b.Navigation("Genre");
                 });
 
+            modelBuilder.Entity("SparkApp.Data.Models.GameOfTheDay", b =>
+                {
+                    b.HasOne("SparkApp.Data.Models.Game", "TheGame")
+                        .WithMany()
+                        .HasForeignKey("GameId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TheGame");
+                });
+
             modelBuilder.Entity("SparkApp.Data.Models.GamePlatform", b =>
                 {
                     b.HasOne("SparkApp.Data.Models.Game", "Game")
-                        .WithMany("Platforms")
+                        .WithMany("GamePlatforms")
                         .HasForeignKey("GameId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("SparkApp.Data.Models.Platform", "Platform")
-                        .WithMany("Games")
+                        .WithMany("GamesPlatform")
                         .HasForeignKey("PlatformId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -521,19 +550,19 @@ namespace SparkApp.Data.Migrations
 
             modelBuilder.Entity("SparkApp.Data.Models.Game", b =>
                 {
-                    b.Navigation("Platforms");
+                    b.Navigation("GamePlatforms");
 
                     b.Navigation("SideGenres");
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.Genre", b =>
                 {
-                    b.Navigation("Games");
+                    b.Navigation("GamesGenre");
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.Platform", b =>
                 {
-                    b.Navigation("Games");
+                    b.Navigation("GamesPlatform");
                 });
 #pragma warning restore 612, 618
         }

@@ -3,32 +3,36 @@
 
 <div>
 	<h2 align="center">@Model.Name</h2>
-	<p>Description: @Model.Description</p>
+	<p align="center"><strong>Description:</strong> @Model.Description</p>
 
-	<hr/>
+	<hr />
 	<h3 align="center">Games with the genre</h3>
 	<table class="table">
 		<thead class="thead-dark">
-		<tr>
-			<th>Image</th>
-			<th>Title</th>
-			<th>Actions</th>
-		</tr>
+			<tr>
+				<th>Image</th>
+				<th>Title</th>
+				<th>Actions</th>
+			</tr>
 		</thead>
 		<tbody>
-		@foreach (var game in Model.Games)
-		{
-			<tr>
-				<input type="hidden" asp-for="@game.Id" />
-				<input type="hidden" asp-for="@game.Title" />
-				<th><img src="@game.ImageUrl" class="card-img img-fluid" style="height: 200px; object-fit: cover;" alt="Game Image"></th>
-				<th>@game.Title</th>
-				<th>
-					<a asp-controller="Game" asp-action="Details" asp-route-id="@game.Title" class="btn btn-info btn-dark-text btn-rounded mb-2 w-20 p-3 fw-bold">Go to Game</a>
-					<a asp-controller="Game" asp-action="ManageSubGenres" asp-route-id="@game.Id" class="btn btn-warning btn-dark-text btn-rounded mb-2 w-20 p-3 fw-bold">Manage Sub Genres</a>
-				</th>
-			</tr>
-		}
+			@foreach (var game in Model.Games)
+			{
+				<tr>
+					<input type="hidden" asp-for="@game.Id"/>
+					<input type="hidden" asp-for="@game.Title"/>
+					<th><img src="@game.ImageUrl" class="card-img img-fluid" style="height: 300px; object-fit: contain;" alt="Game Image"></th>
+					<th><strong>@game.Title</strong></th>
+					<th>
+						<a asp-controller="Game" asp-action="Details" asp-route-id="@game.Title" class="btn btn-info btn-dark-text btn-rounded mb-2 w-20 p-3 fw-bold">Go to Game</a>
+						
+						@if (User.IsInRole("Moderator"))
+						{
+							<a asp-controller="Game" asp-action="ManageSubGenres" asp-route-id="@game.Id" class="btn btn-warning btn-dark-text btn-rounded mb-2 w-20 p-3 fw-bold">Manage Sub Genres</a>
+						}
+					</th>
+				</tr>
+			}
 		</tbody>
 	</table>
 

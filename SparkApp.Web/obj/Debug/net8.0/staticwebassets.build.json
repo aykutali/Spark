@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "5tGJ7Pmj+rVb6d3to6+xpCHRVWJ3d5zVu0Ibydqj8Fo=",
+  "Hash": "BqDM5JYZMKCDvnIDE+kx/5bT8wCXk2JlnHXQK5LqrYY=",
   "Source": "SparkApp.Web",
   "BasePath": "_content/SparkApp.Web",
   "Mode": "Default",
@@ -1380,6 +1380,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\game.png"
+    },
+    {
+      "Identity": "D:\\C#\\Spark\\SparkApp.Web\\wwwroot\\js\\guessGame.js",
+      "SourceId": "SparkApp.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\C#\\Spark\\SparkApp.Web\\wwwroot\\",
+      "BasePath": "_content/SparkApp.Web",
+      "RelativePath": "js/guessGame#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "101vg489t5",
+      "Integrity": "0Xb0mr7otVdWirsKNw+HUYn+l/Cfy6gniW5tHz3skTY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\guessGame.js"
     },
     {
       "Identity": "D:\\C#\\Spark\\SparkApp.Web\\wwwroot\\js\\site.js",
@@ -5064,6 +5085,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-16aFlqtpsG9RyieKZUUUjkJpqTgcJtWXwT312I4Iz1s="
+        }
+      ]
+    },
+    {
+      "Route": "js/guessGame.101vg489t5.js",
+      "AssetFile": "D:\\C#\\Spark\\SparkApp.Web\\wwwroot\\js\\guessGame.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6488"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0Xb0mr7otVdWirsKNw+HUYn+l/Cfy6gniW5tHz3skTY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 28 Nov 2024 16:29:37 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "101vg489t5"
+        },
+        {
+          "Name": "label",
+          "Value": "js/guessGame.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-0Xb0mr7otVdWirsKNw+HUYn+l/Cfy6gniW5tHz3skTY="
+        }
+      ]
+    },
+    {
+      "Route": "js/guessGame.js",
+      "AssetFile": "D:\\C#\\Spark\\SparkApp.Web\\wwwroot\\js\\guessGame.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6488"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0Xb0mr7otVdWirsKNw+HUYn+l/Cfy6gniW5tHz3skTY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 28 Nov 2024 16:29:37 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-0Xb0mr7otVdWirsKNw+HUYn+l/Cfy6gniW5tHz3skTY="
         }
       ]
     },

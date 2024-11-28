@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SparkApp.Data.Models\SparkApp.Data.Models.csproj" />
+    <ProjectReference Include="..\SparkApp.Data\SparkApp.Data.csproj" />
+    <ProjectReference Include="..\SparkApp.Infrastructure\SparkApp.Web.Infrastructure.csproj" />
+    <ProjectReference Include="..\SparkApp.Services.Data\SparkApp.Services.Data.csproj" />
+    <ProjectReference Include="..\SparkApp.Web.ViewModels\SparkApp.Web.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>

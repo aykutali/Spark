@@ -1,0 +1,41 @@
+﻿@model List<SparkApp.Web.ViewModels.Game.GameAllViewModel>
+@{
+	List<string> allGamesNames = Model.Select(g => g.Title).ToList();
+}
+
+<h1>Guess The Game</h1>
+
+<div align="center" class="mb-3">
+	<label class="form-label-add-edit"></label>
+	<select id="gameNameSelect" class="form-control" aria-required="true" asp-items="@(new SelectList(allGamesNames, "Name"))">
+		<option value="">Select Game...</option>
+	</select>
+</div>
+
+<button id="guessButton" class="btn btn-success btn-dark-text btn-rounded mb-3 w-10 p-8 fw-bold">Guess</button>
+
+<div id="correctGuess" align="center"></div>
+
+<div align="center" id="guessList">
+	<table class="table">
+		<thead class="thead-dark">
+		<tr>
+			<th>Image</th>
+			<th>Release Date</th>
+			<th>Developer</th>
+			<th>Lead Game Director</th>
+			<th>Main Genre</th>
+			<th>Sub Genres</th>
+			<th>Platforms</th>
+		</tr>
+		</thead>
+		<tbody id="gameInfo">
+		</tbody>
+	</table>
+</div>
+
+
+
+<script src="js/guessGame.js"></script>
+
+

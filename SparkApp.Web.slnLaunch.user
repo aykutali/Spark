@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "SparkApp.Web\\SparkApp.Web.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "SparkApp.WebApi\\SparkApp.WebApi.csproj",
+        "Action": "StartWithoutDebugging"
+      }
+    ]
+  }
+]

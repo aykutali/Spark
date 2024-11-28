@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 using SparkApp.Services.Data.Interfaces;
@@ -24,13 +25,15 @@ namespace SparkApp.Web.Controllers
         }
 
         [HttpGet]
-        public IActionResult Add()
+        [Authorize(Roles = "Moderator")]
+		public IActionResult Add()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(AddGenreInputModel model)
+        [Authorize(Roles = "Moderator")]
+		public async Task<IActionResult> Add(AddGenreInputModel model)
         {
             if (!ModelState.IsValid)
             {

@@ -14,56 +14,53 @@ namespace SparkApp.Data
 
 
 
-    public class SparkDbContext : IdentityDbContext<ApplicationUser, IdentityRole<Guid>, Guid>
-    {
+	public class SparkDbContext : IdentityDbContext<ApplicationUser, IdentityRole<Guid>, Guid>
+	{
 
-        public SparkDbContext()
-        {
+		public SparkDbContext()
+		{
 
-        }
+		}
 
-        public SparkDbContext(DbContextOptions options)
-            : base(options)
-        {
+		public SparkDbContext(DbContextOptions options)
+			: base(options)
+		{
 
-        }
+		}
 
-        public virtual DbSet<Game> Games { get; set; }
+		public virtual DbSet<Game> Games { get; set; }
 
-        public virtual DbSet<Genre> Genres { get; set; }
+		public virtual DbSet<Genre> Genres { get; set; }
 
-        public virtual DbSet<Platform> Platforms { get; set; }
+		public virtual DbSet<Platform> Platforms { get; set; }
 
-        public virtual DbSet<Developer> Developer { get; set; }
+		public virtual DbSet<Developer> Developer { get; set; }
 
-        public virtual DbSet<Director> Directors { get; set; }
+		public virtual DbSet<Director> Directors { get; set; }
 
-        public virtual DbSet<GameGenre> GamesGenres { get; set; }
-
-        
-        public virtual DbSet<GamePlatform> GamesPlatforms { get; set; }
+		public virtual DbSet<GameGenre> GamesGenres { get; set; }
 
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
+		public virtual DbSet<GamePlatform> GamesPlatforms { get; set; }
 
-            modelBuilder.Entity<GameGenre>()
-                .HasKey(gsg => new { gsg.GameId, gsg.GenreId });
+		public virtual DbSet<GameOfTheDay> GamesOfTheDays { get; set; }
 
-            modelBuilder.Entity<GameGenre>()
-                .HasKey(gsg => new { gsg.GameId, gsg.GenreId });
 
-            modelBuilder.Entity<Game>()
-                .HasOne(ga => ga.MainGenre)
-                .WithMany()
-                .HasForeignKey(ga => ga.MainGenreId)
-                .OnDelete(DeleteBehavior.Restrict);
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
+		{
+			base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<GamePlatform>()
-                .HasKey(gp => new { gp.GameId, gp.PlatformId });
+			modelBuilder.Entity<GameGenre>()
+				.HasKey(gsg => new { gsg.GameId, gsg.GenreId });
 
-        
-        }
-    }
+			modelBuilder.Entity<Game>()
+				.HasOne(ga => ga.MainGenre)
+				.WithMany()
+				.HasForeignKey(ga => ga.MainGenreId)
+				.OnDelete(DeleteBehavior.Restrict);
+
+			modelBuilder.Entity<GamePlatform>()
+				.HasKey(gp => new { gp.GameId, gp.PlatformId });
+		}
+	}
 }

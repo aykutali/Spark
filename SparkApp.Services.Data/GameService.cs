@@ -18,7 +18,6 @@ namespace SparkApp.Services.Data
 	{
 		private readonly SparkDbContext db;
 		private readonly IRepository<Game, Guid> gameRepository;
-
 		private readonly IRepository<Developer, Guid> devRepository;
 		private readonly IRepository<Director, Guid> dirRepository;
 		private readonly IRepository<Genre, Guid> genreRepository;

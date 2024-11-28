@@ -2551,6 +2551,88 @@
       ]
     },
     {
+      "Route": "js/guessGame.101vg489t5.js",
+      "AssetFile": "js/guessGame.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6488"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0Xb0mr7otVdWirsKNw+HUYn+l/Cfy6gniW5tHz3skTY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 28 Nov 2024 16:29:37 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "101vg489t5"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-0Xb0mr7otVdWirsKNw+HUYn+l/Cfy6gniW5tHz3skTY="
+        },
+        {
+          "Name": "label",
+          "Value": "js/guessGame.js"
+        }
+      ]
+    },
+    {
+      "Route": "js/guessGame.js",
+      "AssetFile": "js/guessGame.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6488"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0Xb0mr7otVdWirsKNw+HUYn+l/Cfy6gniW5tHz3skTY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 28 Nov 2024 16:29:37 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-0Xb0mr7otVdWirsKNw+HUYn+l/Cfy6gniW5tHz3skTY="
+        }
+      ]
+    },
+    {
       "Route": "js/site.js",
       "AssetFile": "js/site.js",
       "Selectors": [],

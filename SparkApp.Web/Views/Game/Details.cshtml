@@ -23,7 +23,7 @@
 			<hr />
 			<p class="card-text"><small>Developer: <a asp-controller="Developer" asp-action="Details" asp-route-id="@Model.Developer.Name">@Model.Developer.Name</a></small></p>
 			<hr />
-			<p class="card-text"><small>Director: <a asp-controller="Director" asp-action="Details" asp-route-id="@Model.LeadDirector.Id">@Model.LeadDirector.Name</a></small></p>
+			<p class="card-text"><small>Director: <a asp-controller="Director" asp-action="Details" asp-route-id="@Model.LeadDirector.Name">@Model.LeadDirector.Name</a></small></p>
 			<hr />
 			<p class="card-text"><small>Main Genre: <a asp-controller="Genre" asp-action="Details" asp-route-id="@Model.MainGenre.Name">@Model.MainGenre.Name</a></small></p>
 			<hr/>
@@ -46,11 +46,13 @@
 			}
 
 		</div>
-
+	@if (User.IsInRole("Moderator"))
+	{
 		<a asp-controller="Game" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning btn-dark-text btn-rounded mb-2 w-100 p-3 fw-bold">Edit</a>
 		<a asp-controller="Game" asp-action="ManagePlatforms" asp-route-id="@Model.Id" class="btn btn-warning btn-dark-text btn-rounded mb-2 w-100 p-3 fw-bold">Manage Platform</a>
 		<a asp-controller="Game" asp-action="ManageSubGenres" asp-route-id="@Model.Id" class="btn btn-warning btn-dark-text btn-rounded mb-2 w-100 p-3 fw-bold">Manage Sub Genres</a>
 		<a asp-controller="Game" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger btn-rounded mb-2 w-100 p-3 fw-bold">Delete</a>
+	}
 	</div>
 
 	<a asp-controller="Game" asp-action="All" class="btn btn-warning btn-dark-text btn-rounded mb-2 w-100 p-3 fw-bold">Back to All Games</a>

@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\game.png"
     },
     {
+      "Id": "D:\\C#\\Spark\\SparkApp.Web\\wwwroot\\js\\guessGame.js",
+      "PackagePath": "staticwebassets\\js\\guessGame.js"
+    },
+    {
       "Id": "D:\\C#\\Spark\\SparkApp.Web\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
