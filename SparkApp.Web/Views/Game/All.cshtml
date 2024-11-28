@@ -2,6 +2,15 @@
 
 <h2 align="center">All Games</h2>
 
+<form asp-controller="Game" asp-action="All" method="get">
+	<div class="form-actions no-color">
+		<p>
+			<label>Find by name: <input type="text" name="title" value="@ViewData["CurrentFilter"]" /></label>
+			<input type="submit" value="Search" class="btn btn-info" /> |
+			<a asp-controller="Game" asp-action="All">Back to Full List</a>
+		</p>
+	</div>
+</form>
 
 <div class="text-center row">
 	@foreach (var e in Model)

@@ -1,0 +1,14 @@
+﻿@model SparkApp.Web.ViewModels.Game.GameAllViewModel
+<div>
+	<h3>Are you sure to delete this game:</h3>
+	<h5>@Model.Title</h5>
+	<img src="@Model.ImageUrl" class="card-img-top img-fluid" style="max-height: 200px; object-fit: contain;" alt="Game Image">
+	<hr/>
+	<div align="center">
+		<form  asp-action="Delete" method="post">
+			<input type="hidden" asp-for="Id" />
+			<button type="submit" class="btn btn-danger">Confirm Delete</button>
+			<a asp-controller="Game" asp-action="All" class="btn btn-secondary">Cancel</a>
+		</form>
+	</div>
+</div>

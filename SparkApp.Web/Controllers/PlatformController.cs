@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SparkApp.Services.Data.Interfaces;
 using SparkApp.Web.ViewModels.Genre;
 using SparkApp.Web.ViewModels.Platform;
@@ -22,13 +23,15 @@ namespace SparkApp.Web.Controllers
         }
 
         [HttpGet]
-        public IActionResult Add()
+        [Authorize(Roles = "Moderator")]
+		public IActionResult Add()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(AddPlatformInputModel model)
+        [Authorize(Roles = "Moderator")]
+		public async Task<IActionResult> Add(AddPlatformInputModel model)
         {
             if (!ModelState.IsValid)
             {

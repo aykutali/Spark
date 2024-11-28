@@ -8,6 +8,7 @@ using SparkApp.Web.ViewModels.Director;
 using SparkApp.Web.ViewModels.Game;
 using SparkApp.Web.ViewModels.Genre;
 using System.Globalization;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using SparkApp.Data;
 using SparkApp.Web.ViewModels.Platform;
@@ -283,7 +284,7 @@ namespace SparkApp.Services.Data
 			return genresViewModel;
 		}
 
-		public async Task AddGameAsync(AddGameInputModel model)
+		public async Task AddGameAsync(AddGameInputModel model, bool isUserMod)
 		{
 			var dateTimeString = $"{model.ReleasedDate}";
 
@@ -300,6 +301,11 @@ namespace SparkApp.Services.Data
 				MainGenreId = new Guid(model.MainGenreId),
 				LeadGameDirectorId = new Guid(model.LeadGameDirectorId)
 			};
+
+			if (isUserMod)
+			{
+				gameData.IsConfirmed = true;
+			}
 
 			await gameRepository.AddAsync(gameData);
 		}
@@ -387,6 +393,17 @@ namespace SparkApp.Services.Data
 			}
 
 			await gameGenreRepository.AddRangeAsync(genresToAdd.ToArray());
+		}
+
+		public async Task DeleteAGame(Guid id)
+		{
+			Game? game = await gameRepository.GetByIdAsync(id);
+
+			if (game != null)
+			{
+				game.IsDeleted = true;
+				await gameRepository.UpdateAsync(game);
+			}
 		}
 	}
 }

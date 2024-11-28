@@ -24,9 +24,17 @@ namespace SparkApp.Web.Controllers
 			return RedirectToAction(nameof(All));
 		}
 
-		public async Task<IActionResult> All()
+		[HttpGet]
+		public async Task<IActionResult> All(string title)
 		{
+			ViewData["CurrentFilter"] = title;
+
 			var allGames = await gameService.GetAllGamesAsync();
+
+			if (!String.IsNullOrEmpty(title))
+			{
+				allGames = allGames.Where(g => g.Title.ToLower().Contains(title.ToLower())).ToList();
+			}
 
 			return View(allGames);
 		}
@@ -49,13 +57,22 @@ namespace SparkApp.Web.Controllers
 				ModelState.AddModelError("ReleasedDate", "Invalid Date Format!");
 			}
 
+			GameDetailsViewModel? isGameAlreadyAdded = await gameService.GetGameDetailsAsync(gameModel.Title);
+
+			if (isGameAlreadyAdded != null)
+			{
+				ModelState.AddModelError("Title", "Game with that title already exist in our site...");
+			}
+
 			if (!ModelState.IsValid)
 			{
 				gameModel = await gameService.GetInputGameModelAsync(gameModel);
 				return View(gameModel);
 			}
 
-			await gameService.AddGameAsync(gameModel);
+			bool isUserMod = User.IsInRole("Moderator");
+
+			await gameService.AddGameAsync(gameModel, isUserMod);
 
 			return RedirectToAction(nameof(Index));
 		}
@@ -157,7 +174,7 @@ namespace SparkApp.Web.Controllers
 		[Authorize(Roles = "Moderator")]
 		public async Task<IActionResult> ManageSubGenres(string id)
 		{
-			AddSubGenresToGameInputModel? inputModel =  await gameService.GetInputGenresToGameModelAsync(id);
+			AddSubGenresToGameInputModel? inputModel = await gameService.GetInputGenresToGameModelAsync(id);
 
 			if (inputModel != null)
 			{
@@ -188,6 +205,35 @@ namespace SparkApp.Web.Controllers
 			await gameService.AddSubGenresToGameAsync(model);
 
 			return Redirect($"{nameof(Details)}/{model.Title}");
+		}
+
+		[HttpGet]
+		[Authorize(Roles = "Moderator")]
+		public async Task<IActionResult> Delete(string id)
+		{
+			Game? game = await gameService.GetGameByIdAsync(id);
+
+			GameAllViewModel model = new GameAllViewModel()
+			{
+				Id = game.Id,
+				ImageUrl = game.ImageUrl,
+				Title = game.Title
+			};
+
+			if (game != null)
+			{
+				return View(model);
+			}
+
+			return BadRequest();
+		}
+
+		[HttpPost]
+		public async Task<IActionResult> Delete(Guid id)
+		{
+			await gameService.DeleteAGame(id);
+
+			return RedirectToAction(nameof(Index));
 		}
 	}
 }

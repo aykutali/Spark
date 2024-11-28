@@ -12,17 +12,15 @@ namespace SparkApp.Services.Data
 {
 	public class GuessGameService : BaseService, IGuessGameService
 	{
-		private string gameOfTheDayTitle = "Elden Ring";
-
-
 		private readonly IRepository<Game, Guid> gameRepository;
-		private readonly SparkDbContext dbContext;
+		private readonly IRepository<GameOfTheDay, object> gameOfTheDayRepository;
 
 		public GuessGameService(IRepository<Game, Guid> gameRepository,
+								IRepository<GameOfTheDay, object> gameOfTheDayRepository,
 								SparkDbContext dbContext)
 		{
 			this.gameRepository = gameRepository;
-			this.dbContext = dbContext;
+			this.gameOfTheDayRepository = gameOfTheDayRepository;
 		}
 		/// <summary>
 		/// Set a game for a day, if is not already exist
@@ -31,9 +29,7 @@ namespace SparkApp.Services.Data
 		/// <returns></returns>
 		public async Task SetGameOfTheDayAsync(DateOnly date)
 		{
-			//bool isGameOfTodayExist = await gameOfTheDayRepository.GetAllAttached()
-			//	.AnyAsync(gt => gt.Day == date);
-			bool isGameOfTodayExist = await dbContext.GamesOfTheDays
+			bool isGameOfTodayExist = await gameOfTheDayRepository.GetAllAttached()
 				.AnyAsync(dg => dg.Day == date);
 
 			if (isGameOfTodayExist == false)
@@ -44,22 +40,21 @@ namespace SparkApp.Services.Data
 				int randomIndex = rnd.Next(allGames.Count);
 				Game randomGame = allGames[randomIndex];
 
-				GameOfTheDay gameOfTheDayDate = new GameOfTheDay()
+				GameOfTheDay gameOfTheDayData = new GameOfTheDay()
 				{
 					Day = date,
 					GameId = randomGame.Id
 				};
 
-				await dbContext.GamesOfTheDays.AddAsync(gameOfTheDayDate);
-				await dbContext.SaveChangesAsync();
+				await gameOfTheDayRepository.AddAsync(gameOfTheDayData);
 
 			}
 		}
 
 		public async Task<Game> GetGameOfTheDayAsync(DateOnly date)
 		{
-			GameOfTheDay? gameOfTheDayData = await dbContext.GamesOfTheDays
-				.Where(dg=>dg.Day == date)
+			GameOfTheDay? gameOfTheDayData = await gameOfTheDayRepository.GetAllAttached()
+				.Where(dg => dg.Day == date)
 				.FirstOrDefaultAsync();
 
 			Game? gameOfTheDay = await gameRepository.GetAllAttached()
@@ -85,19 +80,6 @@ namespace SparkApp.Services.Data
 		/// <returns>Return a GuessTheGameViewModel or null if the guessed gameTitle is modified</returns>
 		public async Task<GuessTheGameViewModel> GuessGameAsync(string gameTitle, DateOnly date)
 		{
-			//Game? gameOfTheDay = await gameRepository.GetAllAttached()
-			//	.Where(g => g.IsConfirmed &&
-			//				g.IsDeleted == false &&
-			//				g.Title == gameOfTheDayTitle)
-			//	.Include(g => g.Developer)
-			//	.Include(g => g.LeadGameDirector)
-			//	.Include(g => g.MainGenre)
-			//	.Include(g => g.GamePlatforms)
-			//	.ThenInclude(gp => gp.Platform)
-			//	.Include(g => g.SideGenres)
-			//	.ThenInclude(gg => gg.Genre)
-			//	.FirstOrDefaultAsync();
-
 			await SetGameOfTheDayAsync(date);
 
 			Game gameOfTheDay = await GetGameOfTheDayAsync(date);
@@ -237,7 +219,11 @@ namespace SparkApp.Services.Data
 						correctCount++;
 					}
 				}
-				if (correctCount == 0)
+				if (gameOfTheDaySubGenres.Count == 0 && guessGameSubGenres.Count == 0)
+				{
+					subGenresChar = '+';
+				}
+				else if (correctCount == 0)
 				{
 					subGenresChar = '-';
 				}
@@ -249,6 +235,7 @@ namespace SparkApp.Services.Data
 				{
 					subGenresChar = '*';
 				}
+
 
 				subGenresDic.Add(string.Join(", ", guessGameSubGenres), subGenresChar);
 				//
