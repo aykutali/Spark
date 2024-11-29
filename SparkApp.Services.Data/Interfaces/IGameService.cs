@@ -35,5 +35,7 @@ namespace SparkApp.Services.Data.Interfaces
 
         public Task DeleteAGame(Guid id);
 
+        public Task<List<GameAllViewModel>> GetAllGamesToConfirmAsync();
+
     }
 }

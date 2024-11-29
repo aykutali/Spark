@@ -6,6 +6,7 @@ using SparkApp.Data.Models;
 using static SparkApp.Common.EntityValidationConstants.Game;
 using SparkApp.Services.Data.Interfaces;
 using SparkApp.Web.ViewModels.Game;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace SparkApp.Web.Controllers
 {
@@ -105,6 +106,13 @@ namespace SparkApp.Web.Controllers
 		public async Task<IActionResult> Edit(GameEditViewModel gameEditModel)
 		{
 			string dateTimeSting = $"{gameEditModel.ReleasedDate}";
+
+			GameDetailsViewModel? isGameAlreadyAdded = await gameService.GetGameDetailsAsync(gameEditModel.Title);
+
+			if (isGameAlreadyAdded != null && isGameAlreadyAdded.Id != gameEditModel.Id)
+			{
+				ModelState.AddModelError("Title", "Game with that title already exist in our site...");
+			}
 
 			if (!DateTime.TryParseExact(dateTimeSting, ReleasedDateFormat, CultureInfo.InvariantCulture,
 					DateTimeStyles.None, out DateTime parseDateTime))
@@ -229,6 +237,7 @@ namespace SparkApp.Web.Controllers
 		}
 
 		[HttpPost]
+		[Authorize(Roles = "Moderator")]
 		public async Task<IActionResult> Delete(Guid id)
 		{
 			await gameService.DeleteAGame(id);

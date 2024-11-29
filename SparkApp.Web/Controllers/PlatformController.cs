@@ -40,7 +40,7 @@ namespace SparkApp.Web.Controllers
 
             await platformService.AddPlatformAsync(model);
 
-            return View(nameof(Index));
+            return RedirectToAction(nameof(Index));
         }
 
         [HttpGet]

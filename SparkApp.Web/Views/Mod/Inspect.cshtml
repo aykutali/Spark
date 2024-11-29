@@ -1,4 +1,4 @@
-﻿@model SparkApp.Web.ViewModels.Game.GameEditViewModel;
+﻿@model SparkApp.Web.ViewModels.Game.GameEditViewModel
 
 <h2 class="text-center">Edit Game</h2>
 <hr />
@@ -6,7 +6,7 @@
 <div class="row">
 	<img src="@Model.ImageUrl" style="max-height: 350px; object-fit: contain;" />
 	<div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
-		<form asp-action="Edit" method="post">
+		<form asp-controller="Mod" asp-action="ConfirmGame" method="post">
 			<input type="hidden" asp-for="Id"/>
 			<div class="mb-3">
 				<label asp-for="@Model.Title" class="form-label-add-edit">Game Title</label>
@@ -50,7 +50,8 @@
 				<span asp-validation-for="@Model.LeadGameDirectorId" class="text-danger"></span>
 			</div>
 			<div class="mb-3">
-				<input class="btn btn-warning btn-dark-text mb-2 w-100 py-3 fw-bold rounded" type="submit" value="Confirm"/>
+				<input class="btn btn-success btn-dark-text mb-2 w-100 py-3 fw-bold rounded" type="submit" value="Confirm"/>
+				<a asp-controller="Game" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger btn-dark-text mb-2 w-100 py-3 fw-bold rounded">Delete</a>
 			</div>
 		</form>
 	</div>

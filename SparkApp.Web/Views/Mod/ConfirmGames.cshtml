@@ -1,0 +1,28 @@
+﻿@model List<SparkApp.Web.ViewModels.Game.GameAllViewModel>
+
+<h3 align="center">Games to confirm</h3>
+
+<table class="table">
+	<thead class="thead-dark">
+		<tr>
+			<th>Image</th>
+			<th>Title</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var game in Model)
+		{
+			<tr>
+				<input type="hidden" asp-for="@game.Id" />
+				<input type="hidden" asp-for="@game.Title" />
+				<th><img src="@game.ImageUrl" class="card-img img-fluid" style="height: 100px; object-fit: contain;" alt="Game Image"></th>
+				<th><strong>@game.Title</strong></th>
+				<th>
+					<a asp-controller="Mod" asp-action="Inspect" asp-route-id="@game.Id" class="btn btn-info btn-dark-text btn-rounded mb-2 w-20 p-3 fw-bold">Inspect the Game</a>
+					<a asp-controller="Game" asp-action="Delete" asp-route-id="@game.Id" class="btn btn-danger btn-dark-text btn-rounded mb-2 w-20 p-3 fw-bold">Delete</a>
+				</th>
+			</tr>
+		}
+	</tbody>
+</table>

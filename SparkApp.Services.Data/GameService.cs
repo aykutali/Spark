@@ -405,5 +405,21 @@ namespace SparkApp.Services.Data
 				await gameRepository.UpdateAsync(game);
 			}
 		}
+
+		public async Task<List<GameAllViewModel>> GetAllGamesToConfirmAsync()
+		{
+			var games = await gameRepository.GetAllAttached()
+				.Where(g => g.IsConfirmed == false &&
+				            g.IsDeleted == false)
+				.Select(g=> new GameAllViewModel()
+				{
+					Id = g.Id,
+					Title = g.Title,
+					ImageUrl = g.ImageUrl
+				})
+				.ToListAsync();
+
+			return games;
+		}
 	}
 }

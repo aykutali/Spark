@@ -39,7 +39,7 @@ namespace SparkApp.Web.Controllers
 
             await directorService.AddDirectorAsync(model);
 
-            return View(nameof(Index));
+            return RedirectToAction(nameof(Index));
         }
 
         [HttpGet]

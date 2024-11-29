@@ -42,7 +42,7 @@ namespace SparkApp.Web.Controllers
 
             await developerService.AddDeveloperAsync(model);
 
-            return View(nameof(Index));
+            return RedirectToAction(nameof(Index));
         }
 
         [HttpGet]

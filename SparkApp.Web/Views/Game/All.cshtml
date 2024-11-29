@@ -2,20 +2,27 @@
 
 <h2 align="center">All Games</h2>
 
-<form asp-controller="Game" asp-action="All" method="get">
-	<div class="form-actions no-color">
-		<p>
-			<label>Find by name: <input type="text" name="title" value="@ViewData["CurrentFilter"]" /></label>
-			<input type="submit" value="Search" class="btn btn-info" /> |
-			<a asp-controller="Game" asp-action="All">Back to Full List</a>
-		</p>
+<div>
+	<div align="left">
+		<form asp-controller="Game" asp-action="All" method="get">
+			<div class="form-actions no-color">
+				<p>
+					<label>Find by name: <input type="text" name="title" value="@ViewData["CurrentFilter"]" /></label>
+					<input type="submit" value="Search" class="btn btn-info" /> |
+					<a asp-controller="Game" asp-action="All">Back to Full List</a>
+				</p>
+			</div>
+		</form>
 	</div>
-</form>
+	<div align="right">
+		<a asp-controller="Game" asp-action="Add" class="btn btn-success">Add Game</a>
+	</div>
+</div>
 
-<div class="text-center row">
+<div class="text-center row" align="center">
 	@foreach (var e in Model)
 	{
-		<div class="card col-3 h-100" style="width: 20rem;" align="center">
+		<div class="card col-3 h-100" style="width: 20rem;">
 			@if (!string.IsNullOrEmpty(e.ImageUrl))
 			{
 				<img src="@e.ImageUrl" class="card-img-top img-fluid" style="height: 200px; object-fit: contain;" alt="Game Image">
