@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SparkApp.Data\SparkApp.Data.csproj" />
+    <ProjectReference Include="..\SparkApp.Services.Data\SparkApp.Services.Data.csproj" />
   </ItemGroup>
 
 </Project>

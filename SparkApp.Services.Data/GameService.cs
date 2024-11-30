@@ -44,9 +44,9 @@ namespace SparkApp.Services.Data
 
 		}
 
-		public async Task<List<GameAllViewModel>> GetAllGamesAsync()
+		public async Task<IQueryable<GameAllViewModel>> GetAllGamesAsync()
 		{
-			List<GameAllViewModel> games = await gameRepository
+			IQueryable<GameAllViewModel> games = gameRepository
 				.GetAllAttached()
 				.Where(g => g.IsConfirmed && !g.IsDeleted)
 				.Select(g => new GameAllViewModel
@@ -55,8 +55,7 @@ namespace SparkApp.Services.Data
 					Title = g.Title,
 					ImageUrl = g.ImageUrl
 				})
-				.OrderBy(g => g.Title)
-				.ToListAsync();
+				.OrderBy(g => g.Title);
 
 			return games;
 		}
@@ -410,8 +409,8 @@ namespace SparkApp.Services.Data
 		{
 			var games = await gameRepository.GetAllAttached()
 				.Where(g => g.IsConfirmed == false &&
-				            g.IsDeleted == false)
-				.Select(g=> new GameAllViewModel()
+							g.IsDeleted == false)
+				.Select(g => new GameAllViewModel()
 				{
 					Id = g.Id,
 					Title = g.Title,

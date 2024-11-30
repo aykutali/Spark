@@ -22,8 +22,6 @@ namespace SparkApp.WebApi
 					options.UseSqlServer(connectionString);
 				});
 
-			builder.Services.RegisterRepositories(typeof(ApplicationUser).Assembly);
-			builder.Services.RegisterUserDefinedServices(typeof(IGenreService).Assembly);
 
 			builder.Services.AddControllers();
 			// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -40,6 +38,9 @@ namespace SparkApp.WebApi
 						.AllowAnyOrigin();
 				});
 			});
+
+			builder.Services.RegisterRepositories(typeof(ApplicationUser).Assembly);
+			builder.Services.RegisterUserDefinedServicesWebApi(typeof(IGuessGameService).Assembly);
 
 			var app = builder.Build();
 

@@ -742,7 +742,8 @@
         "dependencies": {
           "Microsoft.AspNetCore.Mvc.Abstractions": "2.2.0",
           "Microsoft.Extensions.DependencyInjection": "8.0.1",
-          "SparkApp.Data": "1.0.0"
+          "SparkApp.Data": "1.0.0",
+          "SparkApp.Services.Data": "1.0.0"
         },
         "runtime": {
           "SparkApp.Web.Infrastructure.dll": {

@@ -2,11 +2,14 @@
 
 using System.Globalization;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using SparkApp.Data.Models;
 using static SparkApp.Common.EntityValidationConstants.Game;
 using SparkApp.Services.Data.Interfaces;
 using SparkApp.Web.ViewModels.Game;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using SparkApp.Web.Models;
 
 namespace SparkApp.Web.Controllers
 {
@@ -26,18 +29,24 @@ namespace SparkApp.Web.Controllers
 		}
 
 		[HttpGet]
-		public async Task<IActionResult> All(string title)
+		public async Task<IActionResult> All(string title, int? pageNumber)
 		{
+			if (title != null)
+			{
+				pageNumber = 1;
+			}
+
 			ViewData["CurrentFilter"] = title;
 
 			var allGames = await gameService.GetAllGamesAsync();
 
 			if (!String.IsNullOrEmpty(title))
 			{
-				allGames = allGames.Where(g => g.Title.ToLower().Contains(title.ToLower())).ToList();
+				allGames = allGames.Where(g => g.Title.ToLower().Contains(title.ToLower()));
 			}
 
-			return View(allGames);
+			int pageSize = 9;
+			return View(await PaginatedList<GameAllViewModel>.CreateAsync(allGames.AsNoTracking(), pageNumber ?? 1, pageSize));
 		}
 
 		[HttpGet]
@@ -96,9 +105,17 @@ namespace SparkApp.Web.Controllers
 		[Authorize(Roles = "Moderator")]
 		public async Task<IActionResult> Edit(string id)
 		{
-			GameEditViewModel gameEditModel = await gameService.GetEditGameModelAsync(id);
+			Guid parsedGuid = Guid.Empty;
+			if (IsGuidValid(id, ref parsedGuid))
+			{
+				GameEditViewModel gameEditModel = await gameService.GetEditGameModelAsync(id);
 
-			return View(gameEditModel);
+				return View(gameEditModel);
+			}
+
+
+			return RedirectToAction(nameof(Index));
+
 		}
 
 		[HttpPost]

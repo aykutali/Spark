@@ -73,6 +73,22 @@ namespace SparkApp.Services.Data
 			return gameOfTheDay;
 		}
 
+		public async Task<string> GetGameTitleFromDayBefore()
+		{
+			DateTime today = DateTime.Now.Date;
+			DateTime dateBefore = today.Subtract(TimeSpan.FromDays(1));
+
+			DateOnly yesterday = DateOnly.FromDateTime(dateBefore);
+
+			string gameTitle = await gameOfTheDayRepository.GetAllAttached()
+				.Where(d=> d.Day == yesterday)
+				.Include(d=> d.TheGame)
+				.Select(g=> g.TheGame.Title)
+				.FirstOrDefaultAsync();
+
+			return gameTitle;
+		}
+
 		/// <summary>
 		/// 
 		/// </summary>

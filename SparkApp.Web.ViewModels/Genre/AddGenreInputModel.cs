@@ -11,7 +11,6 @@ namespace SparkApp.Web.ViewModels.Genre
         [MaxLength(EntityValidationConstants.Genre.NameMaxLength)]
         public string Name { get; set; } = null!;
 
-        //TODO add error messages to constants
         [Required(ErrorMessage = $"Genre description is required to be between 10-255")]
         [MinLength(EntityValidationConstants.Genre.DescriptionMinLength)]
         [MaxLength(EntityValidationConstants.Genre.DescriptionMaxLength)]

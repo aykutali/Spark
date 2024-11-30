@@ -7,7 +7,7 @@ namespace SparkApp.Services.Data.Interfaces
 {
     public interface IGameService : IBaseService
     {
-        public Task<List<GameAllViewModel>> GetAllGamesAsync();
+        public Task<IQueryable<GameAllViewModel>> GetAllGamesAsync();
 
         public Task<Game> GetGameByIdAsync(string id);
 

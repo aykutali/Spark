@@ -7,7 +7,7 @@
 
 <div align="center" class="mb-3">
 	<label class="form-label-add-edit"></label>
-	<select id="gameNameSelect" class="form-control" aria-required="true" asp-items="@(new SelectList(allGamesNames, "Name"))">
+	<select id="gameNameSelect" class="form-control" data-live-search="true"  aria-required="true" asp-items="@(new SelectList(allGamesNames, "Name"))">
 		<option value="">Select Game...</option>
 	</select>
 </div>
@@ -34,7 +34,8 @@
 	</table>
 </div>
 
-
+<hr/>
+<p align="center" >Yesterdays game was: @ViewData["YesterdaysGame"]</p>
 
 <script src="js/guessGame.js"></script>
 

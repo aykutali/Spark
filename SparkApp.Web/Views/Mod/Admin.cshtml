@@ -1,0 +1,45 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using SparkApp.Data.Models
+@model IEnumerable<SparkApp.Web.ViewModels.User.UserAllViewModel>
+@{
+	ViewBag.Title = "All Users";
+}
+<h1>All Users</h1>
+@if (Model.Any())
+{
+	foreach (var user in Model)
+	{
+		<div class="card mb-3">
+			<div class="card-header">
+				User Id : @user.Id
+			</div>
+			<div class="card-body">
+				<h5 class="card-title">@user.UserName</h5>
+				<span>Roles: @String.Join(", ", user.Roles)</span>
+
+			</div>
+			<div class="card-footer">
+				@if (!user.Roles.Contains("Moderator"))
+				{
+					<a asp-controller="Mod" asp-action="MakeTheUserMod" asp-route-userId="@user.Id" class="btn btn-dark">Make the user Mod</a>
+				}
+				else
+				{
+					<a asp-controller="Mod" asp-action="UnModTheUser" asp-route-userId="@user.Id" class="btn btn-dark">Unmod the user</a>
+				}
+				<form method="post" asp-action="DeleteUser" asp-controller="Mod" class="d-inline ms-2">
+					<input type="hidden" name="userId" value="@user.Id" />
+					<button type="submit" class="btn btn-danger btn-sm">Delete</button>
+				</form>
+			</div>
+		</div>
+	}
+}
+else
+{
+	<div class="card">
+		<div class="card-header">
+			No Users Added Yet
+		</div>
+	</div>
+}

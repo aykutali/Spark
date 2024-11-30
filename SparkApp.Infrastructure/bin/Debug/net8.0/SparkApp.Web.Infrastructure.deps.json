@@ -10,7 +10,8 @@
         "dependencies": {
           "Microsoft.AspNetCore.Mvc.Abstractions": "2.2.0",
           "Microsoft.Extensions.DependencyInjection": "8.0.1",
-          "SparkApp.Data": "1.0.0"
+          "SparkApp.Data": "1.0.0",
+          "SparkApp.Services.Data": "1.0.0"
         },
         "runtime": {
           "SparkApp.Web.Infrastructure.dll": {}
@@ -722,6 +723,32 @@
             "fileVersion": "1.0.0.0"
           }
         }
+      },
+      "SparkApp.Services.Data/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "8.0.10",
+          "SparkApp.Data": "1.0.0",
+          "SparkApp.Data.Models": "1.0.0",
+          "SparkApp.Web.ViewModels": "1.0.0"
+        },
+        "runtime": {
+          "SparkApp.Services.Data.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "SparkApp.Web.ViewModels/1.0.0": {
+        "dependencies": {
+          "SparkApp.Common": "1.0.0",
+          "SparkApp.Data.Models": "1.0.0"
+        },
+        "runtime": {
+          "SparkApp.Web.ViewModels.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
       }
     }
   },
@@ -1204,6 +1231,16 @@
       "sha512": ""
     },
     "SparkApp.Data.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SparkApp.Services.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SparkApp.Web.ViewModels/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

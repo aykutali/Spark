@@ -1,4 +1,4 @@
-﻿@model List<SparkApp.Web.ViewModels.Game.GameAllViewModel>
+﻿@model PaginatedList<SparkApp.Web.ViewModels.Game.GameAllViewModel>
 
 <h2 align="center">All Games</h2>
 
@@ -9,7 +9,7 @@
 				<p>
 					<label>Find by name: <input type="text" name="title" value="@ViewData["CurrentFilter"]" /></label>
 					<input type="submit" value="Search" class="btn btn-info" /> |
-					<a asp-controller="Game" asp-action="All">Back to Full List</a>
+					<a asp-controller="Game" asp-action="All" class="btn btn-info">Back to Full List</a>
 				</p>
 			</div>
 		</form>
@@ -18,51 +18,70 @@
 		<a asp-controller="Game" asp-action="Add" class="btn btn-success">Add Game</a>
 	</div>
 </div>
-
-<div class="text-center row" align="center">
-	@foreach (var e in Model)
-	{
-		<div class="card col-3 h-100" style="width: 20rem;">
-			@if (!string.IsNullOrEmpty(e.ImageUrl))
-			{
-				<img src="@e.ImageUrl" class="card-img-top img-fluid" style="height: 200px; object-fit: contain;" alt="Game Image">
-			}
-			else
-			{
-				<img src="~/game.png" class="card-img-top img-fluid" style="height: 200px; object-fit: contain;" alt="Placeholder Image">
-			}
-			<div class="card-body" style="height: calc(100% - 150px); overflow: auto;">
-				<div class="row">
-					<div class="col-12">
-						<div class="title-wrapper" style="height: 6em; overflow: hidden;">
-							<h4 class="card-title mt-1">@e.Title</h4>
-						</div>
-					</div>
-				</div>
-
-			</div>
-
-			<div class="row gx-0">
-				@if (User.IsInRole("Moderator"))
+<div align="center">
+	<div class="text-center row" style="max-width: 60rem; display:flex; justify-content: center;">
+		@foreach (var e in Model)
+		{
+			<div class="card col-3 h-100" style="width: 20rem;">
+				@if (!string.IsNullOrEmpty(e.ImageUrl))
 				{
-					<div class="col-6 px-1">
-						<a asp-controller="Game" asp-action="Edit" asp-route-id="@e.Id" class="btn btn-warning btn-sm mb-2 w-100 fw-bold rounded btn-dark-text">Edit</a>
-					</div>
-					<div class="col-6 px-1">
-						<a asp-controller="Game" asp-action="Details" asp-route-id="@e.Title" class="btn btn-warning btn-sm mb-2 w-100 fw-bold rounded btn-dark-text">Details</a>
-					</div>
+					<img src="@e.ImageUrl" class="card-img-top img-fluid" style="height: 200px; object-fit: contain;" alt="Game Image">
 				}
 				else
 				{
-					<div class="col-12 px-1">
-						<a asp-controller="Game" asp-action="Details" asp-route-id="@e.Title" class="btn btn-warning btn-sm mb-2 w-100 fw-bold rounded btn-dark-text">Details</a>
-					</div>
+					<img src="~/game.png" class="card-img-top img-fluid" style="height: 200px; object-fit: contain;" alt="Placeholder Image">
 				}
+				<div class="card-body" style="height: calc(100% - 150px); overflow: auto;">
+					<div class="row">
+						<div class="col-12">
+							<div class="title-wrapper" style="height: 6em; overflow: hidden;">
+								<h4 class="card-title mt-1">@e.Title</h4>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="row gx-0">
+					@if (User.IsInRole("Moderator"))
+					{
+						<div class="col-6 px-1">
+							<a asp-controller="Game" asp-action="Edit" asp-route-id="@e.Id" class="btn btn-warning btn-sm mb-2 w-100 fw-bold rounded btn-dark-text">Edit</a>
+						</div>
+						<div class="col-6 px-1">
+							<a asp-controller="Game" asp-action="Details" asp-route-id="@e.Title" class="btn btn-warning btn-sm mb-2 w-100 fw-bold rounded btn-dark-text">Details</a>
+						</div>
+					}
+					else
+					{
+						<div class="col-12 px-1">
+							<a asp-controller="Game" asp-action="Details" asp-route-id="@e.Title" class="btn btn-warning btn-sm mb-2 w-100 fw-bold rounded btn-dark-text">Details</a>
+						</div>
+					}
+				</div>
 			</div>
-		</div>
-	}
+		}
+	</div>
 </div>
 
+@{
+	var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+	var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+<hr/>
+<div align="center">
+	<a asp-controller="Game" asp-action="All"
+	   asp-route-pageNumber="@(Model.PageIndex - 1)"
+	   class="btn btn-default @prevDisabled">
+		Previous
+	</a>
+	<span>@Model.PageIndex From @Model.TotalPages</span>
+	<a asp-controller="Game" asp-action="All"
+	   asp-route-pageNumber="@(Model.PageIndex + 1)"
+	   class="btn btn-default @nextDisabled">
+		Next
+	</a>
+</div>
 @section Scripts {
 	<partial name="_ValidationScriptsPartial" />
 }

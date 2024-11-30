@@ -18,3 +18,7 @@ D:\C#\Spark\SparkApp.Infrastructure\obj\Debug\net8.0\SparkApp.Web.Infrastructure
 D:\C#\Spark\SparkApp.Infrastructure\obj\Debug\net8.0\refint\SparkApp.Web.Infrastructure.dll
 D:\C#\Spark\SparkApp.Infrastructure\obj\Debug\net8.0\SparkApp.Web.Infrastructure.pdb
 D:\C#\Spark\SparkApp.Infrastructure\obj\Debug\net8.0\ref\SparkApp.Web.Infrastructure.dll
+D:\C#\Spark\SparkApp.Infrastructure\bin\Debug\net8.0\SparkApp.Services.Data.dll
+D:\C#\Spark\SparkApp.Infrastructure\bin\Debug\net8.0\SparkApp.Web.ViewModels.dll
+D:\C#\Spark\SparkApp.Infrastructure\bin\Debug\net8.0\SparkApp.Services.Data.pdb
+D:\C#\Spark\SparkApp.Infrastructure\bin\Debug\net8.0\SparkApp.Web.ViewModels.pdb

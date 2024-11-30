@@ -271,6 +271,9 @@
             "projectReferences": {
               "D:\\C#\\Spark\\SparkApp.Data\\SparkApp.Data.csproj": {
                 "projectPath": "D:\\C#\\Spark\\SparkApp.Data\\SparkApp.Data.csproj"
+              },
+              "D:\\C#\\Spark\\SparkApp.Services.Data\\SparkApp.Services.Data.csproj": {
+                "projectPath": "D:\\C#\\Spark\\SparkApp.Services.Data\\SparkApp.Services.Data.csproj"
               }
             }
           }
@@ -541,27 +544,29 @@
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.0.10, )"
+              "version": "[8.0.11, )"
             },
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
-              "version": "[8.0.10, )"
+              "version": "[8.0.11, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[8.0.10, )"
+              "version": "[8.0.11, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
               "version": "[8.0.10, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.10, )"
+              "version": "[8.0.11, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[8.0.6, )"
+              "version": "[8.0.7, )"
             },
             "System.Text.Json": {
               "target": "Package",

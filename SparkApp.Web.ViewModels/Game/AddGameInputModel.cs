@@ -20,6 +20,7 @@ namespace SparkApp.Web.ViewModels.Game
         [Required] 
         public string ReleasedDate { get; set; } = null!;
 
+        
         public string? ImageUrl { get; set; }
 
         [Required] 

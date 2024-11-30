@@ -271,6 +271,9 @@
             "projectReferences": {
               "D:\\C#\\Spark\\SparkApp.Data\\SparkApp.Data.csproj": {
                 "projectPath": "D:\\C#\\Spark\\SparkApp.Data\\SparkApp.Data.csproj"
+              },
+              "D:\\C#\\Spark\\SparkApp.Services.Data\\SparkApp.Services.Data.csproj": {
+                "projectPath": "D:\\C#\\Spark\\SparkApp.Services.Data\\SparkApp.Services.Data.csproj"
               }
             }
           }
