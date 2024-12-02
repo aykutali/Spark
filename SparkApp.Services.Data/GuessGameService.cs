@@ -7,6 +7,7 @@ using SparkApp.Services.Data.Interfaces;
 using SparkApp.Web.ViewModels.Game;
 
 using static SparkApp.Common.EntityValidationConstants.Game;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SparkApp.Services.Data
 {
@@ -72,12 +73,17 @@ namespace SparkApp.Services.Data
 
 			return gameOfTheDay;
 		}
-
+		/// <summary>
+		/// get title of the game of the day from yesterday and set a game for today if is not already
+		/// </summary>
+		/// <returns></returns>
 		public async Task<string> GetGameTitleFromDayBefore()
 		{
 			DateTime today = DateTime.Now.Date;
-			DateTime dateBefore = today.Subtract(TimeSpan.FromDays(1));
 
+			await SetGameOfTheDayAsync(DateOnly.FromDateTime(today));
+
+			DateTime dateBefore = today.Subtract(TimeSpan.FromDays(1));
 			DateOnly yesterday = DateOnly.FromDateTime(dateBefore);
 
 			string gameTitle = await gameOfTheDayRepository.GetAllAttached()
@@ -96,8 +102,6 @@ namespace SparkApp.Services.Data
 		/// <returns>Return a GuessTheGameViewModel or null if the guessed gameTitle is modified</returns>
 		public async Task<GuessTheGameViewModel> GuessGameAsync(string gameTitle, DateOnly date)
 		{
-			await SetGameOfTheDayAsync(date);
-
 			Game gameOfTheDay = await GetGameOfTheDayAsync(date);
 
 			Game? guessedGame = await gameRepository.GetAllAttached()

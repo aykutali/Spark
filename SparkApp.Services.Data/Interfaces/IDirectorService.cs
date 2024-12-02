@@ -9,6 +9,6 @@ namespace SparkApp.Services.Data.Interfaces
 
 		Task<List<DirectorViewModel>?> GetAllAsync();
 
-		Task<DirectorDetailsViewModel> GetDirectorDetailsAsync(string name);
+		Task<DirectorDetailsViewModel?> GetDirectorDetailsAsync(string name);
 	}
 }

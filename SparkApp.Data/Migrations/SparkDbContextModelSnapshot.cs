@@ -238,7 +238,7 @@ namespace SparkApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Developer");
+                    b.ToTable("Developer", (string)null);
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.Director", b =>
@@ -261,7 +261,7 @@ namespace SparkApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Directors");
+                    b.ToTable("Directors", (string)null);
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.Game", b =>
@@ -316,7 +316,7 @@ namespace SparkApp.Data.Migrations
 
                     b.HasIndex("MainGenreId");
 
-                    b.ToTable("Games");
+                    b.ToTable("Games", (string)null);
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.GameGenre", b =>
@@ -338,7 +338,7 @@ namespace SparkApp.Data.Migrations
 
                     b.HasIndex("GenreId");
 
-                    b.ToTable("GamesGenres");
+                    b.ToTable("GamesGenres", (string)null);
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.GameOfTheDay", b =>
@@ -353,7 +353,7 @@ namespace SparkApp.Data.Migrations
 
                     b.HasIndex("GameId");
 
-                    b.ToTable("GamesOfTheDays");
+                    b.ToTable("GamesOfTheDays", (string)null);
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.GamePlatform", b =>
@@ -374,7 +374,7 @@ namespace SparkApp.Data.Migrations
 
                     b.HasIndex("PlatformId");
 
-                    b.ToTable("GamesPlatforms");
+                    b.ToTable("GamesPlatforms", (string)null);
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.Genre", b =>
@@ -395,7 +395,7 @@ namespace SparkApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Genres");
+                    b.ToTable("Genres", (string)null);
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.Platform", b =>
@@ -410,7 +410,7 @@ namespace SparkApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Platforms");
+                    b.ToTable("Platforms", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>

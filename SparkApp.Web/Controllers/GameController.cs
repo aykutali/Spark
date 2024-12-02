@@ -1,15 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using System.Globalization;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Formatters;
+
 using SparkApp.Data.Models;
-using static SparkApp.Common.EntityValidationConstants.Game;
 using SparkApp.Services.Data.Interfaces;
 using SparkApp.Web.ViewModels.Game;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 using SparkApp.Web.Models;
+
+using static SparkApp.Common.EntityValidationConstants.Game;
+using static SparkApp.Common.AppConstants;
 
 namespace SparkApp.Web.Controllers
 {
@@ -45,7 +47,7 @@ namespace SparkApp.Web.Controllers
 				allGames = allGames.Where(g => g.Title.ToLower().Contains(title.ToLower()));
 			}
 
-			int pageSize = 9;
+			int pageSize = GameAllPagesSize;
 			return View(await PaginatedList<GameAllViewModel>.CreateAsync(allGames.AsNoTracking(), pageNumber ?? 1, pageSize));
 		}
 
@@ -80,7 +82,7 @@ namespace SparkApp.Web.Controllers
 				return View(gameModel);
 			}
 
-			bool isUserMod = User.IsInRole("Moderator");
+			bool isUserMod = User.IsInRole(ModRoleName);
 
 			await gameService.AddGameAsync(gameModel, isUserMod);
 
@@ -102,7 +104,7 @@ namespace SparkApp.Web.Controllers
 		}
 
 		[HttpGet]
-		[Authorize(Roles = "Moderator")]
+		[Authorize(Roles = ModRoleName)]
 		public async Task<IActionResult> Edit(string id)
 		{
 			Guid parsedGuid = Guid.Empty;
@@ -113,16 +115,14 @@ namespace SparkApp.Web.Controllers
 				return View(gameEditModel);
 			}
 
-
 			return RedirectToAction(nameof(Index));
-
 		}
 
 		[HttpPost]
-		[Authorize(Roles = "Moderator")]
+		[Authorize(Roles = ModRoleName)]
 		public async Task<IActionResult> Edit(GameEditViewModel gameEditModel)
 		{
-			string dateTimeSting = $"{gameEditModel.ReleasedDate}";
+			string dateTimeString = $"{gameEditModel.ReleasedDate}";
 
 			GameDetailsViewModel? isGameAlreadyAdded = await gameService.GetGameDetailsAsync(gameEditModel.Title);
 
@@ -131,7 +131,7 @@ namespace SparkApp.Web.Controllers
 				ModelState.AddModelError("Title", "Game with that title already exist in our site...");
 			}
 
-			if (!DateTime.TryParseExact(dateTimeSting, ReleasedDateFormat, CultureInfo.InvariantCulture,
+			if (!DateTime.TryParseExact(dateTimeString, ReleasedDateFormat, CultureInfo.InvariantCulture,
 					DateTimeStyles.None, out DateTime parseDateTime))
 			{
 				ModelState.AddModelError("ReleasedDate", "Invalid Date Format!");
@@ -143,42 +143,48 @@ namespace SparkApp.Web.Controllers
 				return View(gameEditModel);
 			}
 
-			Game gameToEdit = await gameService.GetGameByIdAsync(gameEditModel.Id);
+			Game? gameToEdit = await gameService.GetGameByIdAsync(gameEditModel.Id);
 
 			try
 			{
-				await gameService.EditGameAsync(gameToEdit, gameEditModel);
-				return Redirect($"{nameof(Details)}/{gameToEdit.Title}");
+				if (gameToEdit != null)
+				{
+					await gameService.EditGameAsync(gameToEdit, gameEditModel);
+					return Redirect($"{nameof(Details)}/{gameToEdit.Title}");
+				}
 			}
 			catch (Exception e)
 			{
 				gameEditModel = await gameService.GetEditGameModelAsync(gameEditModel);
 				return View(gameEditModel);
 			}
+
+			return RedirectToAction(nameof(Index));
 		}
 
 		[HttpGet]
-		[Authorize(Roles = "Moderator")]
+		[Authorize(Roles = ModRoleName)]
 		public async Task<IActionResult> ManagePlatforms(string id)
 		{
-			AddPlatformsToGameInputModel? inputModel = await gameService.GetInputPlatformsToGameModelAsync(id);
-
-			if (inputModel != null)
+			Guid parsedGuid = Guid.Empty;
+			if (IsGuidValid(id, ref parsedGuid))
 			{
-				return View(inputModel);
-			}
-			else
-			{
-				return RedirectToAction(nameof(Index));
+				AddPlatformsToGameInputModel? inputModel = await gameService.GetInputPlatformsToGameModelAsync(id);
+
+				if (inputModel != null)
+				{
+					return View(inputModel);
+				}
 			}
 
+			return RedirectToAction(nameof(Index));
 		}
 
 		[HttpPost]
-		[Authorize(Roles = "Moderator")]
+		[Authorize(Roles = ModRoleName)]
 		public async Task<IActionResult> ManagePlatforms(AddPlatformsToGameInputModel model)
 		{
-			if (!this.ModelState.IsValid)
+			if (!ModelState.IsValid)
 			{
 				return View(model);
 			}
@@ -196,23 +202,26 @@ namespace SparkApp.Web.Controllers
 		}
 
 		[HttpGet]
-		[Authorize(Roles = "Moderator")]
+		[Authorize(Roles = ModRoleName)]
 		public async Task<IActionResult> ManageSubGenres(string id)
 		{
-			AddSubGenresToGameInputModel? inputModel = await gameService.GetInputGenresToGameModelAsync(id);
+			Guid parsedGuid = Guid.Empty;
+			if (IsGuidValid(id, ref parsedGuid))
+			{
+				AddSubGenresToGameInputModel? inputModel = await gameService.GetInputGenresToGameModelAsync(id);
 
-			if (inputModel != null)
-			{
-				return View(inputModel);
+				if (inputModel != null)
+				{
+					return View(inputModel);
+				}
 			}
-			else
-			{
-				return RedirectToAction(nameof(Index));
-			}
+
+			return RedirectToAction(nameof(Index));
+
 		}
 
 		[HttpPost]
-		[Authorize(Roles = "Moderator")]
+		[Authorize(Roles = ModRoleName)]
 		public async Task<IActionResult> ManageSubGenres(AddSubGenresToGameInputModel model)
 		{
 			if (!this.ModelState.IsValid)
@@ -233,10 +242,15 @@ namespace SparkApp.Web.Controllers
 		}
 
 		[HttpGet]
-		[Authorize(Roles = "Moderator")]
+		[Authorize(Roles = ModRoleName)]
 		public async Task<IActionResult> Delete(string id)
 		{
 			Game? game = await gameService.GetGameByIdAsync(id);
+
+			if (game == null)
+			{
+				return RedirectToAction(nameof(Index));
+			}
 
 			GameAllViewModel model = new GameAllViewModel()
 			{
@@ -250,16 +264,22 @@ namespace SparkApp.Web.Controllers
 				return View(model);
 			}
 
+
 			return BadRequest();
 		}
 
 		[HttpPost]
-		[Authorize(Roles = "Moderator")]
+		[Authorize(Roles = ModRoleName)]
 		public async Task<IActionResult> Delete(Guid id)
 		{
-			await gameService.DeleteAGame(id);
+			Guid parsedGuid = Guid.Empty;
+			if (IsGuidValid(id.ToString(), ref parsedGuid))
+			{
+				await gameService.DeleteAGame(id);
+				return RedirectToAction(nameof(Index));
+			}
 
-			return RedirectToAction(nameof(Index));
+			return BadRequest();
 		}
 	}
 }

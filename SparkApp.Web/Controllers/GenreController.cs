@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using SparkApp.Services.Data.Interfaces;
 using SparkApp.Web.ViewModels.Genre;
 
+using static SparkApp.Common.AppConstants;
+
 namespace SparkApp.Web.Controllers
 {
 	[Route("[controller]/[action]")]
@@ -19,20 +21,20 @@ namespace SparkApp.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-	        List<GenreViewModel> genres = await genreService.GetAllAsync();
+	        List<GenreViewModel>? genres = await genreService.GetAllAsync();
 
             return View(genres);
         }
 
         [HttpGet]
-        [Authorize(Roles = "Moderator")]
+        [Authorize(Roles = ModRoleName)]
 		public IActionResult Add()
         {
             return View();
         }
 
         [HttpPost]
-        [Authorize(Roles = "Moderator")]
+        [Authorize(Roles = ModRoleName)]
 		public async Task<IActionResult> Add(AddGenreInputModel model)
         {
             if (!ModelState.IsValid)

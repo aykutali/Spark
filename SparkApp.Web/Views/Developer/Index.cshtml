@@ -1,8 +1,9 @@
 ﻿@using SparkApp.Web.ViewModels.Developer
-@model List<DeveloperViewModel>
+@using static SparkApp.Common.AppConstants
+@model List<DeveloperViewModel>?
 
 <h2>Developer index</h2>
-@if (User.IsInRole("Moderator"))
+@if (User.IsInRole(ModRoleName))
 {
 	<div class="col-md-12 bg-light text-right">
 		<a asp-controller="Developer" asp-action="Add" class="btn btn-success btn-dark-text btn-rounded mb-3 w-10 p-8 fw-bold">Add a Developer</a>
@@ -11,8 +12,11 @@
 
 <h4>All Developers..</h4>
 <hr />
-@foreach (var d in Model)
+@if (Model != null)
 {
-	<a asp-controller="Developer" asp-action="Details" asp-route-id="@d.Name">@d.Name</a>
-	<hr />
+	@foreach (var d in Model)
+	{
+		<a asp-controller="Developer" asp-action="Details" asp-route-id="@d.Name">@d.Name</a>
+		<hr />
+	}
 }

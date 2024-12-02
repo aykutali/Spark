@@ -9,9 +9,9 @@ namespace SparkApp.Services.Data.Interfaces
     {
         public Task<IQueryable<GameAllViewModel>> GetAllGamesAsync();
 
-        public Task<Game> GetGameByIdAsync(string id);
+        public Task<Game?> GetGameByIdAsync(string id);
 
-        public Task<GameEditViewModel> GetEditGameModelAsync(string id);
+        public Task<GameEditViewModel?> GetEditGameModelAsync(string id);
 
         public Task<GameEditViewModel> GetEditGameModelAsync(GameEditViewModel gameData);
 

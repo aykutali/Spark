@@ -41,7 +41,7 @@ namespace SparkApp.Services.Data
 				.ToListAsync();
 		}
 
-		public async Task<DirectorDetailsViewModel> GetDirectorDetailsAsync(string name)
+		public async Task<DirectorDetailsViewModel?> GetDirectorDetailsAsync(string name)
 		{
 			Director? director = await directorRepository
 				.GetAllAttached()

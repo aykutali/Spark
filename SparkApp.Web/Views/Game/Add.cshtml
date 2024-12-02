@@ -1,6 +1,8 @@
-﻿@model SparkApp.Web.ViewModels.Game.AddGameInputModel
+﻿@using static SparkApp.Common.EntityValidationConstants.Game
+@using static SparkApp.Common.AppConstants
+@model SparkApp.Web.ViewModels.Game.AddGameInputModel
 @{
-	var today = DateTime.Now.ToString("dd-MM-yyyy");
+	var today = DateTime.Now.ToString(ReleasedDateFormat);
 }
 
 <h2 class="text-center">Add Game</h2>
@@ -52,7 +54,14 @@
 	        </div>
             <div class="mb-3">
 	            <input class="btn btn-warning btn-dark-text mb-2 w-100 py-3 fw-bold rounded" type="submit" value="Save" />
-                <p class="text-info" align="center">You game will be showed with all games AFTER being confirmed by moderator !!!</p>
+                @if (!User.IsInRole(ModRoleName))
+                {
+	                <p class="text-info" align="center">You game will be showed with all games AFTER being confirmed by moderator !!!</p>
+                }
+                else
+                {
+	                <p class="text-info" align="center">The game will be showed with all games without need to be Confirmed !!!</p>
+                }
             </div>
         </form>
     </div>

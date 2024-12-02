@@ -1,8 +1,11 @@
 ﻿using System.Globalization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 using SparkApp.Services.Data.Interfaces;
 using SparkApp.Web.ViewModels.Director;
+
+using static SparkApp.Common.AppConstants;
 
 namespace SparkApp.Web.Controllers
 {
@@ -24,13 +27,15 @@ namespace SparkApp.Web.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = ModRoleName)]
         public IActionResult Add()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(AddDirectorInputModel model)
+        [Authorize(Roles = ModRoleName)]
+		public async Task<IActionResult> Add(AddDirectorInputModel model)
         {
             if (!ModelState.IsValid)
             {

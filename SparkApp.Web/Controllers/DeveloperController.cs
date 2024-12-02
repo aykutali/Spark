@@ -5,6 +5,8 @@ using SparkApp.Services.Data.Interfaces;
 using SparkApp.Web.ViewModels.Developer;
 using SparkApp.Web.ViewModels.Director;
 
+using static SparkApp.Common.AppConstants;
+
 namespace SparkApp.Web.Controllers
 {
 	[Route("[controller]/[action]")]
@@ -25,14 +27,14 @@ namespace SparkApp.Web.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Moderator")]
+        [Authorize(Roles = ModRoleName)]
 		public IActionResult Add()
         {
             return View();
         }
 
         [HttpPost]
-        [Authorize(Roles = "Moderator")]
+        [Authorize(Roles = ModRoleName)]
 		public async Task<IActionResult> Add(AddDeveloperInputModel model)
         {
             if (!ModelState.IsValid)

@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "D:\\C#\\Spark\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E1EC05C1-2E95-46A6-8685-7FC19391AC2B}|SparkApp.Web\\SparkApp.Web.csproj|d:\\c#\\spark\\sparkapp.web\\views\\guessthegame\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E1EC05C1-2E95-46A6-8685-7FC19391AC2B}|SparkApp.Web\\SparkApp.Web.csproj|solutionrelative:sparkapp.web\\views\\guessthegame\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\C#\\Spark\\SparkApp.Data\\Migrations\\20241202195526_adadas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SparkApp.Data\\Migrations\\20241202195526_adadas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E1EC05C1-2E95-46A6-8685-7FC19391AC2B}|SparkApp.Web\\SparkApp.Web.csproj|d:\\c#\\spark\\sparkapp.web\\controllers\\guessthegamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E1EC05C1-2E95-46A6-8685-7FC19391AC2B}|SparkApp.Web\\SparkApp.Web.csproj|solutionrelative:sparkapp.web\\controllers\\guessthegamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E1EC05C1-2E95-46A6-8685-7FC19391AC2B}|SparkApp.Web\\SparkApp.Web.csproj|d:\\c#\\spark\\sparkapp.web\\views\\home\\error500.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E1EC05C1-2E95-46A6-8685-7FC19391AC2B}|SparkApp.Web\\SparkApp.Web.csproj|solutionrelative:sparkapp.web\\views\\home\\error500.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3DE08D46-8402-4307-99FC-283C470C91AE}|SparkApp.Services.Data\\SparkApp.Services.Data.csproj|d:\\c#\\spark\\sparkapp.services.data\\guessgameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3DE08D46-8402-4307-99FC-283C470C91AE}|SparkApp.Services.Data\\SparkApp.Services.Data.csproj|solutionrelative:sparkapp.services.data\\guessgameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3DE08D46-8402-4307-99FC-283C470C91AE}|SparkApp.Services.Data\\SparkApp.Services.Data.csproj|d:\\c#\\spark\\sparkapp.services.data\\interfaces\\iguessgameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3DE08D46-8402-4307-99FC-283C470C91AE}|SparkApp.Services.Data\\SparkApp.Services.Data.csproj|solutionrelative:sparkapp.services.data\\interfaces\\iguessgameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E1EC05C1-2E95-46A6-8685-7FC19391AC2B}|SparkApp.Web\\SparkApp.Web.csproj|d:\\c#\\spark\\sparkapp.web\\views\\home\\error404.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E1EC05C1-2E95-46A6-8685-7FC19391AC2B}|SparkApp.Web\\SparkApp.Web.csproj|solutionrelative:sparkapp.web\\views\\home\\error404.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -39,53 +35,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Web\\Views\\GuessTheGame\\Index.cshtml",
-              "RelativeDocumentMoniker": "SparkApp.Web\\Views\\GuessTheGame\\Index.cshtml",
-              "ToolTip": "D:\\C#\\Spark\\SparkApp.Web\\Views\\GuessTheGame\\Index.cshtml",
-              "RelativeToolTip": "SparkApp.Web\\Views\\GuessTheGame\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-30T17:56:37.377Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GuessTheGameController.cs",
-              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Web\\Controllers\\GuessTheGameController.cs",
-              "RelativeDocumentMoniker": "SparkApp.Web\\Controllers\\GuessTheGameController.cs",
-              "ToolTip": "D:\\C#\\Spark\\SparkApp.Web\\Controllers\\GuessTheGameController.cs",
-              "RelativeToolTip": "SparkApp.Web\\Controllers\\GuessTheGameController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAcAAAAAAAAAA==",
+              "Title": "20241202195526_adadas.cs",
+              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Data\\Migrations\\20241202195526_adadas.cs",
+              "RelativeDocumentMoniker": "SparkApp.Data\\Migrations\\20241202195526_adadas.cs",
+              "ToolTip": "D:\\C#\\Spark\\SparkApp.Data\\Migrations\\20241202195526_adadas.cs",
+              "RelativeToolTip": "SparkApp.Data\\Migrations\\20241202195526_adadas.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-30T17:53:34.91Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IGuessGameService.cs",
-              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Services.Data\\Interfaces\\IGuessGameService.cs",
-              "RelativeDocumentMoniker": "SparkApp.Services.Data\\Interfaces\\IGuessGameService.cs",
-              "ToolTip": "D:\\C#\\Spark\\SparkApp.Services.Data\\Interfaces\\IGuessGameService.cs",
-              "RelativeToolTip": "SparkApp.Services.Data\\Interfaces\\IGuessGameService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-30T17:42:19.163Z",
+              "WhenOpened": "2024-12-02T19:55:26.227Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "GuessGameService.cs",
-              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Services.Data\\GuessGameService.cs",
-              "RelativeDocumentMoniker": "SparkApp.Services.Data\\GuessGameService.cs",
-              "ToolTip": "D:\\C#\\Spark\\SparkApp.Services.Data\\GuessGameService.cs",
-              "RelativeToolTip": "SparkApp.Services.Data\\GuessGameService.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAowFgAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-30T17:38:28.044Z",
+              "Title": "Error404.cshtml",
+              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Web\\Views\\Home\\Error404.cshtml",
+              "RelativeDocumentMoniker": "SparkApp.Web\\Views\\Home\\Error404.cshtml",
+              "ToolTip": "D:\\C#\\Spark\\SparkApp.Web\\Views\\Home\\Error404.cshtml",
+              "RelativeToolTip": "SparkApp.Web\\Views\\Home\\Error404.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-02T19:52:51.195Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Error500.cshtml",
+              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Web\\Views\\Home\\Error500.cshtml",
+              "RelativeDocumentMoniker": "SparkApp.Web\\Views\\Home\\Error500.cshtml",
+              "ToolTip": "D:\\C#\\Spark\\SparkApp.Web\\Views\\Home\\Error500.cshtml",
+              "RelativeToolTip": "SparkApp.Web\\Views\\Home\\Error500.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-02T19:52:49.06Z",
               "EditorCaption": ""
             }
           ]

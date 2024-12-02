@@ -17,7 +17,6 @@ namespace SparkApp.Services.Data
 {
 	public class GameService : BaseService, IGameService
 	{
-		private readonly SparkDbContext db;
 		private readonly IRepository<Game, Guid> gameRepository;
 		private readonly IRepository<Developer, Guid> devRepository;
 		private readonly IRepository<Director, Guid> dirRepository;
@@ -60,35 +59,52 @@ namespace SparkApp.Services.Data
 			return games;
 		}
 
-		public async Task<Game> GetGameByIdAsync(string id)
+		/// <summary>
+		/// Check the given guid is valid and find the game
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns>If there is a game with given guid return a game data, if is no game with that guid return null</returns>
+		public async Task<Game?> GetGameByIdAsync(string id)
 		{
-			Game gameData = await gameRepository.GetByIdAsync(Guid.Parse(id));
+			Guid parsedGuid = Guid.Empty;
+			if (IsGuidValid(id, ref parsedGuid))
+			{
+				Game? gameData = await gameRepository.GetByIdAsync(Guid.Parse(id));
 
-			return gameData;
+				return gameData;
+			}
+
+			return null;
 		}
 
-		public async Task<GameEditViewModel> GetEditGameModelAsync(string id)
+		public async Task<GameEditViewModel?> GetEditGameModelAsync(string id)
 		{
-			Game gameData = await gameRepository.GetByIdAsync(Guid.Parse(id));
-			AddGameInputModel gameListModel = await GetInputGameModelAsync();
+			Game? gameData = await GetGameByIdAsync(id);
 
-			GameEditViewModel gameEditModel = new GameEditViewModel
+
+			if (gameData != null)
 			{
-				Id = gameData.Id.ToString(),
-				Title = gameData.Title,
-				Description = gameData.Description,
-				ImageUrl = gameData.ImageUrl,
-				ReleasedDate = gameData.ReleaseDate.ToString(format: ReleasedDateFormat),
-				DeveloperId = gameData.DeveloperId.ToString(),
-				LeadGameDirectorId = gameData.LeadGameDirectorId.ToString(),
-				MainGenreId = gameData.MainGenreId.ToString(),
+				AddGameInputModel gameListModel = await GetInputGameModelAsync();
+				GameEditViewModel gameEditModel = new GameEditViewModel
+				{
+					Id = gameData.Id.ToString(),
+					Title = gameData.Title,
+					Description = gameData.Description,
+					ImageUrl = gameData.ImageUrl,
+					ReleasedDate = gameData.ReleaseDate.ToString(format: ReleasedDateFormat),
+					DeveloperId = gameData.DeveloperId.ToString(),
+					LeadGameDirectorId = gameData.LeadGameDirectorId.ToString(),
+					MainGenreId = gameData.MainGenreId.ToString(),
 
-				Developers = gameListModel.Developers,
-				Genres = gameListModel.Genres,
-				Directors = gameListModel.Directors,
-			};
+					Developers = gameListModel.Developers,
+					Genres = gameListModel.Genres,
+					Directors = gameListModel.Directors,
+				};
 
-			return gameEditModel;
+				return gameEditModel;
+			}
+
+			return null;
 		}
 
 		public async Task<GameEditViewModel> GetEditGameModelAsync(GameEditViewModel gameData)
@@ -114,7 +130,12 @@ namespace SparkApp.Services.Data
 				gameToEdit.ImageUrl = editModel.ImageUrl;
 				gameToEdit.ReleaseDate = DateTime.Parse(editModel.ReleasedDate);
 				gameToEdit.DeveloperId = Guid.Parse(editModel.DeveloperId);
-				gameToEdit.LeadGameDirectorId = Guid.Parse(editModel.LeadGameDirectorId);
+
+				if (gameToEdit.LeadGameDirectorId != null)
+				{
+					gameToEdit.LeadGameDirectorId = Guid.Parse(editModel.LeadGameDirectorId);
+				}
+
 				gameToEdit.MainGenreId = Guid.Parse(editModel.MainGenreId);
 
 				await gameRepository.UpdateAsync(gameToEdit);
@@ -296,10 +317,14 @@ namespace SparkApp.Services.Data
 				Description = model.Description,
 				ImageUrl = model.ImageUrl,
 				ReleaseDate = parseDateTime,
-				DeveloperId = new Guid(model.DeveloperId),
-				MainGenreId = new Guid(model.MainGenreId),
-				LeadGameDirectorId = new Guid(model.LeadGameDirectorId)
+				DeveloperId = Guid.Parse(model.DeveloperId),
+				MainGenreId =  Guid.Parse(model.MainGenreId)
 			};
+
+			if (!String.IsNullOrEmpty(model.LeadGameDirectorId))
+			{
+				gameData.LeadGameDirectorId = Guid.Parse(model.LeadGameDirectorId);
+			}
 
 			if (isUserMod)
 			{

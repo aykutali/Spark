@@ -12,13 +12,13 @@ namespace SparkApp.Web.ViewModels.Game
 
         public string Description { get; set; }
 
-        public string ImageUrl { get; set; }
+        public string? ImageUrl { get; set; }
 
         public DateTime ReleasedDate { get; set; }
 
         public Genre MainGenre { get; set; }
 
-        public Director LeadDirector { get; set; }
+        public Director? LeadDirector { get; set; }
 
         public Developer Developer { get; set; }
 

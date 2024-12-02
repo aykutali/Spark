@@ -1,15 +1,18 @@
 ﻿using System.Globalization;
+using System.Reflection;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 using SparkApp.Data.Models;
 using SparkApp.Services.Data.Interfaces;
 using SparkApp.Web.ViewModels.Game;
+
 using static SparkApp.Common.EntityValidationConstants.Game;
+using static SparkApp.Common.AppConstants;
 
 namespace SparkApp.Web.Controllers
 {
-	[Authorize(Roles = "Moderator,Admin")]
+	[Authorize(Roles = $"{ModRoleName},{AdminRoleName}")]
 	public class ModController : BaseController
 	{
 		private readonly IGameService gameService;
@@ -58,22 +61,38 @@ namespace SparkApp.Web.Controllers
 				return Redirect($"{Inspect(gameModel.Id)}");
 			}
 
-			Game gameToConfirm = await gameService.GetGameByIdAsync(gameModel.Id);
-			gameToConfirm.IsConfirmed = true;
+			Guid parsedGuid = Guid.Empty;
+			if (IsGuidValid(gameModel.Id, ref parsedGuid))
+			{
+				Game? gameToConfirm = await gameService.GetGameByIdAsync(gameModel.Id);
 
-			await gameService.EditGameAsync(gameToConfirm, gameModel);
+				if (gameToConfirm != null)
+				{
+					gameToConfirm.IsConfirmed = true;
 
-			return Redirect($"{nameof(GameController.Details)}/{gameToConfirm.Title}");
+					await gameService.EditGameAsync(gameToConfirm, gameModel);
+
+					return Redirect($"{nameof(GameController.Details)}/{gameToConfirm.Title}");
+				}
+			}
+
+			return BadRequest();
 		}
 
 		[HttpGet]
 		public async Task<IActionResult> Inspect(string id)
 		{
-			var game = await gameService.GetEditGameModelAsync(id);
-			return View(game);
+			Guid parsedGuid = Guid.Empty;
+			if (IsGuidValid(id,ref parsedGuid))
+			{
+				var game = await gameService.GetEditGameModelAsync(id);
+				return View(game);
+			}
+
+			return View(nameof(ConfirmGames));
 		}
 
-		[Authorize(Roles = "Admin")]
+		[Authorize(Roles = AdminRoleName)]
 		public async Task<IActionResult> Admin()
 		{
 			var users = await userService.GetAllUsersAsync();
@@ -81,7 +100,7 @@ namespace SparkApp.Web.Controllers
 			return View(users);
 		}
 
-		[Authorize(Roles = "Admin")]
+		[Authorize(Roles = AdminRoleName)]
 		public async Task<IActionResult> MakeTheUserMod(string userId)
 		{
 			Guid userGuid = Guid.Empty;
@@ -95,13 +114,13 @@ namespace SparkApp.Web.Controllers
 				return RedirectToAction(nameof(Admin));
 			}
 
-			string role = "MODERATOR";
+			string role = ModRoleName.ToUpper();
 			await userService.AssignUserToRoleAsync(userGuid, role);
 
 			return RedirectToAction(nameof(Admin));
 		}
 
-		[Authorize(Roles = "Admin")]
+		[Authorize(Roles = AdminRoleName)]
 		public async Task<IActionResult> UnModTheUser(string userId)
 		{
 			Guid userGuid = Guid.Empty;
@@ -122,23 +141,23 @@ namespace SparkApp.Web.Controllers
 		}
 
 		[HttpPost]
-		[Authorize(Roles = "Admin")]
+		[Authorize(Roles = AdminRoleName)]
 		public async Task<IActionResult> DeleteUser(string userId)
 		{
 			Guid userGuid = Guid.Empty;
-			if (!this.IsGuidValid(userId, ref userGuid))
+			if (!IsGuidValid(userId, ref userGuid))
 			{
-				return this.RedirectToAction(nameof(Index));
+				return RedirectToAction(nameof(Index));
 			}
 
-			if (!await this.userService.UserExistsByIdAsync(userGuid))
+			if (!await userService.UserExistsByIdAsync(userGuid))
 			{
-				return this.RedirectToAction(nameof(Index));
+				return RedirectToAction(nameof(Index));
 			}
 
-			await this.userService.DeleteUserAsync(userGuid);
+			await userService.DeleteUserAsync(userGuid);
 
-			return this.RedirectToAction(nameof(Admin));
+			return RedirectToAction(nameof(Admin));
 		}
 	}
 }
