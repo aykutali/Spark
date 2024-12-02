@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using static SparkApp.Common.AppConstants
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
@@ -28,7 +29,7 @@
 						<li class="nav-item">
 							<a class="nav-link text-dark" asp-area="" asp-controller="GuessTheGame" asp-action="Index">Guess The Game</a>
 						</li>
-						@if (User.IsInRole("Moderator"))
+						@if (User.IsInRole(ModRoleName) || User.IsInRole(AdminRoleName))
 						{
 							<li class="nav-item">
 								<a class="nav-link text-dark" asp-area="" asp-controller="Mod" asp-action="Index">Moderation</a>

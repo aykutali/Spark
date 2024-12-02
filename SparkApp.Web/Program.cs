@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-
 using SparkApp.Data;
 using SparkApp.Data.Models;
 using SparkApp.Data.Repository.Interfaces;
@@ -19,7 +18,11 @@ namespace SparkApp.Web
             // Add services to the container.
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
-            builder.Services
+            string adminEmail = builder.Configuration.GetValue<string>("Admin:Email")!;
+            string adminUsername = builder.Configuration.GetValue<string>("Admin:Username")!;
+            string adminPassword = builder.Configuration.GetValue<string>("Admin:Password")!;
+
+			builder.Services
                 .AddDbContext<SparkDbContext>(options =>
                 {
                     options.UseSqlServer(connectionString);
@@ -69,6 +72,8 @@ namespace SparkApp.Web
             app.UseAuthorization();
 
             app.UseStatusCodePagesWithRedirects("/Home/Error/{0}");
+
+            app.SeedAdministrator(adminEmail, adminUsername, adminPassword);
 
 			app.MapControllerRoute(
 				name: "Errors",
