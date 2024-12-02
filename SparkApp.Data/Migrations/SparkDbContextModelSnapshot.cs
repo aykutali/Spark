@@ -17,7 +17,7 @@ namespace SparkApp.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.10")
+                .HasAnnotation("ProductVersion", "8.0.11")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -238,7 +238,14 @@ namespace SparkApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Developer", (string)null);
+                    b.ToTable("Developer");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("ee33ddcf-011e-4266-9811-a778a31223db"),
+                            Name = "FromSoftware"
+                        });
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.Director", b =>
@@ -261,7 +268,16 @@ namespace SparkApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Directors", (string)null);
+                    b.ToTable("Directors");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("9b89e6c5-2893-429a-8b65-08dd000ce7b6"),
+                            About = "Creator of the Souls games and \"souls\"-\"souls-like\" genres",
+                            ImageUrl = "https://i.namu.wiki/i/qBSmQPJjYdPqrnDue2wc7H_44TEHRF3-l4e31U0iPUnGxd7vAmZnffhsynOvYckzPWHjyK1hrDVeFpeMtprgQA.webp",
+                            Name = "Hidetaka Miyazaki"
+                        });
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.Game", b =>
@@ -316,7 +332,22 @@ namespace SparkApp.Data.Migrations
 
                     b.HasIndex("MainGenreId");
 
-                    b.ToTable("Games", (string)null);
+                    b.ToTable("Games");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("9128813e-a6da-47e5-831c-1a3400915fa3"),
+                            Description = "open world souls game",
+                            DeveloperId = new Guid("ee33ddcf-011e-4266-9811-a778a31223db"),
+                            ImageUrl = "https://image.api.playstation.com/vulcan/ap/rnd/202110/2000/phvVT0qZfcRms5qDAk0SI3CM.png",
+                            IsConfirmed = false,
+                            IsDeleted = false,
+                            LeadGameDirectorId = new Guid("9b89e6c5-2893-429a-8b65-08dd000ce7b6"),
+                            MainGenreId = new Guid("69dded8c-b117-4616-ae9c-10f763b26669"),
+                            ReleaseDate = new DateTime(2022, 2, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Elden Ring"
+                        });
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.GameGenre", b =>
@@ -338,7 +369,7 @@ namespace SparkApp.Data.Migrations
 
                     b.HasIndex("GenreId");
 
-                    b.ToTable("GamesGenres", (string)null);
+                    b.ToTable("GamesGenres");
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.GameOfTheDay", b =>
@@ -353,7 +384,7 @@ namespace SparkApp.Data.Migrations
 
                     b.HasIndex("GameId");
 
-                    b.ToTable("GamesOfTheDays", (string)null);
+                    b.ToTable("GamesOfTheDays");
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.GamePlatform", b =>
@@ -374,7 +405,7 @@ namespace SparkApp.Data.Migrations
 
                     b.HasIndex("PlatformId");
 
-                    b.ToTable("GamesPlatforms", (string)null);
+                    b.ToTable("GamesPlatforms");
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.Genre", b =>
@@ -395,7 +426,39 @@ namespace SparkApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Genres", (string)null);
+                    b.ToTable("Genres");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("3edae636-cdb6-4995-8707-ef0a69f2733c"),
+                            Description = "smash and explore",
+                            Name = "Action-Adventure"
+                        },
+                        new
+                        {
+                            Id = new Guid("ebee4b43-16a8-435a-8448-bdbd863ba747"),
+                            Description = "find a key ,go back to the door, open it find, a another key to another door",
+                            Name = "Metroidvania"
+                        },
+                        new
+                        {
+                            Id = new Guid("63c7dfdc-bcd4-4213-94a5-7f8eefb5a720"),
+                            Description = "die and dew it again",
+                            Name = "Rogue-lite"
+                        },
+                        new
+                        {
+                            Id = new Guid("2332b52f-6bd8-41fd-a527-7cce41c1b19a"),
+                            Description = "big maps with lot side quests",
+                            Name = "Open world"
+                        },
+                        new
+                        {
+                            Id = new Guid("69dded8c-b117-4616-ae9c-10f763b26669"),
+                            Description = "git gud more",
+                            Name = "Souls-like"
+                        });
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.Platform", b =>
@@ -410,7 +473,7 @@ namespace SparkApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Platforms", (string)null);
+                    b.ToTable("Platforms");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>

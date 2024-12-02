@@ -73,7 +73,9 @@ namespace SparkApp.Web
 
             app.UseStatusCodePagesWithRedirects("/Home/Error/{0}");
 
-            app.SeedAdministrator(adminEmail, adminUsername, adminPassword);
+            app.ApplyMigrations();
+
+			app.SeedAdministrator(adminEmail, adminUsername, adminPassword);
 
 			app.MapControllerRoute(
 				name: "Errors",
@@ -85,7 +87,7 @@ namespace SparkApp.Web
 
 			app.MapRazorPages();
 
-            app.ApplyMigrations();
+           
 
             app.Run();
         }
