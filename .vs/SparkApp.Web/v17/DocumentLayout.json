@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "D:\\C#\\Spark\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{423F5083-81C1-4BF1-ACA6-063D125DEC89}|SparkApp.Services.Tests\\SparkApp.Services.Tests.csproj|d:\\c#\\spark\\sparkapp.services.tests\\gameservicestests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{423F5083-81C1-4BF1-ACA6-063D125DEC89}|SparkApp.Services.Tests\\SparkApp.Services.Tests.csproj|solutionrelative:sparkapp.services.tests\\gameservicestests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3DE08D46-8402-4307-99FC-283C470C91AE}|SparkApp.Services.Data\\SparkApp.Services.Data.csproj|d:\\c#\\spark\\sparkapp.services.data\\guessgameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DE08D46-8402-4307-99FC-283C470C91AE}|SparkApp.Services.Data\\SparkApp.Services.Data.csproj|solutionrelative:sparkapp.services.data\\guessgameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{423F5083-81C1-4BF1-ACA6-063D125DEC89}|SparkApp.Services.Tests\\SparkApp.Services.Tests.csproj|d:\\c#\\spark\\sparkapp.services.tests\\directorservicestests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{423F5083-81C1-4BF1-ACA6-063D125DEC89}|SparkApp.Services.Tests\\SparkApp.Services.Tests.csproj|solutionrelative:sparkapp.services.tests\\directorservicestests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DE08D46-8402-4307-99FC-283C470C91AE}|SparkApp.Services.Data\\SparkApp.Services.Data.csproj|d:\\c#\\spark\\sparkapp.services.data\\directorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DE08D46-8402-4307-99FC-283C470C91AE}|SparkApp.Services.Data\\SparkApp.Services.Data.csproj|solutionrelative:sparkapp.services.data\\directorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +22,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GuessGameService.cs",
+              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Services.Data\\GuessGameService.cs",
+              "RelativeDocumentMoniker": "SparkApp.Services.Data\\GuessGameService.cs",
+              "ToolTip": "D:\\C#\\Spark\\SparkApp.Services.Data\\GuessGameService.cs",
+              "RelativeToolTip": "SparkApp.Services.Data\\GuessGameService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T21:06:34.95Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -26,15 +47,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GameServicesTests.cs",
-              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Services.Tests\\GameServicesTests.cs",
-              "RelativeDocumentMoniker": "SparkApp.Services.Tests\\GameServicesTests.cs",
-              "ToolTip": "D:\\C#\\Spark\\SparkApp.Services.Tests\\GameServicesTests.cs",
-              "RelativeToolTip": "SparkApp.Services.Tests\\GameServicesTests.cs",
-              "ViewState": "AgIAAKkBAAAAAAAAAAAAAMUBAAAZAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "DirectorService.cs",
+              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Services.Data\\DirectorService.cs",
+              "RelativeDocumentMoniker": "SparkApp.Services.Data\\DirectorService.cs",
+              "ToolTip": "D:\\C#\\Spark\\SparkApp.Services.Data\\DirectorService.cs",
+              "RelativeToolTip": "SparkApp.Services.Data\\DirectorService.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwBoAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T22:29:11.052Z",
+              "WhenOpened": "2024-12-06T20:43:31.305Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DirectorServicesTests.cs",
+              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Services.Tests\\DirectorServicesTests.cs",
+              "RelativeDocumentMoniker": "SparkApp.Services.Tests\\DirectorServicesTests.cs",
+              "ToolTip": "D:\\C#\\Spark\\SparkApp.Services.Tests\\DirectorServicesTests.cs",
+              "RelativeToolTip": "SparkApp.Services.Tests\\DirectorServicesTests.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAgwFwAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T20:42:45.426Z",
               "EditorCaption": ""
             }
           ]

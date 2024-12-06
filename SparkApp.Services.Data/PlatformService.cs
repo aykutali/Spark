@@ -17,20 +17,30 @@ namespace SparkApp.Services.Data
 			this.platformRepository = platformRepository;
 		}
 
-		public async Task AddPlatformAsync(AddPlatformInputModel model)
+		public async Task<bool> AddPlatformAsync(AddPlatformInputModel model)
 		{
+			bool isPlatformAlreadyExist = await platformRepository.GetAllAttached()
+				.AnyAsync(p=>p.Name == model.Name);
+
+			if (isPlatformAlreadyExist)
+			{
+				return false;
+			}
+
 			Platform platformData = new Platform
 			{
 				Name = model.Name
 			};
 
 			await platformRepository.AddAsync(platformData);
+
+			return true;
 		}
 
 		public async Task<List<PlatformViewModel>?> GetAllAsync()
 		{
 			return await platformRepository.GetAllAttached()
-				.Select(p=> new PlatformViewModel()
+				.Select(p => new PlatformViewModel()
 				{
 					Id = p.Id.ToString(),
 					Name = p.Name,
@@ -62,7 +72,7 @@ namespace SparkApp.Services.Data
 							Title = gp.Game.Title
 						});
 					}
-					
+
 				}
 
 				PlatformDetailsViewModel viewModel = new PlatformDetailsViewModel()

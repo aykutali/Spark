@@ -5,7 +5,7 @@ namespace SparkApp.Services.Data.Interfaces
 {
 	public interface IDirectorService : IBaseService
 	{
-		Task AddDirectorAsync(AddDirectorInputModel model);
+		Task<bool> AddDirectorAsync(AddDirectorInputModel model);
 
 		Task<List<DirectorViewModel>?> GetAllAsync();
 

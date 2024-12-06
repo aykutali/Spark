@@ -7,7 +7,6 @@ using SparkApp.Services.Data.Interfaces;
 using SparkApp.Web.ViewModels.Game;
 
 using static SparkApp.Common.EntityValidationConstants.Game;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SparkApp.Services.Data
 {

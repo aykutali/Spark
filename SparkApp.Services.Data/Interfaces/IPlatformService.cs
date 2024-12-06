@@ -9,7 +9,7 @@ namespace SparkApp.Services.Data.Interfaces
 {
     public interface IPlatformService : IBaseService
     {
-        Task AddPlatformAsync(AddPlatformInputModel model);
+        Task<bool> AddPlatformAsync(AddPlatformInputModel model);
 
         Task<List<PlatformViewModel>?> GetAllAsync();
 

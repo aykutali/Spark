@@ -17,8 +17,15 @@ namespace SparkApp.Services.Data
 			this.directorRepository = directorRepository;
 		}
 
-		public async Task AddDirectorAsync(AddDirectorInputModel model)
+		public async Task<bool> AddDirectorAsync(AddDirectorInputModel model)
 		{
+			bool isDirectorAlreadyExist = directorRepository.GetAllAttached()
+				.Any(d => d.Name == model.Name);
+			if (isDirectorAlreadyExist)
+			{
+				return false;
+			}
+
 			Director directorData = new Director
 			{
 				Name = model.Name,
@@ -27,6 +34,7 @@ namespace SparkApp.Services.Data
 			};
 
 			await directorRepository.AddAsync(directorData);
+			return true;
 		}
 
 		public async Task<List<DirectorViewModel>?> GetAllAsync()

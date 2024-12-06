@@ -20,8 +20,15 @@ namespace SparkApp.Services.Data
 			this.gameRepository = gameRepository;
 		}
 
-		public async Task AddGenreAsync(AddGenreInputModel model)
+		public async Task<bool> AddGenreAsync(AddGenreInputModel model)
 		{
+			bool isGenreAlreadyExist = await genreRepository.GetAllAttached()
+				.AnyAsync(g => g.Name == model.Name);
+			if (isGenreAlreadyExist)
+			{
+				return false;
+			}
+
 			var genreData = new Genre
 			{
 				Name = model.Name,
@@ -29,12 +36,14 @@ namespace SparkApp.Services.Data
 			};
 
 			await genreRepository.AddAsync(genreData);
+
+			return true;
 		}
 
 		public async Task<List<GenreViewModel>?> GetAllAsync()
 		{
 			return await genreRepository.GetAllAttached()
-				.Select(g=> new GenreViewModel()
+				.Select(g => new GenreViewModel()
 				{
 					Id = g.Id,
 					Name = g.Name,

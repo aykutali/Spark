@@ -5,7 +5,7 @@ namespace SparkApp.Services.Data.Interfaces
 {
 	public interface IGenreService : IBaseService
 	{
-		Task AddGenreAsync(AddGenreInputModel model);
+		Task<bool> AddGenreAsync(AddGenreInputModel model);
 
 		Task<List<GenreViewModel>?> GetAllAsync();
 

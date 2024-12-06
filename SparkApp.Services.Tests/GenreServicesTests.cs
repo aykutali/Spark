@@ -1,5 +1,4 @@
-﻿using Castle.Components.DictionaryAdapter.Xml;
-using MockQueryable;
+﻿using MockQueryable;
 using Moq;
 
 using SparkApp.Data.Models;
@@ -97,10 +96,23 @@ namespace SparkApp.Services.Tests
 		[TestCase("invalid")]
 		public async Task IsGetDetailsWorkCorrect(string name)
 		{
+
+			foreach (var genre in genreData)
+			{
+				genre.GamesGenre.Add(new GameGenre()
+				{
+					GameId = gameData[0].Id,
+					GenreId = genre.Id,
+					Game = gameData[0],
+					Genre = genre
+				});
+			}
+
 			IQueryable<Genre> genresMockQueryable = genreData.BuildMock();
 			this.genreRepository
 				.Setup(r => r.GetAllAttached())
 				.Returns(genresMockQueryable);
+
 
 			IQueryable<Game> gamesMockQueryable = gameData.BuildMock();
 			this.gameRepository
@@ -118,12 +130,14 @@ namespace SparkApp.Services.Tests
 			else
 			{
 				Assert.AreEqual(name, genreModel.Name);
+				Assert.NotNull(genreModel.Games);
 			}
 		}
 
 		[Test]
-
-		public async Task IsAddGenreWorkCorrect()
+		[TestCase("Some Genre")]
+		[TestCase("Metroidvania")] //name which is already exist
+		public async Task IsAddGenreWorkCorrect(string name)
 		{
 
 			IQueryable<Genre> genreMockQueryable = genreData.BuildMock();
@@ -138,13 +152,26 @@ namespace SparkApp.Services.Tests
 
 			IGenreService genreService = new GenreService(genreRepository.Object, gameRepository.Object);
 
-			var result = genreService.AddGenreAsync(new AddGenreInputModel()
+			if (name == "Metroidvania")
 			{
-				Name = "Some Genre",
-				Description = "Some Genre Description"
-			}).IsCompletedSuccessfully;
+				var result = await genreService.AddGenreAsync(new AddGenreInputModel()
+				{
+					Name = name,
+					Description = "Some Genre Description"
+				});
 
-			Assert.AreEqual(true, result);
+				Assert.IsFalse(result);
+			}
+			else
+			{
+				var result = await genreService.AddGenreAsync(new AddGenreInputModel()
+				{
+					Name = name,
+					Description = "Some Genre Description"
+				});
+
+				Assert.IsTrue(result);
+			}
 		}
 	}
 }

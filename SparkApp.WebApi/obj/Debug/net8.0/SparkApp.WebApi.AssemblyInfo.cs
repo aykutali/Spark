@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SparkApp.WebApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c927d453d7b0f2491fdbd84b33bd17be2a6b3d06")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ab336abf18d8eac537032784928f46166b3e99b3")]
 [assembly: System.Reflection.AssemblyProductAttribute("SparkApp.WebApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SparkApp.WebApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
