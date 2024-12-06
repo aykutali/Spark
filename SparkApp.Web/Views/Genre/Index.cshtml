@@ -16,7 +16,7 @@
 {
 	@foreach (var g in Model)
 	{
-		<a asp-controller="Genre" asp-action="Details" asp-route-id="@g.Name">@g.Name</a>
+		<a asp-controller="Genre" asp-action="Details" asp-route-name="@g.Name">@g.Name</a>
 		<hr />
 	}
 }

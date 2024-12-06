@@ -81,7 +81,6 @@ namespace SparkApp.Services.Data
 		{
 			Game? gameData = await GetGameByIdAsync(id);
 
-
 			if (gameData != null)
 			{
 				AddGameInputModel gameListModel = await GetInputGameModelAsync();
@@ -153,7 +152,9 @@ namespace SparkApp.Services.Data
 		public async Task<GameDetailsViewModel?> GetGameDetailsAsync(string title)
 		{
 			Game? game = await gameRepository.GetAllAttached()
-				.Where(g => g.Title == title)
+				.Where(g => g.Title == title &&
+								 g.IsConfirmed &&
+								 g.IsDeleted == false)
 				.Include(g => g.LeadGameDirector)
 				.Include(g => g.Developer)
 				.Include(g => g.MainGenre)
@@ -186,9 +187,9 @@ namespace SparkApp.Services.Data
 
 		public async Task<AddGameInputModel> GetInputGameModelAsync()
 		{
-			IEnumerable<Genre> genresList = await genreRepository.GetAllAsync();
-			IEnumerable<Developer> devList = await devRepository.GetAllAsync();
-			IEnumerable<Director> directorList = await dirRepository.GetAllAsync();
+			IEnumerable<Genre> genresList = genreRepository.GetAllAttached();
+			IEnumerable<Developer> devList = devRepository.GetAllAttached();
+			IEnumerable<Director> directorList = dirRepository.GetAllAttached();
 
 			List<GenreViewModel> genreModelsList = genresList
 				.Select(x => (new GenreViewModel
@@ -238,7 +239,7 @@ namespace SparkApp.Services.Data
 
 		public async Task<AddPlatformsToGameInputModel?> GetInputPlatformsToGameModelAsync(string id)
 		{
-			Game? game = await gameRepository.GetByIdAsync(Guid.Parse(id));
+			Game? game = await GetGameByIdAsync(id);
 			AddPlatformsToGameInputModel? viewModel = null;
 
 			if (game != null)
@@ -259,10 +260,12 @@ namespace SparkApp.Services.Data
 							IsSelected = p.GamesPlatform
 								.Any(gp => gp.GameId == Guid.Parse(id) && gp.IsDeleted == false),
 
-							LinkToPlatform = p.GamesPlatform
-								.Where(gp => gp.GameId == Guid.Parse(id))
+							LinkToPlatform = gamePlatformRepository
+								.GetAllAttached()
+								.Where(gp => gp.GameId == Guid.Parse(id) &&
+													    gp.PlatformId == p.Id)
 								.Select(gp => gp.LinkToPlatform)
-								.First()
+								.FirstOrDefault()
 						})
 						.ToListAsync()
 				};
@@ -274,7 +277,7 @@ namespace SparkApp.Services.Data
 
 		public async Task<AddSubGenresToGameInputModel?> GetInputGenresToGameModelAsync(string id)
 		{
-			Game? game = await gameRepository.GetByIdAsync(Guid.Parse(id));
+			Game? game = await GetGameByIdAsync(id);
 			AddSubGenresToGameInputModel? genresViewModel = null;
 
 			if (game != null)
@@ -318,7 +321,7 @@ namespace SparkApp.Services.Data
 				ImageUrl = model.ImageUrl,
 				ReleaseDate = parseDateTime,
 				DeveloperId = Guid.Parse(model.DeveloperId),
-				MainGenreId =  Guid.Parse(model.MainGenreId)
+				MainGenreId = Guid.Parse(model.MainGenreId)
 			};
 
 			if (!String.IsNullOrEmpty(model.LeadGameDirectorId))
@@ -336,7 +339,7 @@ namespace SparkApp.Services.Data
 
 		public async Task AddPlatformsToGameAsync(AddPlatformsToGameInputModel model)
 		{
-			Game? game = await gameRepository.GetByIdAsync(Guid.Parse(model.Id));
+			Game? game = await GetGameByIdAsync(model.Id);
 			if (game == null || game.IsDeleted)
 			{
 				return;
@@ -379,7 +382,7 @@ namespace SparkApp.Services.Data
 
 		public async Task AddSubGenresToGameAsync(AddSubGenresToGameInputModel model)
 		{
-			Game? game = await gameRepository.GetByIdAsync(Guid.Parse(model.Id));
+			Game? game = await GetGameByIdAsync(model.Id);
 			if (game == null || game.IsDeleted)
 			{
 				return;

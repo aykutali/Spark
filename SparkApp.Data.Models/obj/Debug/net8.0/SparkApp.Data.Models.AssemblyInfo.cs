@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SparkApp.Data.Models")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fe9fa2be662bb67b5f0e2a8be2558befdffd9f91")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c927d453d7b0f2491fdbd84b33bd17be2a6b3d06")]
 [assembly: System.Reflection.AssemblyProductAttribute("SparkApp.Data.Models")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SparkApp.Data.Models")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

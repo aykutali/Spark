@@ -73,7 +73,7 @@ namespace SparkApp.Web
 
             app.UseStatusCodePagesWithRedirects("/Home/Error/{0}");
 
-            app.ApplyMigrations();
+            //app.ApplyMigrations();
 
 			app.SeedAdministrator(adminEmail, adminUsername, adminPassword);
 

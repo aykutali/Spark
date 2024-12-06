@@ -33,7 +33,7 @@ namespace SparkApp.Web.Controllers
 		[HttpGet]
 		public async Task<IActionResult> All(string title, int? pageNumber)
 		{
-			if (title != null)
+			if (String.IsNullOrWhiteSpace(title) && pageNumber == null)
 			{
 				pageNumber = 1;
 			}

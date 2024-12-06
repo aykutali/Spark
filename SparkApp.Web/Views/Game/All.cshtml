@@ -79,12 +79,14 @@
 <hr />
 <div align="center">
 	<a asp-controller="Game" asp-action="All"
+	   asp-route-title="@ViewData["CurrentFilter"]"
 	   asp-route-pageNumber="@(Model.PageIndex - 1)"
 	   class="btn btn-dark @prevDisabled">
 		Previous
 	</a>
 	<span>@Model.PageIndex Of @Model.TotalPages</span>
 	<a asp-controller="Game" asp-action="All"
+	   asp-route-title="@ViewData["CurrentFilter"]"
 	   asp-route-pageNumber="@(Model.PageIndex + 1)"
 	   class="btn btn-dark @nextDisabled">
 		Next

@@ -65,7 +65,7 @@ namespace SparkApp.Services.Data
 
 				foreach (var gg in genre.GamesGenre)
 				{
-					if (!gg.IsDeleted)
+					if (!gg.IsDeleted && !gg.Game.IsDeleted)
 					{
 						games.Add(new GameAllViewModel()
 						{
