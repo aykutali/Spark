@@ -5,7 +5,6 @@ using SparkApp.Data.Models;
 using SparkApp.Data.Repository.Interfaces;
 using SparkApp.Services.Data;
 using SparkApp.Services.Data.Interfaces;
-using SparkApp.Web.ViewModels.Game;
 using SparkApp.Web.ViewModels.Genre;
 
 namespace SparkApp.Services.Tests

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SparkApp.Web.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ab336abf18d8eac537032784928f46166b3e99b3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+268d87bf6c55415c6dbcedea66fe928b8bb19f7b")]
 [assembly: System.Reflection.AssemblyProductAttribute("SparkApp.Web.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SparkApp.Web.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

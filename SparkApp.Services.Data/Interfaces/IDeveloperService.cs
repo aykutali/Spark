@@ -6,7 +6,7 @@ namespace SparkApp.Services.Data.Interfaces
 {
     public interface IDeveloperService : IBaseService
     {
-        Task AddDeveloperAsync(AddDeveloperInputModel model);
+        Task<bool> AddDeveloperAsync(AddDeveloperInputModel model);
 
         Task<List<DeveloperViewModel>?> GetAllAsync();
 

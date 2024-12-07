@@ -16,8 +16,7 @@ namespace SparkApp.Services.Data
 		private readonly IRepository<GameOfTheDay, object> gameOfTheDayRepository;
 
 		public GuessGameService(IRepository<Game, Guid> gameRepository,
-								IRepository<GameOfTheDay, object> gameOfTheDayRepository,
-								SparkDbContext dbContext)
+								IRepository<GameOfTheDay, object> gameOfTheDayRepository)
 		{
 			this.gameRepository = gameRepository;
 			this.gameOfTheDayRepository = gameOfTheDayRepository;
@@ -27,7 +26,7 @@ namespace SparkApp.Services.Data
 		/// </summary>
 		/// <param name="date"></param>
 		/// <returns></returns>
-		public async Task SetGameOfTheDayAsync(DateOnly date)
+		public async Task<bool> SetGameOfTheDayAsync(DateOnly date)
 		{
 			bool isGameOfTodayExist = await gameOfTheDayRepository.GetAllAttached()
 				.AnyAsync(dg => dg.Day == date);
@@ -47,8 +46,10 @@ namespace SparkApp.Services.Data
 				};
 
 				await gameOfTheDayRepository.AddAsync(gameOfTheDayData);
-
+				return true;
 			}
+
+			return false;
 		}
 
 		public async Task<Game> GetGameOfTheDayAsync(DateOnly date)

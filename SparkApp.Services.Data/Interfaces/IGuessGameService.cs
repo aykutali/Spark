@@ -10,7 +10,7 @@ namespace SparkApp.Services.Data.Interfaces
 
 		public Task<Game> GetGameOfTheDayAsync(DateOnly date);
 
-		public Task SetGameOfTheDayAsync(DateOnly date);
+		public Task<bool> SetGameOfTheDayAsync(DateOnly date);
 
 		public Task<string> GetGameTitleFromDayBefore();
 	}

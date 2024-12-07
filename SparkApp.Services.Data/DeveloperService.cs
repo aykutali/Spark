@@ -17,8 +17,15 @@ namespace SparkApp.Services.Data
 			this.developerRepository = developerRepository;
 		}
 
-		public async Task AddDeveloperAsync(AddDeveloperInputModel model)
+		public async Task<bool> AddDeveloperAsync(AddDeveloperInputModel model)
 		{
+			bool isDevAlreadyExist = await developerRepository.GetAllAttached()
+				.AnyAsync(d => d.Name == model.Name);
+			if (isDevAlreadyExist)
+			{
+				return false;
+			}
+
 			Developer devData = new Developer
 			{
 				Name = model.Name,
@@ -26,6 +33,7 @@ namespace SparkApp.Services.Data
 			};
 
 			await developerRepository.AddAsync(devData);
+			return true;
 		}
 
 		public async Task<List<DeveloperViewModel>?> GetAllAsync()

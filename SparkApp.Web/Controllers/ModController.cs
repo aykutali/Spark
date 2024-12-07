@@ -134,7 +134,7 @@ namespace SparkApp.Web.Controllers
 				return RedirectToAction(nameof(Admin));
 			}
 
-			string role = "MODERATOR";
+			string role = ModRoleName.ToUpper();
 			await userService.RemoveUserRoleAsync(userGuid, role);
 
 			return RedirectToAction(nameof(Admin));
