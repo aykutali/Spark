@@ -97,3 +97,4 @@ D:\C#\Spark\SparkApp.WebApi\bin\Debug\net8.0\SparkApp.Services.Data.pdb
 D:\C#\Spark\SparkApp.WebApi\bin\Debug\net8.0\SparkApp.Web.ViewModels.pdb
 D:\C#\Spark\SparkApp.WebApi\bin\Debug\net8.0\SparkApp.Common.pdb
 D:\C#\Spark\SparkApp.WebApi\bin\Debug\net8.0\SparkApp.Data.Models.pdb
+D:\C#\Spark\SparkApp.WebApi\bin\Debug\net8.0\Newtonsoft.Json.dll

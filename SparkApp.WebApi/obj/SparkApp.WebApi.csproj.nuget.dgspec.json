@@ -216,6 +216,10 @@
               "target": "Package",
               "version": "[8.0.10, )"
             },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
             "System.Formats.Asn1": {
               "target": "Package",
               "version": "[8.0.1, )"

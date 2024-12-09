@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SparkApp.DB-Seeder")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fe9fa2be662bb67b5f0e2a8be2558befdffd9f91")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4fc27c08df7ef6a54363b955d0e36c4a36d96886")]
 [assembly: System.Reflection.AssemblyProductAttribute("SparkApp.DB-Seeder")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SparkApp.DB-Seeder")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

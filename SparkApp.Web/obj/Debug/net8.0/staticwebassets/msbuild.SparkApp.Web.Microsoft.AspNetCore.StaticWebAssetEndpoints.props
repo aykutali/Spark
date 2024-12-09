@@ -36,17 +36,17 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"uvjlvl5xc6"},{"Name":"integrity","Value":"sha256-6tq\u002BBfFM9ioOqAZuAbQvaO05Jz7XnoVZ21R3xTtk/Cs="},{"Name":"label","Value":"_content/SparkApp.Web/game.png"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"38840"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u00226tq\u002BBfFM9ioOqAZuAbQvaO05Jz7XnoVZ21R3xTtk/Cs=\u0022"},{"Name":"Last-Modified","Value":"Mon, 11 Nov 2024 17:52:24 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/SparkApp.Web/js/guessGame.101vg489t5.js">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\guessGame.js'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"101vg489t5"},{"Name":"integrity","Value":"sha256-0Xb0mr7otVdWirsKNw\u002BHUYn\u002Bl/Cfy6gniW5tHz3skTY="},{"Name":"label","Value":"_content/SparkApp.Web/js/guessGame.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"6488"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00220Xb0mr7otVdWirsKNw\u002BHUYn\u002Bl/Cfy6gniW5tHz3skTY=\u0022"},{"Name":"Last-Modified","Value":"Thu, 28 Nov 2024 16:29:37 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/SparkApp.Web/js/guessGame.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\guessGame.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-0Xb0mr7otVdWirsKNw\u002BHUYn\u002Bl/Cfy6gniW5tHz3skTY="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"6488"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00220Xb0mr7otVdWirsKNw\u002BHUYn\u002Bl/Cfy6gniW5tHz3skTY=\u0022"},{"Name":"Last-Modified","Value":"Thu, 28 Nov 2024 16:29:37 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-1vKuhk7QY/NbArUspoFj7elJLA\u002By4Za5APkaQ944jDw="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"7224"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00221vKuhk7QY/NbArUspoFj7elJLA\u002By4Za5APkaQ944jDw=\u0022"},{"Name":"Last-Modified","Value":"Sat, 07 Dec 2024 22:26:36 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/SparkApp.Web/js/guessGame.y547a29vnb.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\guessGame.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"y547a29vnb"},{"Name":"integrity","Value":"sha256-1vKuhk7QY/NbArUspoFj7elJLA\u002By4Za5APkaQ944jDw="},{"Name":"label","Value":"_content/SparkApp.Web/js/guessGame.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"7224"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00221vKuhk7QY/NbArUspoFj7elJLA\u002By4Za5APkaQ944jDw=\u0022"},{"Name":"Last-Modified","Value":"Sat, 07 Dec 2024 22:26:36 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/SparkApp.Web/js/site.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\site.js'))</AssetFile>

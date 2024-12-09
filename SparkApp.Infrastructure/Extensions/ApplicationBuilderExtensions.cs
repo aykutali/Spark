@@ -5,24 +5,52 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity;
 using SparkApp.Data.Models;
-
+using SparkApp.Data.Seeding;
 using static SparkApp.Common.AppConstants;
 
 namespace SparkApp.Web.Infrastructure.Extensions
 {
-    public static class ApplicationBuilderExtensions
-    {
-        public static IApplicationBuilder ApplyMigrations(this IApplicationBuilder app)
-        {
-            using IServiceScope serviceScope = app.ApplicationServices.CreateScope();
+	public static class ApplicationBuilderExtensions
+	{
+		public static IApplicationBuilder ApplyMigrations(this IApplicationBuilder app)
+		{
+			using IServiceScope serviceScope = app.ApplicationServices.CreateScope();
 
-            SparkDbContext dbContext = serviceScope
-                .ServiceProvider
-                .GetRequiredService<SparkDbContext>()!;
-            dbContext.Database.Migrate();
+			SparkDbContext dbContext = serviceScope
+				.ServiceProvider
+				.GetRequiredService<SparkDbContext>()!;
+			dbContext.Database.Migrate();
 
-            return app;
-        }
+			return app;
+		}
+
+		public static IApplicationBuilder SeedDatabase(this IApplicationBuilder app, string jsonPathGenres,
+			string jsonPathDevelopers,
+			string jsonPathDirectors,
+			string jsonPathPlatforms,
+			string jsonPathGames,
+			string jsonPathGamesGenres, 
+			string jsonPathGamesPlatforms )
+		{
+			using IServiceScope serviceScope = app.ApplicationServices.CreateAsyncScope();
+			IServiceProvider serviceProvider = serviceScope.ServiceProvider;
+
+
+			Task.Run(async () =>
+			{
+				await DbSeeder.SeedDb(serviceProvider, jsonPathGenres,
+														jsonPathDevelopers,
+														jsonPathDirectors,
+														jsonPathPlatforms,
+														jsonPathGames,
+														jsonPathGamesGenres,
+														jsonPathGamesPlatforms);
+			})
+				.GetAwaiter()
+				.GetResult();
+
+			return app;
+		}
 
 		public static IApplicationBuilder SeedAdministrator(this IApplicationBuilder app, string email, string username, string password)
 		{

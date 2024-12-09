@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "69DDED8C-B117-4616-AE9C-10F763B26669",
+    "Name": "Souls-like",
+    "Description": "git gud more"
+  },
+  {
+    "Id": "D0CC2363-419C-4C70-AE67-40F47B3DBA0C",
+    "Name": "Medieval",
+    "Description": "middle age consepts"
+  },
+  {
+    "Id": "A4655C34-23DF-4015-8243-457566C95FAF",
+    "Name": "Fantasy",
+    "Description": "dragons, magic and etc"
+  },
+  {
+    "Id": "233384AB-A878-48EE-A497-60E688C04489",
+    "Name": "Shooter",
+    "Description": "guns bang bang"
+  },
+  {
+    "Id": "2332B52F-6BD8-41FD-A527-7CCE41C1B19A",
+    "Name": "Open world",
+    "Description": "big maps with lot side quests"
+  },
+  {
+    "Id": "63C7DFDC-BCD4-4213-94A5-7F8EEFB5A720",
+    "Name": "Rogue-lite",
+    "Description": "die and dew it again"
+  },
+  {
+    "Id": "EBEE4B43-16A8-435A-8448-BDBD863BA747",
+    "Name": "Metroidvania",
+    "Description": "find a key ,go back to the door, open it find, a another key to another door"
+  },
+  {
+    "Id": "3EDAE636-CDB6-4995-8707-EF0A69F2733C",
+    "Name": "Action-Adventure",
+    "Description": "smash and explore"
+  }
+]

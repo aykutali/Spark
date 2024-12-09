@@ -1,0 +1,20 @@
+[
+  {
+    "Id": "E28109CF-FAD0-4B4E-9E1C-201EB1829624",
+    "Name": "Santa Monica Studio",
+    "LogoUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c1/Santa_Monica_Studio.svg/1200px-Santa_Monica_Studio.svg.png"
+  },
+  {
+    "Id": "00DBEA6E-B590-48F5-B006-A4B08C971E86",
+    "Name": "Nintendo EPD"
+  },
+  {
+    "Id": "EE33DDCF-011E-4266-9811-A778A31223DB",
+    "Name": "FromSoftware",
+    "LogoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Fromsoftware_logo.svg/1280px-Fromsoftware_logo.svg.png"
+  },
+  {
+    "Id": "EE5D8CA4-445D-4B0D-BDF7-DF80C0ECFCA4",
+    "Name": "Kojima Productions"
+  }
+]

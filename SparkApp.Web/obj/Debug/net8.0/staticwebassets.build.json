@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "rkPgVDKn1f9mCz/bny29lLIxgf04oYRn/wSJPhDjV5g=",
+  "Hash": "D1wFoXvzE7fKiQ9Q8qNJ98ZbuuztBYUIcuXN6PrnEL4=",
   "Source": "SparkApp.Web",
   "BasePath": "_content/SparkApp.Web",
   "Mode": "Default",
@@ -1396,8 +1396,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "101vg489t5",
-      "Integrity": "0Xb0mr7otVdWirsKNw+HUYn+l/Cfy6gniW5tHz3skTY=",
+      "Fingerprint": "y547a29vnb",
+      "Integrity": "1vKuhk7QY/NbArUspoFj7elJLA+y4Za5APkaQ944jDw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\guessGame.js"
@@ -5089,51 +5089,6 @@
       ]
     },
     {
-      "Route": "js/guessGame.101vg489t5.js",
-      "AssetFile": "D:\\C#\\Spark\\SparkApp.Web\\wwwroot\\js\\guessGame.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "6488"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"0Xb0mr7otVdWirsKNw+HUYn+l/Cfy6gniW5tHz3skTY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 28 Nov 2024 16:29:37 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "101vg489t5"
-        },
-        {
-          "Name": "label",
-          "Value": "js/guessGame.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-0Xb0mr7otVdWirsKNw+HUYn+l/Cfy6gniW5tHz3skTY="
-        }
-      ]
-    },
-    {
       "Route": "js/guessGame.js",
       "AssetFile": "D:\\C#\\Spark\\SparkApp.Web\\wwwroot\\js\\guessGame.js",
       "Selectors": [],
@@ -5144,7 +5099,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6488"
+          "Value": "7224"
         },
         {
           "Name": "Content-Type",
@@ -5152,11 +5107,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"0Xb0mr7otVdWirsKNw+HUYn+l/Cfy6gniW5tHz3skTY=\""
+          "Value": "\"1vKuhk7QY/NbArUspoFj7elJLA+y4Za5APkaQ944jDw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 28 Nov 2024 16:29:37 GMT"
+          "Value": "Sat, 07 Dec 2024 22:26:36 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5166,7 +5121,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-0Xb0mr7otVdWirsKNw+HUYn+l/Cfy6gniW5tHz3skTY="
+          "Value": "sha256-1vKuhk7QY/NbArUspoFj7elJLA+y4Za5APkaQ944jDw="
+        }
+      ]
+    },
+    {
+      "Route": "js/guessGame.y547a29vnb.js",
+      "AssetFile": "D:\\C#\\Spark\\SparkApp.Web\\wwwroot\\js\\guessGame.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7224"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1vKuhk7QY/NbArUspoFj7elJLA+y4Za5APkaQ944jDw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 07 Dec 2024 22:26:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "y547a29vnb"
+        },
+        {
+          "Name": "label",
+          "Value": "js/guessGame.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-1vKuhk7QY/NbArUspoFj7elJLA+y4Za5APkaQ944jDw="
         }
       ]
     },

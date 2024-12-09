@@ -3,7 +3,10 @@
 <div>
 	<div>
 		<div align="center">
-			<img src="@Model.LogoUrl" class="card-img img-fluid" style="height: 100px; object-fit: contain;" alt="Developer Logo" />
+			@if (!String.IsNullOrWhiteSpace(Model.LogoUrl))
+			{
+				<img src="@Model.LogoUrl" class="card-img img-fluid" style="height: 100px; object-fit: contain;" alt="Developer Logo" />
+			}
 			<h2 align="center">@Model.Name</h2>
 		</div>
 	</div>

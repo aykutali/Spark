@@ -204,12 +204,16 @@ namespace SparkApp.Services.Data
 						correctCount++;
 					}
 				}
-
-				if (correctCount == 0)
+				if (gameOfTheDayPlatformsList.Count == 0 && guessGamePlatformsList.Count == 0)
+				{
+					platformsChar = '+';
+				}
+				else if (correctCount == 0)
 				{
 					platformsChar = '-';
 				}
-				else if (correctCount == gameOfTheDayPlatformsList.Count)
+				else if (correctCount == gameOfTheDayPlatformsList.Count&&
+				         guessGamePlatformsList.Count == gameOfTheDayPlatformsList.Count)
 				{
 					platformsChar = '+';
 				}

@@ -22,6 +22,21 @@ namespace SparkApp.Web
             string adminUsername = builder.Configuration.GetValue<string>("Admin:Username")!;
             string adminPassword = builder.Configuration.GetValue<string>("Admin:Password")!;
 
+            string jsonPathGenres = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
+	            builder.Configuration.GetValue<string>("Seed:GenresJson")!);
+            string jsonPathDevelopers = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
+	            builder.Configuration.GetValue<string>("Seed:DevsJson")!);
+            string jsonPathDirectors = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
+	            builder.Configuration.GetValue<string>("Seed:DirectorsJson")!);
+            string jsonPathPlatforms = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
+	            builder.Configuration.GetValue<string>("Seed:PlatformsJson")!); 
+            string jsonPathGames = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
+	            builder.Configuration.GetValue<string>("Seed:GamesJson")!);
+            string jsonPathGamesGenres = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
+	            builder.Configuration.GetValue<string>("Seed:GamesGenresJson")!);
+            string jsonPathGamesPlatforms = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
+	            builder.Configuration.GetValue<string>("Seed:GamesPlatformsJson")!);
+
 			builder.Services
                 .AddDbContext<SparkDbContext>(options =>
                 {
@@ -73,11 +88,20 @@ namespace SparkApp.Web
 
             app.UseStatusCodePagesWithRedirects("/Home/Error/{0}");
 
-            //app.ApplyMigrations();
+            app.ApplyMigrations();
+            if (app.Environment.IsDevelopment())
+            {
+				app.SeedAdministrator(adminEmail, adminUsername, adminPassword);
+				app.SeedDatabase(jsonPathGenres, 
+								jsonPathDevelopers, 
+								jsonPathDirectors, 
+								jsonPathPlatforms,
+								jsonPathGames,
+								jsonPathGamesGenres,
+								jsonPathGamesPlatforms);
+            }
 
-			app.SeedAdministrator(adminEmail, adminUsername, adminPassword);
-
-			app.MapControllerRoute(
+            app.MapControllerRoute(
 				name: "Errors",
 				pattern: "{controller=Home}/{action=Index}/{statusCode?}");
 

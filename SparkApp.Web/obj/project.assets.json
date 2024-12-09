@@ -3172,6 +3172,7 @@
           "Azure.Identity": "1.13.1",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.10",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.10",
+          "Newtonsoft.Json": "13.0.3",
           "SparkApp.Data.Models": "1.0.0",
           "System.Formats.Asn1": "8.0.1"
         },

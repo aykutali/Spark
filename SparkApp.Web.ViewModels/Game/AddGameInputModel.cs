@@ -29,7 +29,8 @@ namespace SparkApp.Web.ViewModels.Game
         public virtual List<DeveloperViewModel>? Developers { get; set; }
             = new List<DeveloperViewModel>();
 
-        public string? LeadGameDirectorId { get; set; }
+        [Required]
+        public string LeadGameDirectorId { get; set; } = null!;
 
         public virtual List<DirectorViewModel>? Directors { get; set; }
             = new List<DirectorViewModel>();

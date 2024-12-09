@@ -1,0 +1,86 @@
+[
+  {
+    "GameId": "CABEC71B-EF27-4590-B5FA-16518C5FC6ED",
+    "GenreId": "3EDAE636-CDB6-4995-8707-EF0A69F2733C",
+    "IsSubGenre": false,
+    "IsDeleted": false
+  },
+  {
+    "GameId": "9128813E-A6DA-47E5-831C-1A3400915FA3",
+    "GenreId": "63C7DFDC-BCD4-4213-94A5-7F8EEFB5A720",
+    "IsSubGenre": false,
+    "IsDeleted": false
+  },
+  {
+    "GameId": "9128813E-A6DA-47E5-831C-1A3400915FA3",
+    "GenreId": "EBEE4B43-16A8-435A-8448-BDBD863BA747",
+    "IsSubGenre": false,
+    "IsDeleted": false
+  },
+  {
+    "GameId": "C20E4C0D-8D42-42C4-BD8A-4829642907A6",
+    "GenreId": "69DDED8C-B117-4616-AE9C-10F763B26669",
+    "IsSubGenre": false,
+    "IsDeleted": false
+  },
+  {
+    "GameId": "C20E4C0D-8D42-42C4-BD8A-4829642907A6",
+    "GenreId": "A4655C34-23DF-4015-8243-457566C95FAF",
+    "IsSubGenre": false,
+    "IsDeleted": false
+  },
+  {
+    "GameId": "C20E4C0D-8D42-42C4-BD8A-4829642907A6",
+    "GenreId": "2332B52F-6BD8-41FD-A527-7CCE41C1B19A",
+    "IsSubGenre": false,
+    "IsDeleted": false
+  },
+  {
+    "GameId": "C20E4C0D-8D42-42C4-BD8A-4829642907A6",
+    "GenreId": "63C7DFDC-BCD4-4213-94A5-7F8EEFB5A720",
+    "IsSubGenre": false,
+    "IsDeleted": false
+  },
+  {
+    "GameId": "C20E4C0D-8D42-42C4-BD8A-4829642907A6",
+    "GenreId": "EBEE4B43-16A8-435A-8448-BDBD863BA747",
+    "IsSubGenre": false,
+    "IsDeleted": false
+  },
+  {
+    "GameId": "B61C52B0-082D-4A52-B083-6501602F6B5A",
+    "GenreId": "A4655C34-23DF-4015-8243-457566C95FAF",
+    "IsSubGenre": false,
+    "IsDeleted": false
+  },
+  {
+    "GameId": "B61C52B0-082D-4A52-B083-6501602F6B5A",
+    "GenreId": "63C7DFDC-BCD4-4213-94A5-7F8EEFB5A720",
+    "IsSubGenre": false,
+    "IsDeleted": false
+  },
+  {
+    "GameId": "B61C52B0-082D-4A52-B083-6501602F6B5A",
+    "GenreId": "3EDAE636-CDB6-4995-8707-EF0A69F2733C",
+    "IsSubGenre": false,
+    "IsDeleted": false
+  },
+  {
+    "GameId": "6B410ED2-44BD-496F-8A22-AD70EF8973BB",
+    "GenreId": "63C7DFDC-BCD4-4213-94A5-7F8EEFB5A720",
+    "IsSubGenre": false,
+    "IsDeleted": true
+  },
+  {
+    "GameId": "6B410ED2-44BD-496F-8A22-AD70EF8973BB",
+    "GenreId": "EBEE4B43-16A8-435A-8448-BDBD863BA747",
+    "IsSubGenre": false,
+    "IsDeleted": false
+  },
+  {
+    "GameId": "B023EC55-767F-46B8-8C63-AFE368B133CC",
+    "GenreId": "233384AB-A878-48EE-A497-60E688C04489",
+    "IsSubGenre": false,
+    "IsDeleted": false
+  }
+]

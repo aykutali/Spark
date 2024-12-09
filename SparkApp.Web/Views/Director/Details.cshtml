@@ -1,13 +1,16 @@
 ﻿@model SparkApp.Web.ViewModels.Director.DirectorDetailsViewModel
 
 <div>
-	<img src="@Model.ImageUrl" class="card-img img-fluid" style="max-height: 300px; object-fit: contain;" alt="Director Image" />
+	@if (!String.IsNullOrWhiteSpace(Model.ImageUrl))
+	{
+		<img src="@Model.ImageUrl" class="card-img img-fluid" style="max-height: 300px; object-fit: contain;" alt="Director Image" />
+	}
 	<h2 align="center">@Model.Name</h2>
 	<p align="center">@Model.About</p>
 	<hr />
 	@if (@Model.Games.Any())
 	{
-		<h3 align="left">Games from this developer:</h3>
+		<h3 align="left">Games from this director:</h3>
 		<table class="table">
 			<thead class="thead-dark">
 				<tr>

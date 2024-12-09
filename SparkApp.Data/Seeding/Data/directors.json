@@ -1,0 +1,23 @@
+[
+  {
+    "Id": "9B89E6C5-2893-429A-8B65-08DD000CE7B6",
+    "Name": "Hidetaka Miyazaki",
+    "ImageUrl": "https://i.namu.wiki/i/qBSmQPJjYdPqrnDue2wc7H_44TEHRF3-l4e31U0iPUnGxd7vAmZnffhsynOvYckzPWHjyK1hrDVeFpeMtprgQA.webp",
+    "About": "Creator of the Souls games and \"souls\"-\"souls-like\" genres"
+  },
+  {
+    "Id": "27BD6987-93E4-4966-E2CA-08DD1094A087",
+    "Name": "Cory Barlog",
+    "About": "director of best gow games"
+  },
+  {
+    "Id": "D7DDCFC0-EFBE-45E2-E2CD-08DD1094A087",
+    "Name": "Hideo Kojima",
+    "About": " creator of games with incomprehensible stories"
+  },
+  {
+    "Id": "1924F40A-9130-4C09-E2CE-08DD1094A087",
+    "Name": "Kenta Motokura",
+    "About": "mario games"
+  }
+]

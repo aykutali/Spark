@@ -3,7 +3,24 @@ const apiUrl = 'https://localhost:7005/api/GuessGame'
 const selectElement = document.getElementById('gameNameSelect')
 const guessButton = document.getElementById('guessButton')
 const elementList = document.getElementById('gameInfo')
+const guessTable = document.getElementById('guessList')
 const correctGuessDiv = document.getElementById('correctGuess')
+
+var match = window.matchMedia("(max-width: 500px)")
+function myFunction(match) {
+    if (match.matches) { // If media query matches
+        guessTable.style.fontSize = '6px';
+    }
+    else {
+        guessTable.style.fontSize = '16px';
+    }
+};
+
+myFunction(match);
+
+match.addEventListener('change', function () {
+    myFunction(match);
+});
 
 
 guessButton.addEventListener('click', async () => {
@@ -43,7 +60,12 @@ guessButton.addEventListener('click', async () => {
                 if (game.releaseDate[dateText] === '+') {
                     dateBox.style.backgroundColor = 'green'
                 }
-                else {
+                else if (game.releaseDate[dateText] === '-') {
+                    dateBox.textContent = `<=${dateBox.textContent}`
+                    dateBox.style.backgroundColor = 'red'
+                }
+                else if (game.releaseDate[dateText] === '*') {
+                    dateBox.textContent = `${dateBox.textContent}=>`
                     dateBox.style.backgroundColor = 'red'
                 }
             }
