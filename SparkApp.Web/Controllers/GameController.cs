@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using System.Globalization;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc.Formatters;
 
 using SparkApp.Data.Models;
 using SparkApp.Services.Data.Interfaces;
@@ -52,6 +50,7 @@ namespace SparkApp.Web.Controllers
 		}
 
 		[HttpGet]
+		[Authorize]
 		public async Task<IActionResult> Add()
 		{
 			var gameInputModel = await gameService.GetInputGameModelAsync();
@@ -59,6 +58,7 @@ namespace SparkApp.Web.Controllers
 		}
 
 		[HttpPost]
+		[Authorize]
 		public async Task<IActionResult> Add(AddGameInputModel gameModel)
 		{
 			string dateTimeSting = $"{gameModel.ReleasedDate}";

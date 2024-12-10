@@ -1,42 +1,60 @@
-﻿@using static SparkApp.Common.AppConstants
-
+﻿
 <div class="container mt-5">
 	<div class="text-center">
-		<h1 class="display-4 mb-4 text-primary">Welcome to the Moderation Dashboard</h1>
+		<h1 class="display-4 mb-4 text-primary">Welcome to the Moderator Dashboard</h1>
 	</div>
-
-	@if (User.IsInRole(AdminRoleName))
-	{
-		<div class="row g-4">
-			<div class="col-md-4">
-				<div class="card shadow h-100 border-1">
-					<div class="card-body d-flex flex-column align-items-center text-center">
-						<i class="fas fa-users fa-3x text-primary mb-3"></i>
-						<h5 class="card-title">Manage Users</h5>
-						<p class="card-text text-muted">Add, edit, or remove users and assign roles.</p>
-						<a asp-controller="Mod" asp-action="Admin" class="btn btn-primary mt-auto w-100">
-							Go to Users
-						</a>
-					</div>
+	<div class="row g-4">
+		<div class="col-md-4">
+			<div class="card shadow h-100 border-1">
+				<div class="card-body d-flex flex-column align-items-center text-center">
+					<i class="fas fa-film fa-3x text-secondary mb-3"></i>
+					<h5 class="card-title">Games</h5>
+					<p class="card-text text-muted">Check the user added games for valid data and confirm</p>
+					<a asp-controller="Mod" asp-action="ConfirmGames" class="btn btn-secondary mt-auto w-100">
+						Go to Confirm Games
+					</a>
+					<br />
+					<p class="card-text text-muted">Or add a game by yourself..</p>
+					<a asp-controller="Game" asp-action="Add" class="btn btn-secondary mt-auto w-100">
+						Go to Add Games
+					</a>
 				</div>
 			</div>
 		</div>
-	}
-
-	<div class="col-md-4">
-		<div class="card shadow h-100 border-1">
-			<div class="card-body d-flex flex-column align-items-center text-center">
-				<i class="fas fa-film fa-3x text-secondary mb-3"></i>
-				<h5 class="card-title">Games</h5>
-				<p class="card-text text-muted">Check the user added games for valid data and confirm</p>
-				<a asp-controller="Mod" asp-action="ConfirmGames" class="btn btn-secondary mt-auto w-100">
-					Go to Confirm Games
-				</a>
-				<br />
-				<p class="card-text text-muted">Or add a game by yourself..</p>
-				<a asp-controller="Game" asp-action="Add" class="btn btn-secondary mt-auto w-100">
-					Go to Add Games
-				</a>
+		<div class="col-md-4">
+			<div class="card shadow h-100 border-1">
+				<div class="card-body d-flex flex-column align-items-center text-center">
+					<i class="fas fa-film fa-3x text-secondary mb-3"></i>
+					<h5 class="card-title">Genres</h5>
+					<p class="card-text text-muted">Add a new genre</p>
+					<a asp-controller="Genre" asp-action="Add" class="btn btn-secondary mt-auto w-100">
+						Go to Add Genres
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card shadow h-100 border-1">
+				<div class="card-body d-flex flex-column align-items-center text-center">
+					<i class="fas fa-film fa-3x text-secondary mb-3"></i>
+					<h5 class="card-title">Developers</h5>
+					<p class="card-text text-muted">Add a new developer</p>
+					<a asp-controller="Developer" asp-action="Add" class="btn btn-secondary mt-auto w-100">
+						Go to Add Developers
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card shadow h-100 border-1">
+				<div class="card-body d-flex flex-column align-items-center text-center">
+					<i class="fas fa-film fa-3x text-secondary mb-3"></i>
+					<h5 class="card-title">Directors</h5>
+					<p class="card-text text-muted">Add a new director</p>
+					<a asp-controller="Director" asp-action="Add" class="btn btn-secondary mt-auto w-100">
+						Go to Add Directors
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 using SparkApp.Data;
 using SparkApp.Data.Models;
-using SparkApp.Data.Repository.Interfaces;
 using SparkApp.Services.Data.Interfaces;
 using SparkApp.Web.Infrastructure.Extensions;
 
@@ -65,7 +65,12 @@ namespace SparkApp.Web
             builder.Services.RegisterRepositories(typeof(ApplicationUser).Assembly);
             builder.Services.RegisterUserDefinedServices(typeof(IGenreService).Assembly);
 
-            builder.Services.AddControllersWithViews();
+            builder.Services.AddControllersWithViews(cfg =>
+            {
+	            cfg.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
+            });
+
+			builder.Services.AddControllersWithViews();
             builder.Services.AddRazorPages();
 
             var app = builder.Build();
@@ -100,8 +105,11 @@ namespace SparkApp.Web
 								jsonPathGamesGenres,
 								jsonPathGamesPlatforms);
             }
-
             app.MapControllerRoute(
+	            name: "Areas",
+	            pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
+			app.MapControllerRoute(
 				name: "Errors",
 				pattern: "{controller=Home}/{action=Index}/{statusCode?}");
 
@@ -110,8 +118,6 @@ namespace SparkApp.Web
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
 			app.MapRazorPages();
-
-           
 
             app.Run();
         }

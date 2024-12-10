@@ -1,6 +1,4 @@
-﻿@using Microsoft.AspNetCore.Identity
-@using SparkApp.Data.Models
-@model IEnumerable<SparkApp.Web.ViewModels.User.UserAllViewModel>
+﻿@model IEnumerable<SparkApp.Web.ViewModels.User.UserAllViewModel>
 @{
 	ViewBag.Title = "All Users";
 }
@@ -21,13 +19,13 @@
 			<div class="card-footer">
 				@if (!user.Roles.Contains("Moderator"))
 				{
-					<a asp-controller="Mod" asp-action="MakeTheUserMod" asp-route-userId="@user.Id" class="btn btn-dark">Make the user Mod</a>
+					<a asp-area="Admin" asp-controller="UserManagement" asp-action="MakeTheUserMod" asp-route-userId="@user.Id" class="btn btn-dark">Make the user Mod</a>
 				}
 				else
 				{
-					<a asp-controller="Mod" asp-action="UnModTheUser" asp-route-userId="@user.Id" class="btn btn-dark">Unmod the user</a>
+					<a asp-area="Admin" asp-controller="UserManagement" asp-action="UnModTheUser" asp-route-userId="@user.Id" class="btn btn-dark">Unmod the user</a>
 				}
-				<form method="post" asp-action="DeleteUser" asp-controller="Mod" class="d-inline ms-2">
+				<form method="post" asp-area="Admin" asp-action="DeleteUser" asp-controller="UserManagement" class="d-inline ms-2">
 					<input type="hidden" name="userId" value="@user.Id" />
 					<button type="submit" class="btn btn-danger btn-sm">Delete</button>
 				</form>
