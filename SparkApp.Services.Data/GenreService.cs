@@ -29,6 +29,14 @@ namespace SparkApp.Services.Data
 				return false;
 			}
 
+			model.Name = Sanitize(model.Name);
+			model.Description = Sanitize(model.Description);
+
+			if (!IsModelValid(model))
+			{
+				return false;
+			}
+
 			var genreData = new Genre
 			{
 				Name = model.Name,

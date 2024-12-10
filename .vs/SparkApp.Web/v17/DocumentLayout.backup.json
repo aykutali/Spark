@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "D:\\C#\\Spark\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3DE08D46-8402-4307-99FC-283C470C91AE}|SparkApp.Services.Data\\SparkApp.Services.Data.csproj|d:\\c#\\spark\\sparkapp.services.data\\guessgameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3DE08D46-8402-4307-99FC-283C470C91AE}|SparkApp.Services.Data\\SparkApp.Services.Data.csproj|solutionrelative:sparkapp.services.data\\guessgameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3DE08D46-8402-4307-99FC-283C470C91AE}|SparkApp.Services.Data\\SparkApp.Services.Data.csproj|d:\\c#\\spark\\sparkapp.services.data\\gameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DE08D46-8402-4307-99FC-283C470C91AE}|SparkApp.Services.Data\\SparkApp.Services.Data.csproj|solutionrelative:sparkapp.services.data\\gameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8DA7131B-3DB1-414B-97E9-33B035C7198B}|SparkApp.Data\\SparkApp.Data.csproj|d:\\c#\\spark\\sparkapp.data\\seeding\\dbseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8DA7131B-3DB1-414B-97E9-33B035C7198B}|SparkApp.Data\\SparkApp.Data.csproj|solutionrelative:sparkapp.data\\seeding\\dbseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3DE08D46-8402-4307-99FC-283C470C91AE}|SparkApp.Services.Data\\SparkApp.Services.Data.csproj|d:\\c#\\spark\\sparkapp.services.data\\platformservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DE08D46-8402-4307-99FC-283C470C91AE}|SparkApp.Services.Data\\SparkApp.Services.Data.csproj|solutionrelative:sparkapp.services.data\\platformservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,14 +23,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "GuessGameService.cs",
-              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Services.Data\\GuessGameService.cs",
-              "RelativeDocumentMoniker": "SparkApp.Services.Data\\GuessGameService.cs",
-              "ToolTip": "D:\\C#\\Spark\\SparkApp.Services.Data\\GuessGameService.cs",
-              "RelativeToolTip": "SparkApp.Services.Data\\GuessGameService.cs",
-              "ViewState": "AgIAAKkAAAAAAAAAAAAcwNoAAAAFAAAAAAAAAA==",
+              "Title": "GameService.cs",
+              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Services.Data\\GameService.cs",
+              "RelativeDocumentMoniker": "SparkApp.Services.Data\\GameService.cs",
+              "ToolTip": "D:\\C#\\Spark\\SparkApp.Services.Data\\GameService.cs",
+              "RelativeToolTip": "SparkApp.Services.Data\\GameService.cs",
+              "ViewState": "AgIAAGkBAAAAAAAAAAAUwFUBAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T20:34:11.028Z",
+              "WhenOpened": "2024-12-10T17:31:18.618Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PlatformService.cs",
+              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Services.Data\\PlatformService.cs",
+              "RelativeDocumentMoniker": "SparkApp.Services.Data\\PlatformService.cs",
+              "ToolTip": "D:\\C#\\Spark\\SparkApp.Services.Data\\PlatformService.cs",
+              "RelativeToolTip": "SparkApp.Services.Data\\PlatformService.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwCwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T17:30:35.372Z",
               "EditorCaption": ""
             },
             {
@@ -40,19 +53,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{0174dea2-fdbe-4ef1-8f99-c0beae78880f}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DBSeeder.cs",
-              "DocumentMoniker": "D:\\C#\\Spark\\SparkApp.Data\\Seeding\\DBSeeder.cs",
-              "RelativeDocumentMoniker": "SparkApp.Data\\Seeding\\DBSeeder.cs",
-              "ToolTip": "D:\\C#\\Spark\\SparkApp.Data\\Seeding\\DBSeeder.cs",
-              "RelativeToolTip": "SparkApp.Data\\Seeding\\DBSeeder.cs",
-              "ViewState": "AgIAACABAAAAAAAAAAAuwD0BAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T20:00:07.01Z",
-              "EditorCaption": ""
             }
           ]
         }

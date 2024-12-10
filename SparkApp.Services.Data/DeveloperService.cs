@@ -26,6 +26,13 @@ namespace SparkApp.Services.Data
 				return false;
 			}
 
+			model.Name = Sanitize(model.Name);
+			model.LogoUrl = Sanitize(model.LogoUrl);
+			if (!IsModelValid(model))
+			{
+				return false;
+			}
+
 			Developer devData = new Developer
 			{
 				Name = model.Name,

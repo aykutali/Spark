@@ -27,6 +27,12 @@ namespace SparkApp.Services.Data
 				return false;
 			}
 
+			model.Name = Sanitize(model.Name);
+			if (!IsModelValid(model))
+			{
+				return false;
+			}
+
 			Platform platformData = new Platform
 			{
 				Name = model.Name

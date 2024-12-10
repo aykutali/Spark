@@ -29,8 +29,8 @@ namespace SparkApp.Web.Infrastructure.Extensions
 			string jsonPathDirectors,
 			string jsonPathPlatforms,
 			string jsonPathGames,
-			string jsonPathGamesGenres, 
-			string jsonPathGamesPlatforms )
+			string jsonPathGamesGenres,
+			string jsonPathGamesPlatforms)
 		{
 			using IServiceScope serviceScope = app.ApplicationServices.CreateAsyncScope();
 			IServiceProvider serviceProvider = serviceScope.ServiceProvider;
@@ -101,6 +101,23 @@ namespace SparkApp.Web.Infrastructure.Extensions
 					adminRole = await roleManager.FindByNameAsync(AdminRoleName);
 				}
 
+				bool modRoleExist = await roleManager.RoleExistsAsync(ModRoleName);
+				IdentityRole<Guid>? modRole = null;
+				if (!modRoleExist)
+				{
+					modRole = new IdentityRole<Guid>(ModRoleName);
+
+					IdentityResult result = await roleManager.CreateAsync(modRole);
+					if (!result.Succeeded)
+					{
+						throw new InvalidOperationException($"Error occurred while creating the {ModRoleName} role!");
+					}
+				}
+				else
+				{
+					modRole = await roleManager.FindByNameAsync(ModRoleName);
+				}
+
 				ApplicationUser? adminUser = await userManager.FindByEmailAsync(email);
 				if (adminUser == null)
 				{
@@ -108,16 +125,29 @@ namespace SparkApp.Web.Infrastructure.Extensions
 						CreateAdminUserAsync(email, username, password, userStore, userManager);
 				}
 
-				if (await userManager.IsInRoleAsync(adminUser, AdminRoleName))
+				if (await userManager.IsInRoleAsync(adminUser, AdminRoleName) && await userManager.IsInRoleAsync(adminUser, ModRoleName))
 				{
 					return app;
 				}
 
-				IdentityResult userResult = await userManager.AddToRoleAsync(adminUser, AdminRoleName);
-				if (!userResult.Succeeded)
+				if (!await userManager.IsInRoleAsync(adminUser,AdminRoleName))
 				{
-					throw new InvalidOperationException($"Error occurred while adding the user {username} to the {AdminRoleName} role!");
+					IdentityResult userResult = await userManager.AddToRoleAsync(adminUser, AdminRoleName);
+					if (!userResult.Succeeded)
+					{
+						throw new InvalidOperationException($"Error occurred while adding the user {username} to the {AdminRoleName} role!");
+					}
 				}
+
+				if (!await userManager.IsInRoleAsync(adminUser, ModRoleName))
+				{
+					IdentityResult userResult = await userManager.AddToRoleAsync(adminUser, ModRoleName);
+					if (!userResult.Succeeded)
+					{
+						throw new InvalidOperationException($"Error occurred while adding the user {username} to the {ModRoleName} role!");
+					}
+				}
+				
 
 				return app;
 			})

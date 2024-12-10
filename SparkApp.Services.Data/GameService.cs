@@ -122,6 +122,15 @@ namespace SparkApp.Services.Data
 
 		public async Task<bool> EditGameAsync(Game gameToEdit, GameEditViewModel editModel)
 		{
+			editModel.Title = Sanitize(editModel.Title);
+			editModel.Description = Sanitize(editModel.Description);
+			editModel.ImageUrl = Sanitize(editModel.ImageUrl);
+
+			if (!IsModelValid(editModel))
+			{
+				return false;
+			}
+
 			try
 			{
 				gameToEdit.Title = editModel.Title;
@@ -129,12 +138,7 @@ namespace SparkApp.Services.Data
 				gameToEdit.ImageUrl = editModel.ImageUrl;
 				gameToEdit.ReleaseDate = DateTime.Parse(editModel.ReleasedDate);
 				gameToEdit.DeveloperId = Guid.Parse(editModel.DeveloperId);
-
-				if (gameToEdit.LeadGameDirectorId != null)
-				{
-					gameToEdit.LeadGameDirectorId = Guid.Parse(editModel.LeadGameDirectorId);
-				}
-
+				gameToEdit.LeadGameDirectorId = Guid.Parse(editModel.LeadGameDirectorId);
 				gameToEdit.MainGenreId = Guid.Parse(editModel.MainGenreId);
 
 				await gameRepository.UpdateAsync(gameToEdit);
@@ -263,7 +267,7 @@ namespace SparkApp.Services.Data
 							LinkToPlatform = gamePlatformRepository
 								.GetAllAttached()
 								.Where(gp => gp.GameId == Guid.Parse(id) &&
-													    gp.PlatformId == p.Id)
+														gp.PlatformId == p.Id)
 								.Select(gp => gp.LinkToPlatform)
 								.FirstOrDefault()
 						})
@@ -307,12 +311,21 @@ namespace SparkApp.Services.Data
 			return genresViewModel;
 		}
 
-		public async Task AddGameAsync(AddGameInputModel model, bool isUserMod)
+		public async Task<bool> AddGameAsync(AddGameInputModel model, bool isUserMod)
 		{
 			var dateTimeString = $"{model.ReleasedDate}";
 
 			DateTime.TryParseExact(dateTimeString, ReleasedDateFormat, CultureInfo.InvariantCulture,
 				DateTimeStyles.None, out DateTime parseDateTime);
+
+			model.Title = Sanitize(model.Title);
+			model.Description = Sanitize(model.Description);
+			model.ImageUrl = Sanitize(model.ImageUrl);
+
+			if (!IsModelValid(model))
+			{
+				return false;
+			}
 
 			var gameData = new Game
 			{
@@ -321,13 +334,9 @@ namespace SparkApp.Services.Data
 				ImageUrl = model.ImageUrl,
 				ReleaseDate = parseDateTime,
 				DeveloperId = Guid.Parse(model.DeveloperId),
-				MainGenreId = Guid.Parse(model.MainGenreId)
+				MainGenreId = Guid.Parse(model.MainGenreId),
+				LeadGameDirectorId = Guid.Parse(model.LeadGameDirectorId)
 			};
-
-			if (!String.IsNullOrEmpty(model.LeadGameDirectorId))
-			{
-				gameData.LeadGameDirectorId = Guid.Parse(model.LeadGameDirectorId);
-			}
 
 			if (isUserMod)
 			{
@@ -335,6 +344,7 @@ namespace SparkApp.Services.Data
 			}
 
 			await gameRepository.AddAsync(gameData);
+			return true;
 		}
 
 		public async Task AddPlatformsToGameAsync(AddPlatformsToGameInputModel model)
@@ -360,7 +370,7 @@ namespace SparkApp.Services.Data
 						{
 							GameId = game.Id,
 							PlatformId = Guid.Parse(platform.Id),
-							LinkToPlatform = platform.LinkToPlatform
+							LinkToPlatform = Sanitize(platform.LinkToPlatform)
 						});
 					}
 					else

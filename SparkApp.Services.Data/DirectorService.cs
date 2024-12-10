@@ -26,6 +26,14 @@ namespace SparkApp.Services.Data
 				return false;
 			}
 
+			model.Name = Sanitize(model.Name);
+			model.About = Sanitize(model.About);
+			model.ImageUrl = Sanitize(model.ImageUrl);
+			if (!IsModelValid(model))
+			{
+				return false;
+			}
+
 			Director directorData = new Director
 			{
 				Name = model.Name,

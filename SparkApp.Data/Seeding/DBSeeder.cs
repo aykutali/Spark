@@ -317,6 +317,7 @@ namespace SparkApp.Data.Seeding
 				Console.WriteLine(errorMessage);
 			}
 
+			
 			ICollection<GameGenre> allGameGenres = db.GamesGenres.ToArray();
 
 			List<GameGenre> gameGenresToAdd = new List<GameGenre>();
