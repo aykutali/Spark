@@ -38,7 +38,7 @@ namespace SparkApp.Services.Data
 
 		public string Sanitize(string input)
 		{
-			string[] blackListTags = { "script", "iframe", "object", "embed", "form" };
+			string[] blackListTags = { "script", "iframe", "object", "embed", "form", "br/" };
 			string[] blackListAttributes = { "onload", "onclick", "onerror", "href", "src" };
 
 			if (string.IsNullOrEmpty(input))

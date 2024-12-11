@@ -7,35 +7,52 @@
 
 <div align="center" class="mb-3">
 	<label class="form-label-add-edit"></label>
-	<select id="gameNameSelect" class="form-control" data-live-search="true"  aria-required="true" asp-items="@(new SelectList(allGamesNames, "Name"))">
+	<select id="gameNameSelect" class="form-control" data-live-search="true" aria-required="true" asp-items="@(new SelectList(allGamesNames, "Name"))">
 		<option value="">Select Game...</option>
 	</select>
 </div>
 
-<button id="guessButton" class="btn btn-success btn-dark-text btn-rounded mb-3 w-10 p-8 fw-bold">Guess</button>
+<p>
+	<button id="guessButton" class="btn btn-success btn-dark-text btn-rounded mb-3 w-10 p-8 fw-bold">Guess</button>
+	<a class="btn btn-dark btn-dark-text btn-rounded mb-3 w-10 p-8 fw-bold" data-bs-toggle="collapse" href="#howToPlay" role="button" aria-expanded="false" aria-controls="howToPlay">How To Play</a>
+</p>
+<div class="row">
+	<div class="col">
+		<div class="collapse multi-collapse" id="howToPlay">
+			<div class="card card-body">
+				In this game, simply type in the name of a game and it will reveal its properties.<br/>
+				The color of the tiles will change to show how close your guess was to the game to find.<br/>
+				Green indicates the property is an exact match.<br/>
+				Orange indicates partial match.<br/>
+				Red indicates there is no overlap between your guess and the property.<br/>
+				With arrows, it also indicates if the answer property is above(🠉) or below(🠋) your guess.
+			</div>
+		</div>
+	</div>
+</div>
 
 <div id="correctGuess" align="center"></div>
 
 <div align="center" id="guessList" style="max-width: 100%">
 	<table class="table">
 		<thead class="thead-dark">
-		<tr>
-			<th>Image</th>
-			<th>Release Date</th>
-			<th>Developer</th>
-			<th>Lead Game Director</th>
-			<th>Main Genre</th>
-			<th>Sub Genres</th>
-			<th>Platforms</th>
-		</tr>
+			<tr>
+				<th>Image</th>
+				<th>Release Date</th>
+				<th>Developer</th>
+				<th>Lead Game Director</th>
+				<th>Main Genre</th>
+				<th>Sub Genres</th>
+				<th>Platforms</th>
+			</tr>
 		</thead>
 		<tbody id="gameInfo">
 		</tbody>
 	</table>
 </div>
 
-<hr/>
-<p align="center" >Yesterdays game was: @ViewData["YesterdaysGame"]</p>
+<hr />
+<p align="center">Yesterdays game was: @ViewData["YesterdaysGame"]</p>
 
 <script src="js/guessGame.js"></script>
 

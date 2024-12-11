@@ -19,5 +19,11 @@
     "Id": "1924F40A-9130-4C09-E2CE-08DD1094A087",
     "Name": "Kenta Motokura",
     "About": "mario games"
+  },
+  {
+    "Id": "0C53B0EB-CB27-4F2C-B5F3-08DD1A1D15DE",
+    "Name": "Unspecified Director",
+    "ImageUrl": "",
+    "About": "For games which lead director is unspecified"
   }
 ]

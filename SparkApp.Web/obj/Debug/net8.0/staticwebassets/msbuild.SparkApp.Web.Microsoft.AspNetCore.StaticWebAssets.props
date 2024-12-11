@@ -66,8 +66,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>y547a29vnb</Fingerprint>
-      <Integrity>1vKuhk7QY/NbArUspoFj7elJLA+y4Za5APkaQ944jDw=</Integrity>
+      <Fingerprint>x7evx3uet2</Fingerprint>
+      <Integrity>vWYkCWDUukEjbbsp0G81O7QhP2OoRnbfHB4G2i038PE=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\guessGame.js'))</OriginalItemSpec>

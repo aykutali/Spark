@@ -15,9 +15,6 @@ namespace SparkApp.Data.Models
         public virtual Genre Genre { get; set; } = null!;
         public Guid GenreId { get; set; }
 
-        [Comment("Shows is the genre is a main or sub(secondary) of the game")]
-        public bool IsSubGenre { get; set; } = false;
-
         public bool IsDeleted { get; set; } = false;
     }
 }

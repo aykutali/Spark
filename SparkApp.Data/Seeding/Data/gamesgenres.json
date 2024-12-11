@@ -1,6 +1,18 @@
 [
   {
     "GameId": "CABEC71B-EF27-4590-B5FA-16518C5FC6ED",
+    "GenreId": "14E0E862-F3C6-4CDC-80F9-1C4577C92758",
+    "IsSubGenre": false,
+    "IsDeleted": false
+  },
+  {
+    "GameId": "CABEC71B-EF27-4590-B5FA-16518C5FC6ED",
+    "GenreId": "701D28FA-57B5-4505-BC40-4193EF02F133",
+    "IsSubGenre": false,
+    "IsDeleted": false
+  },
+  {
+    "GameId": "CABEC71B-EF27-4590-B5FA-16518C5FC6ED",
     "GenreId": "3EDAE636-CDB6-4995-8707-EF0A69F2733C",
     "IsSubGenre": false,
     "IsDeleted": false
@@ -14,6 +26,18 @@
   {
     "GameId": "9128813E-A6DA-47E5-831C-1A3400915FA3",
     "GenreId": "EBEE4B43-16A8-435A-8448-BDBD863BA747",
+    "IsSubGenre": false,
+    "IsDeleted": false
+  },
+  {
+    "GameId": "6EF305AC-1299-4E97-934B-40EF8FA8F43E",
+    "GenreId": "5098FF64-E2F5-4AD1-8690-093E09FC9A26",
+    "IsSubGenre": false,
+    "IsDeleted": false
+  },
+  {
+    "GameId": "6EF305AC-1299-4E97-934B-40EF8FA8F43E",
+    "GenreId": "18703DB7-3657-4DBC-AE29-FE41FF3EFA84",
     "IsSubGenre": false,
     "IsDeleted": false
   },
@@ -44,6 +68,18 @@
   {
     "GameId": "C20E4C0D-8D42-42C4-BD8A-4829642907A6",
     "GenreId": "EBEE4B43-16A8-435A-8448-BDBD863BA747",
+    "IsSubGenre": false,
+    "IsDeleted": false
+  },
+  {
+    "GameId": "BF072562-F0F7-4BC4-9859-5E9C3D6567AF",
+    "GenreId": "5098FF64-E2F5-4AD1-8690-093E09FC9A26",
+    "IsSubGenre": false,
+    "IsDeleted": false
+  },
+  {
+    "GameId": "BF072562-F0F7-4BC4-9859-5E9C3D6567AF",
+    "GenreId": "701D28FA-57B5-4505-BC40-4193EF02F133",
     "IsSubGenre": false,
     "IsDeleted": false
   },

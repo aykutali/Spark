@@ -1,8 +1,18 @@
 [
   {
+    "Id": "1A5A29EA-EDAD-4FCA-AA8C-0F35D5CA1766",
+    "Name": "Atlus",
+    "LogoUrl": "https://avatars.fastly.steamstatic.com/214c4ad8b5701b36cd811d00f092c6e8c906d3cf_full.jpg"
+  },
+  {
     "Id": "E28109CF-FAD0-4B4E-9E1C-201EB1829624",
     "Name": "Santa Monica Studio",
     "LogoUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c1/Santa_Monica_Studio.svg/1200px-Santa_Monica_Studio.svg.png"
+  },
+  {
+    "Id": "09070670-C25A-4FBE-82C3-37D5652233A8",
+    "Name": "Unspecified Developer",
+    "LogoUrl": ""
   },
   {
     "Id": "00DBEA6E-B590-48F5-B006-A4B08C971E86",
@@ -16,5 +26,10 @@
   {
     "Id": "EE5D8CA4-445D-4B0D-BDF7-DF80C0ECFCA4",
     "Name": "Kojima Productions"
+  },
+  {
+    "Id": "E4240AB4-31EF-415B-AFBC-E752765DD28C",
+    "Name": "LocalThunk",
+    "LogoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyaV7EmXo86pvMtnVzzToGNi0O_0joCkJnGQ&s"
   }
 ]

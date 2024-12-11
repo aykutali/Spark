@@ -52,7 +52,8 @@ namespace SparkApp.Services.Data
 				{
 					Id = g.Id,
 					Title = g.Title,
-					ImageUrl = g.ImageUrl
+					ImageUrl = g.ImageUrl,
+					ReleaseYear = g.ReleaseDate.Year.ToString()
 				})
 				.OrderBy(g => g.Title);
 
@@ -122,9 +123,13 @@ namespace SparkApp.Services.Data
 
 		public async Task<bool> EditGameAsync(Game gameToEdit, GameEditViewModel editModel)
 		{
+			if (editModel == null || gameToEdit == null)
+			{
+				return false;
+			}
+
 			editModel.Title = Sanitize(editModel.Title);
 			editModel.Description = Sanitize(editModel.Description);
-			editModel.ImageUrl = Sanitize(editModel.ImageUrl);
 
 			if (!IsModelValid(editModel))
 			{
@@ -180,8 +185,8 @@ namespace SparkApp.Services.Data
 					LeadDirector = game.LeadGameDirector,
 					MainGenre = game.MainGenre,
 					ReleasedDate = game.ReleaseDate,
-					SubGenres = game.SideGenres,
-					PlatformsList = game.GamePlatforms
+					SubGenres = game.SideGenres.OrderBy(g=>g.Genre.Name),
+					PlatformsList = game.GamePlatforms.OrderBy(p=>p.Platform.Name)
 				};
 				return gameDetailsModel;
 			}
@@ -191,9 +196,9 @@ namespace SparkApp.Services.Data
 
 		public async Task<AddGameInputModel> GetInputGameModelAsync()
 		{
-			IEnumerable<Genre> genresList = genreRepository.GetAllAttached();
-			IEnumerable<Developer> devList = devRepository.GetAllAttached();
-			IEnumerable<Director> directorList = dirRepository.GetAllAttached();
+			IEnumerable<Genre> genresList = genreRepository.GetAllAttached().OrderBy(g => g.Name);
+			IEnumerable<Developer> devList = devRepository.GetAllAttached().OrderBy(d => d.Name);
+			IEnumerable<Director> directorList = dirRepository.GetAllAttached().OrderBy(d => d.Name);
 
 			List<GenreViewModel> genreModelsList = genresList
 				.Select(x => (new GenreViewModel
@@ -320,7 +325,6 @@ namespace SparkApp.Services.Data
 
 			model.Title = Sanitize(model.Title);
 			model.Description = Sanitize(model.Description);
-			model.ImageUrl = Sanitize(model.ImageUrl);
 
 			if (!IsModelValid(model))
 			{
@@ -375,6 +379,7 @@ namespace SparkApp.Services.Data
 					}
 					else
 					{
+						gamePlatform.LinkToPlatform = platform.LinkToPlatform;
 						gamePlatform.IsDeleted = false;
 					}
 				}
@@ -382,6 +387,7 @@ namespace SparkApp.Services.Data
 				{
 					if (gamePlatform != null)
 					{
+						gamePlatform.LinkToPlatform = String.Empty;
 						gamePlatform.IsDeleted = true;
 					}
 				}

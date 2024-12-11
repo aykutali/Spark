@@ -1,4 +1,4 @@
-const apiUrl = 'https://localhost:7005/api/GuessGame'
+﻿const apiUrl = 'https://localhost:7005/api/GuessGame'
 
 const selectElement = document.getElementById('gameNameSelect')
 const guessButton = document.getElementById('guessButton')
@@ -61,11 +61,11 @@ guessButton.addEventListener('click', async () => {
                     dateBox.style.backgroundColor = 'green'
                 }
                 else if (game.releaseDate[dateText] === '-') {
-                    dateBox.textContent = `<=${dateBox.textContent}`
+                    dateBox.textContent = `${dateBox.textContent}${String.fromCodePoint(0x1F80B)}`//down
                     dateBox.style.backgroundColor = 'red'
                 }
                 else if (game.releaseDate[dateText] === '*') {
-                    dateBox.textContent = `${dateBox.textContent}=>`
+                    dateBox.textContent = `${dateBox.textContent}${String.fromCodePoint(0x1F809)}`//up
                     dateBox.style.backgroundColor = 'red'
                 }
             }

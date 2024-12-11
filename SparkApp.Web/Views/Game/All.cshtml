@@ -9,6 +9,7 @@
 			<div class="form-actions no-color">
 				<p>
 					<label>Find by name: <input type="text" name="title" value="@ViewData["CurrentFilter"]" /></label>
+					<label>Find by release year: <input type="text" name="year"placeholder="2024" value="@ViewData["YearFilter"]" /></label>
 					<input type="submit" value="Search" class="btn btn-info" /> |
 					<a asp-controller="Game" asp-action="All" class="btn btn-info">Back to Full List</a>
 				</p>
@@ -65,9 +66,13 @@
 				</div>
 			}
 		}
+		else if (ViewData["YearFilter"] != null || ViewData["CurrentFilter"] != null)
+		{
+			<h4>There is no game suits yours filters...</h4>
+		}
 		else
 		{
-			<h4>There is no games added yet....</h4>
+			<h4>There is no games added yet...</h4>
 		}
 	</div>
 </div>
@@ -80,6 +85,7 @@
 <div align="center">
 	<a asp-controller="Game" asp-action="All"
 	   asp-route-title="@ViewData["CurrentFilter"]"
+	   asp-route-year="@ViewData["YearFilter"]"
 	   asp-route-pageNumber="@(Model.PageIndex - 1)"
 	   class="btn btn-dark @prevDisabled">
 		Previous
@@ -87,6 +93,7 @@
 	<span>@Model.PageIndex Of @Model.TotalPages</span>
 	<a asp-controller="Game" asp-action="All"
 	   asp-route-title="@ViewData["CurrentFilter"]"
+	   asp-route-year="@ViewData["YearFilter"]"
 	   asp-route-pageNumber="@(Model.PageIndex + 1)"
 	   class="btn btn-dark @nextDisabled">
 		Next

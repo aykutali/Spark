@@ -1,13 +1,28 @@
 [
   {
+    "Id": "5098FF64-E2F5-4AD1-8690-093E09FC9A26",
+    "Name": "Strategy",
+    "Description": "play with your planning"
+  },
+  {
     "Id": "69DDED8C-B117-4616-AE9C-10F763B26669",
     "Name": "Souls-like",
     "Description": "git gud more"
   },
   {
+    "Id": "14E0E862-F3C6-4CDC-80F9-1C4577C92758",
+    "Name": "Platformer",
+    "Description": "lot of jumps"
+  },
+  {
     "Id": "D0CC2363-419C-4C70-AE67-40F47B3DBA0C",
     "Name": "Medieval",
     "Description": "middle age consepts"
+  },
+  {
+    "Id": "701D28FA-57B5-4505-BC40-4193EF02F133",
+    "Name": "Puzzle",
+    "Description": "solve puzzles"
   },
   {
     "Id": "A4655C34-23DF-4015-8243-457566C95FAF",
@@ -20,6 +35,11 @@
     "Description": "guns bang bang"
   },
   {
+    "Id": "57E52A5A-9762-4E37-953F-6B8E5E7E1F08",
+    "Name": "JRPG",
+    "Description": "japanese style of rpg"
+  },
+  {
     "Id": "2332B52F-6BD8-41FD-A527-7CCE41C1B19A",
     "Name": "Open world",
     "Description": "big maps with lot side quests"
@@ -30,13 +50,28 @@
     "Description": "die and dew it again"
   },
   {
+    "Id": "801C773A-C91E-4355-BA48-A430BCC4553A",
+    "Name": "RPG",
+    "Description": "make your character and play with your style "
+  },
+  {
     "Id": "EBEE4B43-16A8-435A-8448-BDBD863BA747",
     "Name": "Metroidvania",
     "Description": "find a key ,go back to the door, open it find, a another key to another door"
   },
   {
+    "Id": "E669398D-985B-48E7-9A72-D60282253E90",
+    "Name": "Visual novels",
+    "Description": "anime-style graphics with lot of reading  "
+  },
+  {
     "Id": "3EDAE636-CDB6-4995-8707-EF0A69F2733C",
     "Name": "Action-Adventure",
     "Description": "smash and explore"
+  },
+  {
+    "Id": "18703DB7-3657-4DBC-AE29-FE41FF3EFA84",
+    "Name": "Action RPG",
+    "Description": "rpg but with less rpg elements"
   }
 ]

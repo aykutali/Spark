@@ -17,7 +17,7 @@ namespace SparkApp.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.10")
+                .HasAnnotation("ProductVersion", "8.0.11")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -173,9 +173,6 @@ namespace SparkApp.Data.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<int>("GameOfTheDayStreak")
-                        .HasColumnType("int");
-
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
 
@@ -238,7 +235,7 @@ namespace SparkApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Developer", (string)null);
+                    b.ToTable("Developer");
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.Director", b =>
@@ -261,7 +258,7 @@ namespace SparkApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Directors", (string)null);
+                    b.ToTable("Directors");
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.Game", b =>
@@ -291,7 +288,7 @@ namespace SparkApp.Data.Migrations
                         .HasColumnType("bit")
                         .HasComment("Soft delete option for a game");
 
-                    b.Property<Guid?>("LeadGameDirectorId")
+                    b.Property<Guid>("LeadGameDirectorId")
                         .HasColumnType("uniqueidentifier")
                         .HasComment("Lead game director of the game");
 
@@ -316,7 +313,7 @@ namespace SparkApp.Data.Migrations
 
                     b.HasIndex("MainGenreId");
 
-                    b.ToTable("Games", (string)null);
+                    b.ToTable("Games");
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.GameGenre", b =>
@@ -330,15 +327,11 @@ namespace SparkApp.Data.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("IsSubGenre")
-                        .HasColumnType("bit")
-                        .HasComment("Shows is the genre is a main or sub(secondary) of the game");
-
                     b.HasKey("GameId", "GenreId");
 
                     b.HasIndex("GenreId");
 
-                    b.ToTable("GamesGenres", (string)null);
+                    b.ToTable("GamesGenres");
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.GameOfTheDay", b =>
@@ -353,7 +346,7 @@ namespace SparkApp.Data.Migrations
 
                     b.HasIndex("GameId");
 
-                    b.ToTable("GamesOfTheDays", (string)null);
+                    b.ToTable("GamesOfTheDays");
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.GamePlatform", b =>
@@ -374,7 +367,7 @@ namespace SparkApp.Data.Migrations
 
                     b.HasIndex("PlatformId");
 
-                    b.ToTable("GamesPlatforms", (string)null);
+                    b.ToTable("GamesPlatforms");
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.Genre", b =>
@@ -395,7 +388,7 @@ namespace SparkApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Genres", (string)null);
+                    b.ToTable("Genres");
                 });
 
             modelBuilder.Entity("SparkApp.Data.Models.Platform", b =>
@@ -410,7 +403,7 @@ namespace SparkApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Platforms", (string)null);
+                    b.ToTable("Platforms");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -474,7 +467,9 @@ namespace SparkApp.Data.Migrations
 
                     b.HasOne("SparkApp.Data.Models.Director", "LeadGameDirector")
                         .WithMany("Games")
-                        .HasForeignKey("LeadGameDirectorId");
+                        .HasForeignKey("LeadGameDirectorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("SparkApp.Data.Models.Genre", "MainGenre")
                         .WithMany()

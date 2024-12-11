@@ -28,7 +28,6 @@ namespace SparkApp.Services.Data
 
 			model.Name = Sanitize(model.Name);
 			model.About = Sanitize(model.About);
-			model.ImageUrl = Sanitize(model.ImageUrl);
 			if (!IsModelValid(model))
 			{
 				return false;

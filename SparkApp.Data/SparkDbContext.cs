@@ -1,8 +1,4 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Runtime.Versioning;
+﻿
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -11,9 +7,6 @@ using SparkApp.Data.Models;
 
 namespace SparkApp.Data
 {
-
-
-
 	public class SparkDbContext : IdentityDbContext<ApplicationUser, IdentityRole<Guid>, Guid>
 	{
 

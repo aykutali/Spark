@@ -29,20 +29,26 @@ namespace SparkApp.Web.Controllers
 		}
 
 		[HttpGet]
-		public async Task<IActionResult> All(string title, int? pageNumber)
+		public async Task<IActionResult> All(string title, string year, int? pageNumber)
 		{
-			if (String.IsNullOrWhiteSpace(title) && pageNumber == null)
+			if (String.IsNullOrWhiteSpace(title) && pageNumber == null&& String.IsNullOrWhiteSpace(year))
 			{
 				pageNumber = 1;
 			}
 
 			ViewData["CurrentFilter"] = title;
+			ViewData["YearFilter"] = year;
 
 			var allGames = await gameService.GetAllGamesAsync();
 
 			if (!String.IsNullOrEmpty(title))
 			{
 				allGames = allGames.Where(g => g.Title.ToLower().Contains(title.ToLower()));
+			}
+
+			if (!String.IsNullOrWhiteSpace(year))
+			{
+				allGames = allGames.Where(g => g.ReleaseYear == year);
 			}
 
 			int pageSize = GameAllPagesSize;

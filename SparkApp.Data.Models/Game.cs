@@ -43,11 +43,13 @@ namespace SparkApp.Data.Models
         [ForeignKey(nameof(DeveloperId))]
         public virtual Developer Developer { get; set; } = null!;
 
+        [Required]
         [Comment("Lead game director of the game")]
-        public Guid? LeadGameDirectorId { get; set; }
+        public Guid LeadGameDirectorId { get; set; }
 
+        [Required]
         [ForeignKey(nameof(LeadGameDirectorId))]
-        public virtual Director? LeadGameDirector { get; set; }
+        public virtual Director LeadGameDirector { get; set; } = null!;
 
         public virtual ICollection<GamePlatform> GamePlatforms { get; set; }
             = new List<GamePlatform>();

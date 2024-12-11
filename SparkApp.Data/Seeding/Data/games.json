@@ -70,5 +70,29 @@
     "DeveloperId": "EE5D8CA4-445D-4B0D-BDF7-DF80C0ECFCA4",
     "LeadGameDirectorId": "D7DDCFC0-EFBE-45E2-E2CD-08DD1094A087",
     "MainGenreId": "2332B52F-6BD8-41FD-A527-7CCE41C1B19A"
+  },
+  {
+    "Id": "BF072562-F0F7-4BC4-9859-5E9C3D6567AF",
+    "Title": "Balatro",
+    "Description": "The poker roguelike. Balatro is a hypnotically satisfying deckbuilder where you play illegal poker hands, discover game-changing jokers, and trigger adrenaline-pumping, outrageous combos.",
+    "ImageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202401/2211/07b7236708c1c0791eb7aaa6601d014f6a2b5b69b0bcda9f.png",
+    "ReleaseDate": "2024-02-20T00:00:00",
+    "IsDeleted": false,
+    "IsConfirmed": true,
+    "DeveloperId": "E4240AB4-31EF-415B-AFBC-E752765DD28C",
+    "LeadGameDirectorId": "0C53B0EB-CB27-4F2C-B5F3-08DD1A1D15DE",
+    "MainGenreId": "63C7DFDC-BCD4-4213-94A5-7F8EEFB5A720"
+  },
+  {
+    "Id": "6EF305AC-1299-4E97-934B-40EF8FA8F43E",
+    "Title": "Metaphor: ReFantazio",
+    "Description": "The throne sits empty after the king’s assassination. With no heirs, the will of the late king decrees that the next monarch will be elected by the people, and thus begins your fight for the throne..",
+    "ImageUrl": "https://cdn.sega.co.uk/mhc-sega/public/content/media/images/raster/metaphor_horizontal_cover.jpg",
+    "ReleaseDate": "2024-10-11T00:00:00",
+    "IsDeleted": false,
+    "IsConfirmed": true,
+    "DeveloperId": "1A5A29EA-EDAD-4FCA-AA8C-0F35D5CA1766",
+    "LeadGameDirectorId": "0C53B0EB-CB27-4F2C-B5F3-08DD1A1D15DE",
+    "MainGenreId": "57E52A5A-9762-4E37-953F-6B8E5E7E1F08"
   }
 ]

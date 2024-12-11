@@ -8,5 +8,7 @@ namespace SparkApp.Web.ViewModels.Game
         public string Title { get; set; } = null!;
 
         public string? ImageUrl { get; set; }
+
+        public string? ReleaseYear { get; set; }
     }
 }

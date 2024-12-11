@@ -43,14 +43,17 @@
                 <select asp-for="@Model.DeveloperId" class="form-control" aria-required="true" asp-items="@(new SelectList(Model.Developers, "Id", "Name"))">
 			        <option value="">Select Developer...</option>
 		        </select>
-                <span asp-validation-for="@Model.DeveloperId" class="text-danger"></span>
+		        <span asp-validation-for="@Model.DeveloperId" class="text-danger"></span>
+                <p class="text-info">If your game's developer is not added in our site for now feel free to pick "Unspecified Developer" option</p>
 	        </div>
 	        <div class="mb-3">
 		        <label asp-for="@Model.LeadGameDirectorId" class="form-label-add-edit">Select Lead Game Director</label>
                 <select asp-for="@Model.LeadGameDirectorId" class="form-control" aria-required="true" asp-items="@(new SelectList(Model.Directors, "Id", "Name"))">
 			        <option value="">Select Lead Game Director...</option>
 		        </select>
-                <span asp-validation-for="@Model.LeadGameDirectorId" class="text-danger"></span>
+		        <span asp-validation-for="@Model.LeadGameDirectorId" class="text-danger"></span>
+		        <p class="text-info">If your game's director is not added in our site or not have a specific director feel free to pick "Unspecified Director" option</p>
+
 	        </div>
             <div class="mb-3">
 	            <input class="btn btn-warning btn-dark-text mb-2 w-100 py-3 fw-bold rounded" type="submit" value="Save" />

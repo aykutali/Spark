@@ -50,7 +50,14 @@
 			{
 				if (!p.IsDeleted)
 				{
-					<a href="@p.LinkToPlatform">@p.Platform.Name</a>
+					if (!String.IsNullOrEmpty(p.LinkToPlatform))
+					{
+						<a href="@p.LinkToPlatform">@p.Platform.Name</a>
+					}
+					else
+					{
+						<a>@p.Platform.Name</a>
+					}
 				}
 			}
 

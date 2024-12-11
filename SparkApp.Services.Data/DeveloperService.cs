@@ -27,7 +27,6 @@ namespace SparkApp.Services.Data
 			}
 
 			model.Name = Sanitize(model.Name);
-			model.LogoUrl = Sanitize(model.LogoUrl);
 			if (!IsModelValid(model))
 			{
 				return false;

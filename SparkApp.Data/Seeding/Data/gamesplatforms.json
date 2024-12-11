@@ -7,13 +7,37 @@
   {
     "GameId": "9128813E-A6DA-47E5-831C-1A3400915FA3",
     "PlatformId": "F4A5C42C-5063-4CE2-6C84-08DD0012741D",
-    "LinkToPlatform": "https://store.playstation.com/en-bg/product/EP0700-PPSA04609_00-ELDENRING0000000",
+    "LinkToPlatform": "https:\/\/store.playstation.com\/en-bg\/product\/EP0700-PPSA04609_00-ELDENRING0000000",
     "IsDeleted": false
   },
   {
     "GameId": "9128813E-A6DA-47E5-831C-1A3400915FA3",
     "PlatformId": "427715C3-7A02-4B6D-CB61-08DD041E6403",
-    "LinkToPlatform": "https://store.steampowered.com/app/1245620/ELDEN_RING/",
+    "LinkToPlatform": "",
+    "IsDeleted": true
+  },
+  {
+    "GameId": "9128813E-A6DA-47E5-831C-1A3400915FA3",
+    "PlatformId": "A04315C0-2EA3-4C2A-8DA4-08DD1635B00E",
+    "LinkToPlatform": "https:\/\/store.steampowered.com\/app\/1245620\/ELDEN_RING\/",
+    "IsDeleted": false
+  },
+  {
+    "GameId": "6EF305AC-1299-4E97-934B-40EF8FA8F43E",
+    "PlatformId": "F4A5C42C-5063-4CE2-6C84-08DD0012741D",
+    "LinkToPlatform": "",
+    "IsDeleted": false
+  },
+  {
+    "GameId": "6EF305AC-1299-4E97-934B-40EF8FA8F43E",
+    "PlatformId": "A264A7E7-B597-473A-E615-08DD10962117",
+    "LinkToPlatform": "",
+    "IsDeleted": false
+  },
+  {
+    "GameId": "6EF305AC-1299-4E97-934B-40EF8FA8F43E",
+    "PlatformId": "A04315C0-2EA3-4C2A-8DA4-08DD1635B00E",
+    "LinkToPlatform": "",
     "IsDeleted": false
   },
   {
@@ -24,6 +48,29 @@
   {
     "GameId": "C20E4C0D-8D42-42C4-BD8A-4829642907A6",
     "PlatformId": "427715C3-7A02-4B6D-CB61-08DD041E6403",
+    "IsDeleted": true
+  },
+  {
+    "GameId": "C20E4C0D-8D42-42C4-BD8A-4829642907A6",
+    "PlatformId": "A04315C0-2EA3-4C2A-8DA4-08DD1635B00E",
+    "IsDeleted": false
+  },
+  {
+    "GameId": "BF072562-F0F7-4BC4-9859-5E9C3D6567AF",
+    "PlatformId": "4606E331-CDFC-401C-E616-08DD10962117",
+    "LinkToPlatform": "",
+    "IsDeleted": false
+  },
+  {
+    "GameId": "BF072562-F0F7-4BC4-9859-5E9C3D6567AF",
+    "PlatformId": "A04315C0-2EA3-4C2A-8DA4-08DD1635B00E",
+    "LinkToPlatform": "",
+    "IsDeleted": false
+  },
+  {
+    "GameId": "BF072562-F0F7-4BC4-9859-5E9C3D6567AF",
+    "PlatformId": "24A6D873-217A-46E1-7F09-08DD1A207FAE",
+    "LinkToPlatform": "",
     "IsDeleted": false
   },
   {

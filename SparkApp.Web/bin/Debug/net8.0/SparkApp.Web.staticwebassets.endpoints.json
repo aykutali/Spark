@@ -2565,7 +2565,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "7224"
+          "Value": "7297"
         },
         {
           "Name": "Content-Type",
@@ -2573,22 +2573,22 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"1vKuhk7QY/NbArUspoFj7elJLA+y4Za5APkaQ944jDw=\""
+          "Value": "\"vWYkCWDUukEjbbsp0G81O7QhP2OoRnbfHB4G2i038PE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 07 Dec 2024 22:26:36 GMT"
+          "Value": "Wed, 11 Dec 2024 19:39:15 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-1vKuhk7QY/NbArUspoFj7elJLA+y4Za5APkaQ944jDw="
+          "Value": "sha256-vWYkCWDUukEjbbsp0G81O7QhP2OoRnbfHB4G2i038PE="
         }
       ]
     },
     {
-      "Route": "js/guessGame.y547a29vnb.js",
+      "Route": "js/guessGame.x7evx3uet2.js",
       "AssetFile": "js/guessGame.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2602,7 +2602,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "7224"
+          "Value": "7297"
         },
         {
           "Name": "Content-Type",
@@ -2610,21 +2610,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"1vKuhk7QY/NbArUspoFj7elJLA+y4Za5APkaQ944jDw=\""
+          "Value": "\"vWYkCWDUukEjbbsp0G81O7QhP2OoRnbfHB4G2i038PE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 07 Dec 2024 22:26:36 GMT"
+          "Value": "Wed, 11 Dec 2024 19:39:15 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "y547a29vnb"
+          "Value": "x7evx3uet2"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-1vKuhk7QY/NbArUspoFj7elJLA+y4Za5APkaQ944jDw="
+          "Value": "sha256-vWYkCWDUukEjbbsp0G81O7QhP2OoRnbfHB4G2i038PE="
         },
         {
           "Name": "label",

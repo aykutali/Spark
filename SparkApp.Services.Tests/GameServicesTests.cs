@@ -484,7 +484,6 @@ namespace SparkApp.Services.Tests
 				var result = gameService.EditGameAsync(null, null).Result;
 				Assert.AreEqual(false,result);
 			}
-			
 		}
 	}
 }

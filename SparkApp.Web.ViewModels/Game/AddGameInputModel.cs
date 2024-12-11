@@ -23,24 +23,23 @@ namespace SparkApp.Web.ViewModels.Game
         
         public string? ImageUrl { get; set; }
 
-        [Required] 
+        [Required(ErrorMessage = "The Developer field is required.")] 
         public string DeveloperId { get; set; } = null!;
 
         public virtual List<DeveloperViewModel>? Developers { get; set; }
             = new List<DeveloperViewModel>();
 
-        [Required]
+        [Required(ErrorMessage = "The Lead Director field is required.")]
         public string LeadGameDirectorId { get; set; } = null!;
 
         public virtual List<DirectorViewModel>? Directors { get; set; }
             = new List<DirectorViewModel>();
 
-        [Required]
+        [Required(ErrorMessage = "The Main Genre field is required.")]
         public string MainGenreId { get; set; } = null!;
 
         public virtual List<GenreViewModel>? Genres { get; set; }
             = new List<GenreViewModel>();
-
 
         public bool IsConfirmed { get; set; }
 

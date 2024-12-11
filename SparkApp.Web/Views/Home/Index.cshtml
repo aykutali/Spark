@@ -1,17 +1,90 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+	ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-	<h1 class="display-4">Welcome</h1>
-	<p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+	<h1 class="display-4">Welcome to Spark</h1>
+	<p align="left">
+		Embark on a Gaming Adventure and Test Your Knowledge!<br /><br />
+		Welcome to your ultimate gaming hub! Discover everything you need to know about your favorite games, genres, developers, directors and platforms.<br /><br />
+		What can you find on our site?<br /><br/>
+		Game Database: Access detailed information, release dates, and platforms for games released worldwide.<br />
+		All Game Genres: Explore a wide variety of games, including action, adventure, RPG, strategy, sports, and more.<br />
+		Developer and Director Profiles: Learn about the success stories of the creators behind your favorite games.<br />
+		Platform Guides: Get in-depth information about PC, console, and mobile gaming.<br />
+		Fun Trivia Game: Test your gaming knowledge and compete with your friends.<br /><br />
+		Follow the Spark, discover your adventure!
+	</p>
 </div>
 
-<div align="center">
-	<a asp-controller="Game" asp-action="Index" class="btn btn-dark btn-dark-text btn-rounded mb-2 w-50 p-3 fw-bold">Go To Games</a>
-	<a asp-controller="Genre" asp-action="Index" class="btn btn-dark btn-dark-text btn-rounded mb-2 w-50 p-3 fw-bold">Go To Genres</a>
-	<a asp-controller="Platform" asp-action="Index" class="btn btn-dark btn-dark-text btn-rounded mb-2 w-50 p-3 fw-bold">Go To Platforms</a>
-	<a asp-controller="Developer" asp-action="Index" class="btn btn-dark btn-dark-text btn-rounded mb-2 w-50 p-3 fw-bold">Go To Developers</a>
-	<a asp-controller="Director" asp-action="Index" class="btn btn-dark btn-dark-text btn-rounded mb-2 w-50 p-3 fw-bold">Go To Directors</a>
-
+<div class="container mt-5">
+	<div class="row g-4">
+		<div class="col-md-4">
+			<div class="card shadow h-100 border-1">
+				<div class="card-body d-flex flex-column align-items-center text-center">
+					<i class="fas fa-film fa-3x text-secondary mb-3"></i>
+					<h5 class="card-title">Games</h5>
+					<p class="card-text text-muted"></p>
+					<a asp-controller="Game" asp-action="All" class="btn btn-secondary mt-auto w-100">
+						Go to All Games
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card shadow h-100 border-1">
+				<div class="card-body d-flex flex-column align-items-center text-center">
+					<i class="fas fa-film fa-3x text-secondary mb-3"></i>
+					<h5 class="card-title">Genres</h5>
+					<a asp-controller="Genre" asp-action="Index" class="btn btn-secondary mt-auto w-100">
+						Go to Genres
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card shadow h-100 border-1">
+				<div class="card-body d-flex flex-column align-items-center text-center">
+					<i class="fas fa-film fa-3x text-secondary mb-3"></i>
+					<h5 class="card-title">Developers</h5>
+					<a asp-controller="Developer" asp-action="Index" class="btn btn-secondary mt-auto w-100">
+						Go to Developers
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card shadow h-100 border-1">
+				<div class="card-body d-flex flex-column align-items-center text-center">
+					<i class="fas fa-film fa-3x text-secondary mb-3"></i>
+					<h5 class="card-title">Directors</h5>
+					<a asp-controller="Director" asp-action="Index" class="btn btn-secondary mt-auto w-100">
+						Go to Directors
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card shadow h-100 border-1">
+				<div class="card-body d-flex flex-column align-items-center text-center">
+					<i class="fas fa-film fa-3x text-secondary mb-3"></i>
+					<h5 class="card-title">Platforms</h5>
+					<a asp-controller="Platform" asp-action="Index" class="btn btn-secondary mt-auto w-100">
+						Go to Platforms
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card shadow h-100 border-1">
+				<div class="card-body d-flex flex-column align-items-center text-center">
+					<i class="fas fa-film fa-3x text-secondary mb-3"></i>
+					<h5 class="card-title">Guess Game</h5>
+					<a asp-controller="GuessTheGame" asp-action="Index" class="btn btn-secondary mt-auto w-100">
+						Go to Guess The Game
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
